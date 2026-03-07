@@ -1,2 +1,1 @@
-# minecraft-glapeRpg
-minecraft my rpg server
+My RPG Server
