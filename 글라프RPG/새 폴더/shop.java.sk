@@ -1,0 +1,727 @@
+on inventory click:
+	if inventory name is "&a무기상점":
+		cancel event
+		if clicked slot is 11:
+			if {돈::%uuid of player%} >= 40:
+				execute console command "give %player% wooden_sword[attribute_modifiers=[{id:""attack_damage"",type:""generic.attack_damage"",amount:4,operation:""add_value"",slot:""mainhand""}],custom_name='{""color"":""gray"",""italic"":false,""text"":""목검""}'] 1"
+				send "&7<&e시스템&7> &a성공적으로 아이템을 구매하셨습니다"
+				play sound "minecraft:entity.arrow.hit_player" to player
+				remove 40 from {돈::%uuid of player%}
+			else:
+				send "&7<&e시스템&7> &c당신은 이 아이템을 살 수 있는 만큼의 돈이 없습니다!" to player
+				play sound "entity.enderman.teleport" to player
+		if clicked slot is 15:
+			if {돈::%uuid of player%} >= 150:
+				execute console command "give %player% stone_sword[attribute_modifiers=[{id:""attack_damage"",type:""generic.attack_damage"",amount:5,operation:""add_value"",slot:""mainhand""}],custom_name='{""color"":""gray"",""italic"":false,""text"":""돌검""}'] 1"
+				send "&7<&e시스템&7> &a성공적으로 아이템을 구매하셨습니다"
+				play sound "minecraft:entity.arrow.hit_player" to player
+				remove 150 from {돈::%uuid of player%}
+			else:
+				send "&7<&e시스템&7> &c당신은 이 아이템을 살 수 있는 만큼의 돈이 없습니다!" to player
+				play sound "entity.enderman.teleport" to player
+	if inventory name is "&a갑옷상점":
+		cancel event
+		if clicked slot is 13:
+			if {돈::%uuid of player%} >= 100:
+				give 1 leather helmet named "&7낡은 가죽모자" to player
+				send "&7<&e시스템&7> &a성공적으로 아이템을 구매하셨습니다"
+				play sound "minecraft:entity.arrow.hit_player" to player
+				remove 100 from {돈::%uuid of player%}
+			else:
+				send "&7<&e시스템&7> &c당신은 이 아이템을 살 수 있는 만큼의 돈이 없습니다!" to player
+				play sound "entity.enderman.teleport" to player
+		if clicked slot is 22:
+			if {돈::%uuid of player%} >= 200:
+				give 1 leather chestplate named "&7낡은 가죽갑옷" to player
+				send "&7<&e시스템&7> &a성공적으로 아이템을 구매하셨습니다"
+				play sound "minecraft:entity.arrow.hit_player" to player
+				remove 200 from {돈::%uuid of player%}
+			else:
+				send "&7<&e시스템&7> &c당신은 이 아이템을 살 수 있는 만큼의 돈이 없습니다!" to player
+				play sound "entity.enderman.teleport" to player
+		if clicked slot is 31:
+			if {돈::%uuid of player%} >= 150:
+				give 1 leather leggings named "&7낡은 가죽바지" to player
+				send "&7<&e시스템&7> &a성공적으로 아이템을 구매하셨습니다"
+				play sound "minecraft:entity.arrow.hit_player" to player
+				remove 150 from {돈::%uuid of player%}
+			else:
+				send "&7<&e시스템&7> &c당신은 이 아이템을 살 수 있는 만큼의 돈이 없습니다!" to player
+				play sound "entity.enderman.teleport" to player
+		if clicked slot is 40:
+			if {돈::%uuid of player%} >= 70:
+				give 1 leather boots named "&7낡은 가죽신발" to player
+				send "&7<&e시스템&7> &a성공적으로 아이템을 구매하셨습니다"
+				play sound "minecraft:entity.arrow.hit_player" to player
+				remove 70 from {돈::%uuid of player%}
+			else:
+				send "&7<&e시스템&7> &c당신은 이 아이템을 살 수 있는 만큼의 돈이 없습니다!" to player
+				play sound "entity.enderman.teleport" to player
+	if inventory name is "&a음식상점":
+		cancel event
+		if clicked slot is 20:
+			if {돈::%uuid of player%} >= 5:
+				give 1 cookie to player
+				send "&7<&e시스템&7> &a성공적으로 아이템을 구매하셨습니다"
+				play sound "minecraft:entity.arrow.hit_player" to player
+				remove 5 from {돈::%uuid of player%}
+			else:
+				send "&7<&e시스템&7> &c당신은 이 아이템을 살 수 있는 만큼의 돈이 없습니다!" to player
+				play sound "entity.enderman.teleport" to player
+		if clicked slot is 24:
+			if {돈::%uuid of player%} >= 15:
+				give 1 potion of instant health to player
+				send "&7<&e시스템&7> &a성공적으로 아이템을 구매하셨습니다"
+				play sound "minecraft:entity.arrow.hit_player" to player
+				remove 15 from {돈::%uuid of player%}
+			else:
+				send "&7<&e시스템&7> &c당신은 이 아이템을 살 수 있는 만큼의 돈이 없습니다!" to player
+				play sound "entity.enderman.teleport" to player
+		if clicked slot is 29:
+			if {돈::%uuid of player%} >= 7:
+				give 1 apple to player
+				send "&7<&e시스템&7> &a성공적으로 아이템을 구매하셨습니다"
+				play sound "minecraft:entity.arrow.hit_player" to player
+				remove 7 from {돈::%uuid of player%}
+			else:
+				send "&7<&e시스템&7> &c당신은 이 아이템을 살 수 있는 만큼의 돈이 없습니다!" to player
+				play sound "entity.enderman.teleport" to player
+		if clicked slot is 38:
+			if {돈::%uuid of player%} >= 10:
+				give 1 bread to player
+				send "&7<&e시스템&7> &a성공적으로 아이템을 구매하셨습니다"
+				play sound "minecraft:entity.arrow.hit_player" to player
+				remove 10 from {돈::%uuid of player%}
+			else:
+				send "&7<&e시스템&7> &c당신은 이 아이템을 살 수 있는 만큼의 돈이 없습니다!" to player
+				play sound "entity.enderman.teleport" to player
+	if inventory name is "&a스크롤상점":
+		cancel event
+
+on inventory click:
+	if inventory name is "&9shop":
+		cancel event
+		if clicked slot is 9:
+			play sound "minecraft:entity.arrow.hit_player" to player
+			open chest with 3 rows named "&9무기상점" to player
+			set {_s} to 0
+			loop 27 times:
+				set slot {_s} of current inventory of player to light blue stained glass pane named " "
+				add 1 to {_s}
+				set slot 4 of current inventory of player to diamond sword named "&a무기 상점"
+				set slot 11 of current inventory of player to stone sword named "&f돌검" with lore "&6<150골드>"
+				set slot 15 of current inventory of player to iron sword named "&f철검" with lore "&6<300골드>"
+				set slot 26 of current inventory of player to paper named "&c현재 상점에서는 이 아이템만 구매할 수 있습니다!" with lore "&e더 다양한 아이템을 구입하려면 다른 마을로 이동하세요"
+		if clicked slot is 11:
+			play sound "minecraft:entity.arrow.hit_player" to player
+			open chest with 6 rows named "&9갑옷상점" to player
+			set {_s} to 0
+			loop 54 times:
+				set slot {_s} of current inventory of player to light blue stained glass pane named " "
+				add 1 to {_s}
+				set slot 4 of current inventory of player to diamond chestplate named "&a갑옷상점"
+				set slot 12 of current inventory of player to leather helmet named "&7낡은 가죽모자" with lore "&6<150골드>"
+				set slot 21 of current inventory of player to leather chestplate named "&7낡은 가죽갑옷" with lore "&6<250골드>"
+				set slot 30 of current inventory of player to leather leggings named "&7낡은 가죽바지" with lore "&6<220골드>"
+				set slot 39 of current inventory of player to leather boots named "&7낡은 가죽부츠" with lore "&6<120골드>"
+				set slot 14 of current inventory of player to chain helmet named "&7사슬 모자" with lore "&6<300골드>"
+				set slot 23 of current inventory of player to chain chestplate named "&7사슬 갑옷" with lore "&6<500골드>"
+				set slot 32 of current inventory of player to chain leggings named "&7사슬 바지" with lore "&6<450골드>"
+				set slot 41 of current inventory of player to chain boots named "&7사슬 부츠" with lore "&6<250골드>"
+				set slot 53 of current inventory of player to paper named "&c현재 상점에서는 이 아이템만 구매할 수 있습니다!" with lore "&e더 다양한 아이템을 구입하려면 다른 마을로 이동하세요"
+		if clicked slot is 13:
+			play sound "minecraft:entity.arrow.hit_player" to player
+			open chest with 6 rows named "&9음식상점" to player
+			set {_s} to 0
+			loop 54 times:
+				set slot {_s} of current inventory of player to light blue stained glass pane named " "
+				add 1 to {_s}
+				set slot 4 of current inventory of player to steak named "&a음식상점"
+				set slot 20 of current inventory of player to cookie named "&e쿠키" with lore "&6<5골드>"
+				set slot 29 of current inventory of player to apple named "&e사과" with lore "&6<7골드>"
+				set slot 38 of current inventory of player to bread named "&e빵" with lore "&6<10골드>"
+				set slot 24 of current inventory of player to potion of instant health named "&d회복 포션" with lore "&6<15골드>"
+				set slot 53 of current inventory of player to paper named "&c현재 상점에서는 이 아이템만 구매할 수 있습니다!" with lore "&e더 다양한 아이템을 구입하려면 다른 마을로 이동하세요"
+		if clicked slot is 15:
+			play sound "minecraft:entity.arrow.hit_player" to player
+			open chest with 3 rows named "&9스크롤상점" to player
+			set {_s} to 0
+			loop 27 times:
+				set slot {_s} of current inventory of player to light blue stained glass pane named " "
+				add 1 to {_s}
+				set slot 13 of current inventory of player to paper named "&9설원" with lore "&e<10골드>"
+		if clicked slot is 17:
+			play sound "entity.arrow.hit_player" to player
+			open chest with 6 rows named "&9드랍템 상점" to player
+			set {_s} to 0
+			loop 9 times:
+				set slot {_s} of current inventory of player to light blue stained glass pane named " "
+				add 1 to {_s}
+			set {_s} to 45
+			loop 9 times:
+				set slot {_s} of current inventory of player to light blue stained glass pane named " "
+				add 1 to {_s}
+			set {_s} to 9
+			loop 9 times:
+				set slot {_s} of current inventory of player to light blue stained glass pane named " "
+				add 1 to {_s}
+				set slot 18 of current inventory of player to light blue stained glass pane named " "
+				set slot 27 of current inventory of player to light blue stained glass pane named " "
+				set slot 36 of current inventory of player to light blue stained glass pane named " "
+				set slot 24 of current inventory of player to light blue stained glass pane named " "
+				set slot 25 of current inventory of player to light blue stained glass pane named " "
+				set slot 26 of current inventory of player to light blue stained glass pane named " "
+				set slot 33 of current inventory of player to light blue stained glass pane named " "
+				set slot 34 of current inventory of player to gold ingot named "&a판매"
+				set slot 35 of current inventory of player to light blue stained glass pane named " "
+				set slot 42 of current inventory of player to light blue stained glass pane named " "
+				set slot 43 of current inventory of player to light blue stained glass pane named " "
+				set slot 44 of current inventory of player to light blue stained glass pane named " "
+				set slot 4 of current inventory of player to emerald named "&a드랍템 상점 (판매)"
+
+on inventory click:
+	if inventory name is "&9무기상점":
+		cancel event
+		if clicked slot is 11:
+			if {돈::%uuid of player%} >= 150:
+				execute console command "give %player% stone_sword[attribute_modifiers=[{id:""attack_damage"",type:""generic.attack_damage"",amount:5,operation:""add_value"",slot:""mainhand""}],custom_name='{""color"":""gray"",""italic"":false,""text"":""돌검""}'] 1"
+				send "&7<&e시스템&7> &a성공적으로 아이템을 구매하셨습니다"
+				play sound "minecraft:entity.arrow.hit_player" to player
+				remove 150 from {돈::%uuid of player%}
+			else:
+				send "&7<&e시스템&7> &c당신은 이 아이템을 살 수 있는 만큼의 돈이 없습니다!" to player
+				play sound "entity.enderman.teleport" to player
+		if clicked slot is 15:
+			if {돈::%uuid of player%} >= 300:
+				execute console command "give %player% iron_sword[attribute_modifiers=[{id:""attack_damage"",type:""generic.attack_damage"",amount:6,operation:""add_value"",slot:""mainhand""}],custom_name='{""color"":""white"",""italic"":false,""text"":""철검""}'] 1"
+				send "&7<&e시스템&7> &a성공적으로 아이템을 구매하셨습니다"
+				play sound "minecraft:entity.arrow.hit_player" to player
+				remove 300 from {돈::%uuid of player%}
+			else:
+				send "&7<&e시스템&7> &c당신은 이 아이템을 살 수 있는 만큼의 돈이 없습니다!" to player
+				play sound "entity.enderman.teleport" to player
+	if inventory name is "&9갑옷상점":
+		cancel event
+		if clicked slot is 12:
+			if {돈::%uuid of player%} >= 100:
+				give 1 leather helmet named "&7낡은 가죽모자" to player
+				send "&7<&e시스템&7> &a성공적으로 아이템을 구매하셨습니다"
+				play sound "minecraft:entity.arrow.hit_player" to player
+				remove 100 from {돈::%uuid of player%}
+			else:
+				send "&7<&e시스템&7> &c당신은 이 아이템을 살 수 있는 만큼의 돈이 없습니다!" to player
+				play sound "entity.enderman.teleport" to player
+		if clicked slot is 21:
+			if {돈::%uuid of player%} >= 200:
+				give 1 leather chestplate named "&7낡은 가죽갑옷" to player
+				send "&7<&e시스템&7> &a성공적으로 아이템을 구매하셨습니다"
+				play sound "minecraft:entity.arrow.hit_player" to player
+				remove 200 from {돈::%uuid of player%}
+			else:
+				send "&7<&e시스템&7> &c당신은 이 아이템을 살 수 있는 만큼의 돈이 없습니다!" to player
+				play sound "entity.enderman.teleport" to player
+		if clicked slot is 30:
+			if {돈::%uuid of player%} >= 150:
+				give 1 leather leggings named "&7낡은 가죽바지" to player
+				send "&7<&e시스템&7> &a성공적으로 아이템을 구매하셨습니다"
+				play sound "minecraft:entity.arrow.hit_player" to player
+				remove 150 from {돈::%uuid of player%}
+			else:
+				send "&7<&e시스템&7> &c당신은 이 아이템을 살 수 있는 만큼의 돈이 없습니다!" to player
+				play sound "entity.enderman.teleport" to player
+		if clicked slot is 39:
+			if {돈::%uuid of player%} >= 70:
+				give 1 leather boots named "&7낡은 가죽신발" to player
+				send "&7<&e시스템&7> &a성공적으로 아이템을 구매하셨습니다"
+				play sound "minecraft:entity.arrow.hit_player" to player
+				remove 70 from {돈::%uuid of player%}
+			else:
+				send "&7<&e시스템&7> &c당신은 이 아이템을 살 수 있는 만큼의 돈이 없습니다!" to player
+				play sound "entity.enderman.teleport" to player
+		if clicked slot is 14:
+			if {돈::%uuid of player%} >= 300:
+				give 1 chain helmet named "&7사슬 모자" to player
+				send "&7<&e시스템&7> &a성공적으로 아이템을 구매하셨습니다"
+				play sound "minecraft:entity.arrow.hit_player" to player
+				remove 300 from {돈::%uuid of player%}
+			else:
+				send "&7<&e시스템&7> &c당신은 이 아이템을 살 수 있는 만큼의 돈이 없습니다!" to player
+				play sound "entity.enderman.teleport" to player
+		if clicked slot is 23:
+			if {돈::%uuid of player%} >= 500:
+				give 1 chain chestplate named "&7사슬 갑옷" to player
+				send "&7<&e시스템&7> &a성공적으로 아이템을 구매하셨습니다"
+				play sound "minecraft:entity.arrow.hit_player" to player
+				remove 500 from {돈::%uuid of player%}
+			else:
+				send "&7<&e시스템&7> &c당신은 이 아이템을 살 수 있는 만큼의 돈이 없습니다!" to player
+				play sound "entity.enderman.teleport" to player
+		if clicked slot is 32:
+			if {돈::%uuid of player%} >= 450:
+				give 1 chain leggings named "&7사슬 바지" to player
+				send "&7<&e시스템&7> &a성공적으로 아이템을 구매하셨습니다"
+				play sound "minecraft:entity.arrow.hit_player" to player
+				remove 450 from {돈::%uuid of player%}
+			else:
+				send "&7<&e시스템&7> &c당신은 이 아이템을 살 수 있는 만큼의 돈이 없습니다!" to player
+				play sound "entity.enderman.teleport" to player
+		if clicked slot is 41:
+			if {돈::%uuid of player%} >= 250:
+				give 1 chain boots named "&7사슬 부츠" to player
+				send "&7<&e시스템&7> &a성공적으로 아이템을 구매하셨습니다"
+				play sound "minecraft:entity.arrow.hit_player" to player
+				remove 250 from {돈::%uuid of player%}
+			else:
+				send "&7<&e시스템&7> &c당신은 이 아이템을 살 수 있는 만큼의 돈이 없습니다!" to player
+				play sound "entity.enderman.teleport" to player
+	if inventory name is "&9음식상점":
+		cancel event
+		if clicked slot is 20:
+			if {돈::%uuid of player%} >= 5:
+				give 1 cookie to player
+				send "&7<&e시스템&7> &a성공적으로 아이템을 구매하셨습니다"
+				play sound "minecraft:entity.arrow.hit_player" to player
+				remove 5 from {돈::%uuid of player%}
+			else:
+				send "&7<&e시스템&7> &c당신은 이 아이템을 살 수 있는 만큼의 돈이 없습니다!" to player
+				play sound "entity.enderman.teleport" to player
+		if clicked slot is 24:
+			if {돈::%uuid of player%} >= 15:
+				give 1 potion of instant health to player
+				send "&7<&e시스템&7> &a성공적으로 아이템을 구매하셨습니다"
+				play sound "minecraft:entity.arrow.hit_player" to player
+				remove 15 from {돈::%uuid of player%}
+			else:
+				send "&7<&e시스템&7> &c당신은 이 아이템을 살 수 있는 만큼의 돈이 없습니다!" to player
+				play sound "entity.enderman.teleport" to player
+		if clicked slot is 29:
+			if {돈::%uuid of player%} >= 7:
+				give 1 apple to player
+				send "&7<&e시스템&7> &a성공적으로 아이템을 구매하셨습니다"
+				play sound "minecraft:entity.arrow.hit_player" to player
+				remove 7 from {돈::%uuid of player%}
+			else:
+				send "&7<&e시스템&7> &c당신은 이 아이템을 살 수 있는 만큼의 돈이 없습니다!" to player
+				play sound "entity.enderman.teleport" to player
+		if clicked slot is 38:
+			if {돈::%uuid of player%} >= 10:
+				give 1 bread to player
+				send "&7<&e시스템&7> &a성공적으로 아이템을 구매하셨습니다"
+				play sound "minecraft:entity.arrow.hit_player" to player
+				remove 10 from {돈::%uuid of player%}
+			else:
+				send "&7<&e시스템&7> &c당신은 이 아이템을 살 수 있는 만큼의 돈이 없습니다!" to player
+				play sound "entity.enderman.teleport" to player
+	if inventory name is "&9스크롤상점":
+		cancel event
+		if clicked slot is 13:
+			if {돈::%uuid of player%} >= 10:
+				give 1 paper named "&9설원" with lore "&e설원 마을로 이동하는 이동스크롤 입니다" to player
+				send "&7<&e시스템&7> &a성공적으로 아이템을 구매하셨습니다"
+				play sound "minecraft:entity.arrow.hit_player" to player
+				remove 10 from {돈::%uuid of player%}
+			else:
+				send "&7<&e시스템&7> &c당신은 이 아이템을 살 수 있는 만큼의 돈이 없습니다!" to player
+				play sound "entity.enderman.teleport" to player
+	if inventory name is "&9드랍템 상점":
+		if clicked item is light blue stained glass pane or emerald:
+			cancel event
+		if clicked item is gold ingot:
+			cancel event
+			loop all items in the player's current inventory:
+				if loop-item is rotten flesh:
+					add item amount of loop-item to {_1}
+					set loop-item to air
+				if loop-item is raw copper:
+					add item amount of loop-item to {_2}
+					set loop-item to air
+				if loop-item is slimeballs:
+					add item amount of loop-item to {_3}
+					set loop-item to air
+				if loop-item is slime blocks:
+					add item amount of loop-item to {_4}
+					set loop-item to air
+				if loop-item is feathers:
+					add item amount of loop-item to {_5}
+					set loop-item to air
+				if loop-item is leather:
+					add item amount of loop-item to {_6}
+					set loop-item to air
+				if loop-item is bone:
+					add item amount of loop-item to {_7}
+					set loop-item to air
+				if loop-item is spider eyes:
+					add item amount of loop-item to {_8}
+					set loop-item to air
+				if loop-item is quartz:
+					add item amount of loop-item to {_9}
+					set loop-item to air
+				if loop-item is amethyst shards:
+					add item amount of loop-item to {_10}
+					set loop-item to air
+				if loop-item is fermented spider eyes:
+					add item amount of loop-item to {_11}
+					set loop-item to air
+			set {_bm} to {돈::%uuid of player%}
+			add 2*{_1} to {돈::%uuid of player%}
+			add 4*{_2} to {돈::%uuid of player%}
+			add 3*{_3} to {돈::%uuid of player%}
+			add 24*{_4} to {돈::%uuid of player%}
+			add 4*{_5} to {돈::%uuid of player%}
+			add 6*{_6} to {돈::%uuid of player%}
+			add 9*{_7} to {돈::%uuid of player%}
+			add 11*{_8} to {돈::%uuid of player%}
+			add 100*{_9} to {돈::%uuid of player%}
+			add 500*{_10} to {돈::%uuid of player%}
+			add 85*{_11} to {돈::%uuid of player%}
+			set {_am} to {돈::%uuid of player%}
+			send "%{시스템출력}% &a아이템을 판매하여 %{_am}-{_bm}%골드를 얻으셨습니다"
+			play sound "minecraft:entity.experience_orb.pickup" to player
+
+on right click on entity:
+	if entity's name is "&7상점":
+		play sound "minecraft:entity.arrow.hit_player" to player
+		open chest with 3 rows named "&7shop" to player
+		set {_s} to 0
+		loop 27 times:
+			set slot {_s} of current inventory of player to light blue stained glass pane named " "
+			add 1 to {_s}
+			set slot 4 of current inventory of player to player's skull named "&b상점"
+			set slot 9 of current inventory of player to diamond sword named "&a무기" with lore "&e무기상점을 엽니다"
+			set slot 11 of current inventory of player to diamond chestplate named "&a갑옷" with lore "&e갑옷상점을 엽니다"
+			set slot 13 of current inventory of player to steak named "&a물약/음식" with lore "&e물약상점을 엽니다"
+			set slot 15 of current inventory of player to paper named "&a이동 스크롤" with lore "&e이동스크롤 상점을 엽니다"
+			set slot 17 of current inventory of player to emerald named "&a드랍템" with lore "&e드랍템 상점을 엽니다"
+
+on inventory click:
+	if inventory name is "&7shop":
+		cancel event
+		if clicked slot is 9:
+			play sound "minecraft:entity.arrow.hit_player" to player
+			open chest with 3 rows named "&7무기상점" to player
+			set {_s} to 0
+			loop 27 times:
+				set slot {_s} of current inventory of player to light blue stained glass pane named " "
+				add 1 to {_s}
+				set slot 4 of current inventory of player to diamond sword named "&a무기 상점"
+				set slot 11 of current inventory of player to stone sword named "&f돌검" with lore "&6<150골드>"
+				set slot 15 of current inventory of player to iron sword named "&f철검" with lore "&6<300골드>"
+				set slot 26 of current inventory of player to paper named "&c현재 상점에서는 이 아이템만 구매할 수 있습니다!" with lore "&e더 다양한 아이템을 구입하려면 다른 마을로 이동하세요"
+		if clicked slot is 11:
+			play sound "minecraft:entity.arrow.hit_player" to player
+			open chest with 6 rows named "&7갑옷상점" to player
+			set {_s} to 0
+			loop 54 times:
+				set slot {_s} of current inventory of player to light blue stained glass pane named " "
+				add 1 to {_s}
+				set slot 4 of current inventory of player to diamond chestplate named "&a갑옷상점"
+				set slot 11 of current inventory of player to leather helmet named "&7낡은 가죽모자" with lore "&6<150골드>"
+				set slot 20 of current inventory of player to leather chestplate named "&7낡은 가죽갑옷" with lore "&6<250골드>"
+				set slot 29 of current inventory of player to leather leggings named "&7낡은 가죽바지" with lore "&6<220골드>"
+				set slot 38 of current inventory of player to leather boots named "&7낡은 가죽부츠" with lore "&6<120골드>"
+				set slot 13 of current inventory of player to chain helmet named "&7사슬 모자" with lore "&6<300골드>"
+				set slot 22 of current inventory of player to chain chestplate named "&7사슬 갑옷" with lore "&6<500골드>"
+				set slot 31 of current inventory of player to chain leggings named "&7사슬 바지" with lore "&6<450골드>"
+				set slot 40 of current inventory of player to chain boots named "&7사슬 부츠" with lore "&6<250골드>"
+				set slot 15 of current inventory of player to iron helmet named "&7철 모자" with lore "&6<400골드>"
+				set slot 24 of current inventory of player to iron chestplate named "&7철 갑옷" with lore "&6<800골드>"
+				set slot 33 of current inventory of player to iron leggings named "&7철 바지" with lore "&6<650골드>"
+				set slot 42 of current inventory of player to iron boots named "&7철 부츠" with lore "&6<300골드>"
+				set slot 53 of current inventory of player to paper named "&c현재 상점에서는 이 아이템만 구매할 수 있습니다!" with lore "&e더 다양한 아이템을 구입하려면 다른 마을로 이동하세요"
+		if clicked slot is 13:
+			play sound "minecraft:entity.arrow.hit_player" to player
+			open chest with 6 rows named "&7음식상점" to player
+			set {_s} to 0
+			loop 54 times:
+				set slot {_s} of current inventory of player to light blue stained glass pane named " "
+				add 1 to {_s}
+				set slot 4 of current inventory of player to steak named "&a음식상점"
+				set slot 20 of current inventory of player to apple named "&e사과" with lore "&6<7골드>"
+				set slot 29 of current inventory of player to bread named "&e빵" with lore "&6<10골드>"
+				set slot 38 of current inventory of player to cooked chicken named "&e익힌 닭고기" with lore "&6<13골드>"
+				set slot 24 of current inventory of player to potion of instant health named "&d회복 포션" with lore "&6<15골드>"
+				set slot 33 of current inventory of player to potion of strong instant health named "&d강력한 회복포션" with lore "&6<30골드>"
+				set slot 53 of current inventory of player to paper named "&c현재 상점에서는 이 아이템만 구매할 수 있습니다!" with lore "&e더 다양한 아이템을 구입하려면 다른 마을로 이동하세요"
+		if clicked slot is 15:
+			play sound "minecraft:entity.arrow.hit_player" to player
+			open chest with 3 rows named "&7스크롤상점" to player
+			set {_s} to 0
+			loop 27 times:
+				set slot {_s} of current inventory of player to light blue stained glass pane named " "
+				add 1 to {_s}
+				set slot 13 of current inventory of player to paper named "&7동굴" with lore "&e<30골드>"
+		if clicked slot is 17:
+			play sound "entity.arrow.hit_player" to player
+			open chest with 6 rows named "&7드랍템 상점" to player
+			set {_s} to 0
+			loop 9 times:
+				set slot {_s} of current inventory of player to light blue stained glass pane named " "
+				add 1 to {_s}
+			set {_s} to 45
+			loop 9 times:
+				set slot {_s} of current inventory of player to light blue stained glass pane named " "
+				add 1 to {_s}
+			set {_s} to 9
+			loop 9 times:
+				set slot {_s} of current inventory of player to light blue stained glass pane named " "
+				add 1 to {_s}
+				set slot 18 of current inventory of player to light blue stained glass pane named " "
+				set slot 27 of current inventory of player to light blue stained glass pane named " "
+				set slot 36 of current inventory of player to light blue stained glass pane named " "
+				set slot 24 of current inventory of player to light blue stained glass pane named " "
+				set slot 25 of current inventory of player to light blue stained glass pane named " "
+				set slot 26 of current inventory of player to light blue stained glass pane named " "
+				set slot 33 of current inventory of player to light blue stained glass pane named " "
+				set slot 34 of current inventory of player to gold ingot named "&a판매"
+				set slot 35 of current inventory of player to light blue stained glass pane named " "
+				set slot 42 of current inventory of player to light blue stained glass pane named " "
+				set slot 43 of current inventory of player to light blue stained glass pane named " "
+				set slot 44 of current inventory of player to light blue stained glass pane named " "
+				set slot 4 of current inventory of player to emerald named "&a드랍템 상점 (판매)"
+
+on inventory click:
+	if inventory name is "&7무기상점":
+		cancel event
+		if clicked slot is 11:
+			if {돈::%uuid of player%} >= 150:
+				execute console command "give %player% stone_sword[attribute_modifiers=[{id:""attack_damage"",type:""generic.attack_damage"",amount:5,operation:""add_value"",slot:""mainhand""}],custom_name='{""color"":""gray"",""italic"":false,""text"":""돌검""}'] 1"
+				send "&7<&e시스템&7> &a성공적으로 아이템을 구매하셨습니다"
+				play sound "minecraft:entity.arrow.hit_player" to player
+				remove 150 from {돈::%uuid of player%}
+			else:
+				send "&7<&e시스템&7> &c당신은 이 아이템을 살 수 있는 만큼의 돈이 없습니다!" to player
+				play sound "entity.enderman.teleport" to player
+		if clicked slot is 15:
+			if {돈::%uuid of player%} >= 300:
+				execute console command "give %player% iron_sword[attribute_modifiers=[{id:""attack_damage"",type:""generic.attack_damage"",amount:6,operation:""add_value"",slot:""mainhand""}],custom_name='{""color"":""white"",""italic"":false,""text"":""철검""}'] 1"
+				send "&7<&e시스템&7> &a성공적으로 아이템을 구매하셨습니다"
+				play sound "minecraft:entity.arrow.hit_player" to player
+				remove 300 from {돈::%uuid of player%}
+			else:
+				send "&7<&e시스템&7> &c당신은 이 아이템을 살 수 있는 만큼의 돈이 없습니다!" to player
+				play sound "entity.enderman.teleport" to player
+	if inventory name is "&7갑옷상점":
+		cancel event
+		if clicked slot is 11:
+			if {돈::%uuid of player%} >= 100:
+				give 1 leather helmet named "&7낡은 가죽모자" to player
+				send "&7<&e시스템&7> &a성공적으로 아이템을 구매하셨습니다"
+				play sound "minecraft:entity.arrow.hit_player" to player
+				remove 100 from {돈::%uuid of player%}
+			else:
+				send "&7<&e시스템&7> &c당신은 이 아이템을 살 수 있는 만큼의 돈이 없습니다!" to player
+				play sound "entity.enderman.teleport" to player
+		if clicked slot is 20:
+			if {돈::%uuid of player%} >= 200:
+				give 1 leather chestplate named "&7낡은 가죽갑옷" to player
+				send "&7<&e시스템&7> &a성공적으로 아이템을 구매하셨습니다"
+				play sound "minecraft:entity.arrow.hit_player" to player
+				remove 200 from {돈::%uuid of player%}
+			else:
+				send "&7<&e시스템&7> &c당신은 이 아이템을 살 수 있는 만큼의 돈이 없습니다!" to player
+				play sound "entity.enderman.teleport" to player
+		if clicked slot is 29:
+			if {돈::%uuid of player%} >= 150:
+				give 1 leather leggings named "&7낡은 가죽바지" to player
+				send "&7<&e시스템&7> &a성공적으로 아이템을 구매하셨습니다"
+				play sound "minecraft:entity.arrow.hit_player" to player
+				remove 150 from {돈::%uuid of player%}
+			else:
+				send "&7<&e시스템&7> &c당신은 이 아이템을 살 수 있는 만큼의 돈이 없습니다!" to player
+				play sound "entity.enderman.teleport" to player
+		if clicked slot is 38:
+			if {돈::%uuid of player%} >= 70:
+				give 1 leather boots named "&7낡은 가죽신발" to player
+				send "&7<&e시스템&7> &a성공적으로 아이템을 구매하셨습니다"
+				play sound "minecraft:entity.arrow.hit_player" to player
+				remove 70 from {돈::%uuid of player%}
+			else:
+				send "&7<&e시스템&7> &c당신은 이 아이템을 살 수 있는 만큼의 돈이 없습니다!" to player
+				play sound "entity.enderman.teleport" to player
+		if clicked slot is 13:
+			if {돈::%uuid of player%} >= 300:
+				give 1 chain helmet named "&7사슬 모자" to player
+				send "&7<&e시스템&7> &a성공적으로 아이템을 구매하셨습니다"
+				play sound "minecraft:entity.arrow.hit_player" to player
+				remove 300 from {돈::%uuid of player%}
+			else:
+				send "&7<&e시스템&7> &c당신은 이 아이템을 살 수 있는 만큼의 돈이 없습니다!" to player
+				play sound "entity.enderman.teleport" to player
+		if clicked slot is 22:
+			if {돈::%uuid of player%} >= 500:
+				give 1 chain chestplate named "&7사슬 갑옷" to player
+				send "&7<&e시스템&7> &a성공적으로 아이템을 구매하셨습니다"
+				play sound "minecraft:entity.arrow.hit_player" to player
+				remove 500 from {돈::%uuid of player%}
+			else:
+				send "&7<&e시스템&7> &c당신은 이 아이템을 살 수 있는 만큼의 돈이 없습니다!" to player
+				play sound "entity.enderman.teleport" to player
+		if clicked slot is 31:
+			if {돈::%uuid of player%} >= 450:
+				give 1 chain leggings named "&7사슬 바지" to player
+				send "&7<&e시스템&7> &a성공적으로 아이템을 구매하셨습니다"
+				play sound "minecraft:entity.arrow.hit_player" to player
+				remove 450 from {돈::%uuid of player%}
+			else:
+				send "&7<&e시스템&7> &c당신은 이 아이템을 살 수 있는 만큼의 돈이 없습니다!" to player
+				play sound "entity.enderman.teleport" to player
+		if clicked slot is 40:
+			if {돈::%uuid of player%} >= 250:
+				give 1 chain boots named "&7사슬 부츠" to player
+				send "&7<&e시스템&7> &a성공적으로 아이템을 구매하셨습니다"
+				play sound "minecraft:entity.arrow.hit_player" to player
+				remove 250 from {돈::%uuid of player%}
+			else:
+				send "&7<&e시스템&7> &c당신은 이 아이템을 살 수 있는 만큼의 돈이 없습니다!" to player
+				play sound "entity.enderman.teleport" to player
+		if clicked slot is 15:
+			if {돈::%uuid of player%} >= 400:
+				give 1 iron helmet to player
+				send "&7<&e시스템&7> &a성공적으로 아이템을 구매하셨습니다"
+				play sound "minecraft:entity.arrow.hit_player" to player
+				remove 400 from {돈::%uuid of player%}
+			else:
+				send "&7<&e시스템&7> &c당신은 이 아이템을 살 수 있는 만큼의 돈이 없습니다!" to player
+				play sound "entity.enderman.teleport" to player
+		if clicked slot is 24:
+			if {돈::%uuid of player%} >= 800:
+				give 1 iron chestplate to player
+				send "&7<&e시스템&7> &a성공적으로 아이템을 구매하셨습니다"
+				play sound "minecraft:entity.arrow.hit_player" to player
+				remove 800 from {돈::%uuid of player%}
+			else:
+				send "&7<&e시스템&7> &c당신은 이 아이템을 살 수 있는 만큼의 돈이 없습니다!" to player
+				play sound "entity.enderman.teleport" to player
+		if clicked slot is 33:
+			if {돈::%uuid of player%} >= 650:
+				give 1 iron leggings to player
+				send "&7<&e시스템&7> &a성공적으로 아이템을 구매하셨습니다"
+				play sound "minecraft:entity.arrow.hit_player" to player
+				remove 650 from {돈::%uuid of player%}
+			else:
+				send "&7<&e시스템&7> &c당신은 이 아이템을 살 수 있는 만큼의 돈이 없습니다!" to player
+				play sound "entity.enderman.teleport" to player
+		if clicked slot is 42:
+			if {돈::%uuid of player%} >= 300:
+				give 1 iron boots to player
+				send "&7<&e시스템&7> &a성공적으로 아이템을 구매하셨습니다"
+				play sound "minecraft:entity.arrow.hit_player" to player
+				remove 300 from {돈::%uuid of player%}
+			else:
+				send "&7<&e시스템&7> &c당신은 이 아이템을 살 수 있는 만큼의 돈이 없습니다!" to player
+				play sound "entity.enderman.teleport" to player
+	if inventory name is "&7음식상점":
+		cancel event
+		if clicked slot is 24:
+			if {돈::%uuid of player%} >= 15:
+				give 1 potion of instant health to player
+				send "&7<&e시스템&7> &a성공적으로 아이템을 구매하셨습니다"
+				play sound "minecraft:entity.arrow.hit_player" to player
+				remove 15 from {돈::%uuid of player%}
+			else:
+				send "&7<&e시스템&7> &c당신은 이 아이템을 살 수 있는 만큼의 돈이 없습니다!" to player
+				play sound "entity.enderman.teleport" to player
+		if clicked slot is 33:
+			if {돈::%uuid of player%} >= 30:
+				give 1 potion of strong instant health to player
+				send "&7<&e시스템&7> &a성공적으로 아이템을 구매하셨습니다"
+				play sound "minecraft:entity.arrow.hit_player" to player
+				remove 30 from {돈::%uuid of player%}
+			else:
+				send "&7<&e시스템&7> &c당신은 이 아이템을 살 수 있는 만큼의 돈이 없습니다!" to player
+				play sound "entity.enderman.teleport" to player
+				
+		if clicked slot is 20:
+			if {돈::%uuid of player%} >= 7:
+				give 1 apple to player
+				send "&7<&e시스템&7> &a성공적으로 아이템을 구매하셨습니다"
+				play sound "minecraft:entity.arrow.hit_player" to player
+				remove 7 from {돈::%uuid of player%}
+			else:
+				send "&7<&e시스템&7> &c당신은 이 아이템을 살 수 있는 만큼의 돈이 없습니다!" to player
+				play sound "entity.enderman.teleport" to player
+		if clicked slot is 29:
+			if {돈::%uuid of player%} >= 10:
+				give 1 bread to player
+				send "&7<&e시스템&7> &a성공적으로 아이템을 구매하셨습니다"
+				play sound "minecraft:entity.arrow.hit_player" to player
+				remove 10 from {돈::%uuid of player%}
+			else:
+				send "&7<&e시스템&7> &c당신은 이 아이템을 살 수 있는 만큼의 돈이 없습니다!" to player
+				play sound "entity.enderman.teleport" to player
+		if clicked slot is 38:
+			if {돈::%uuid of player%} >= 13:
+				give 1 cooked chicken to player
+				send "&7<&e시스템&7> &a성공적으로 아이템을 구매하셨습니다"
+				play sound "minecraft:entity.arrow.hit_player" to player
+				remove 13 from {돈::%uuid of player%}
+			else:
+				send "&7<&e시스템&7> &c당신은 이 아이템을 살 수 있는 만큼의 돈이 없습니다!" to player
+				play sound "entity.enderman.teleport" to player
+	if inventory name is "&7스크롤상점":
+		cancel event
+		if clicked slot is 13:
+			if {돈::%uuid of player%} >= 30:
+				give 1 paper named "&7동굴" with lore "&e동굴 마을로 이동하는 이동스크롤 입니다" to player
+				send "&7<&e시스템&7> &a성공적으로 아이템을 구매하셨습니다"
+				play sound "minecraft:entity.arrow.hit_player" to player
+				remove 30 from {돈::%uuid of player%}
+			else:
+				send "&7<&e시스템&7> &c당신은 이 아이템을 살 수 있는 만큼의 돈이 없습니다!" to player
+				play sound "entity.enderman.teleport" to player
+	if inventory name is "&7드랍템 상점":
+		if clicked item is light blue stained glass pane:
+			cancel event
+		if clicked item is emerald:
+			cancel event
+		if clicked item is gold ingot:
+			cancel event
+			loop all items in the player's current inventory:
+				if loop-item is rotten flesh:
+					add item amount of loop-item to {_1}
+					set loop-item to air
+				if loop-item is raw copper:
+					add item amount of loop-item to {_2}
+					set loop-item to air
+				if loop-item is slimeballs:
+					add item amount of loop-item to {_3}
+					set loop-item to air
+				if loop-item is slime blocks:
+					add item amount of loop-item to {_4}
+					set loop-item to air
+				if loop-item is feathers:
+					add item amount of loop-item to {_5}
+					set loop-item to air
+				if loop-item is leather:
+					add item amount of loop-item to {_6}
+					set loop-item to air
+				if loop-item is bone:
+					add item amount of loop-item to {_7}
+					set loop-item to air
+				if loop-item is spider eyes:
+					add item amount of loop-item to {_8}
+					set loop-item to air
+				if loop-item is quartz:
+					add item amount of loop-item to {_9}
+					set loop-item to air
+				if loop-item is amethyst shards:
+					add item amount of loop-item to {_10}
+					set loop-item to air
+				if loop-item is fermented spider eyes:
+					add item amount of loop-item to {_11}
+					set loop-item to air
+			set {_bm} to {돈::%uuid of player%}
+			add 2*{_1} to {돈::%uuid of player%}
+			add 4*{_2} to {돈::%uuid of player%}
+			add 3*{_3} to {돈::%uuid of player%}
+			add 24*{_4} to {돈::%uuid of player%}
+			add 4*{_5} to {돈::%uuid of player%}
+			add 6*{_6} to {돈::%uuid of player%}
+			add 9*{_7} to {돈::%uuid of player%}
+			add 11*{_8} to {돈::%uuid of player%}
+			add 100*{_9} to {돈::%uuid of player%}
+			add 500*{_10} to {돈::%uuid of player%}
+			add 85*{_11} to {돈::%uuid of player%}
+			set {_am} to {돈::%uuid of player%}
+			send "&7<&e시스템&7> &a아이템을 판매하여 %{_am}-{_bm}%골드를 얻으셨습니다"
+			play sound "minecraft:entity.experience_orb.pickup" to player

@@ -1,0 +1,149 @@
+function 메뉴(p : player):
+    play sound "minecraft:entity.experience_orb.pickup" with volume 1 to {_p}
+    open chest with 3 rows named "Menu" to {_p}
+    loop 28 times:
+        set slot loop-number-2 of current inventory of {_p} to light blue stained glass pane named " "
+    set slot 4 of current inventory of {_p} to skull of {_p} named "&b%{_p}%" with lore "&a%level of {_p}%레벨"
+    set slot 10 of current inventory of {_p} to grass block named "&a스폰" with lore "&e스폰으로 이동합니다"
+    set slot 11 of current inventory of {_p} to chest named "&3창고" with lore "&a창고를 엽니다"
+    set slot 12 of current inventory of {_p} to gold block named "&e골드" with lore "&b현재 골드: %{돈::%uuid of {_p}%}%골드"
+    set slot 13 of current inventory of {_p} to composter named "&7쓰레기통" with lore "&5쓰레기통을 엽니다"
+    set slot 14 of current inventory of {_p} to water bucket named "&b잠수장" with lore "&3잠수장으로 이동합니다"
+    set slot 16 of current inventory of {_p} to iron sword named "&c스킬" with lore "&6스킬 창을 엽니다"
+    set slot 15 of current inventory of {_p} to brewing stand named "&6스텟" with lore "&e스텟 창을 엽니다"
+
+function 스폰(p : player):
+    teleport {_p} to location(0.5, -50, 0.5, "world", -90, 0)
+    play sound "minecraft:entity.experience_orb.pickup" with volume 1 to {_p}
+
+function 잠수장(p : player):
+    teleport {_p} to location(76.5, -62, 17.5, "world", 90, 0)
+    play sound "minecraft:entity.experience_orb.pickup" with volume 1 to {_p}
+
+function 창고(p : player):
+    play sound "minecraft:block.chest.open" to {_p}
+    open chest with 3 rows named "&f개인 창고" to {_p}
+    loop {chest::%uuid of {_p}%::*}:
+        set {_chest} to loop-index parsed as number
+        set slot {_chest} of current inventory of {_p} to loop-value
+
+function 골드확인(p : player):
+    send "%{시스템출력}% 보유한 골드 : %{돈::%uuid of {_p}%}%골드" to {_p}
+    play sound "minecraft:entity.arrow.hit_player" to {_p}
+
+function 쓰레기통(p : player):
+    open chest with 1 rows named "쓰레기통" to {_p}
+    play sound "minecraft:block.fence_gate.open" to {_p}
+
+function 스텟창(p : player):
+    open chest with 1 rows named "&6스텟" to {_p}
+    loop 10 times:
+        set slot loop-number-2 of current inventory of {_p} to light blue stained glass pane named "&7"
+    set slot 1 of current inventory of {_p} to diamond sword named "&c힘"
+    add "&2현재 공격스텟: %{공격스텟::%uuid of {_p}%}%" to lore of slot 1 of current inventory of {_p}
+    add " " to lore of slot 1 of current inventory of {_p}
+    add "&9&c공격력&e이 증가합니다." to lore of slot 1 of current inventory of {_p}
+    add "&e가진 스텟포인트: %{스텟포인트::%uuid of {_p}%}%" to lore of slot 1 of current inventory of {_p}
+    
+    set slot 3 of current inventory of {_p} to feather named "&6민첩"
+    add "&2현재 속도스텟: %{속도::%uuid of {_p}%}-125%" to lore of slot 3 of current inventory of {_p}
+    add " " to lore of slot 3 of current inventory of {_p}
+    add "&9&b속도&e가 증가합니다." to lore of slot 3 of current inventory of {_p}
+    add "&e가진 스텟포인트: %{스텟포인트::%uuid of {_p}%}%" to lore of slot 3 of current inventory of {_p}
+    
+    set slot 5 of current inventory of {_p} to diamond chestplate named "&a방어"
+    add "&2현재 방어력스텟: %{방어::%uuid of {_p}%}%" to lore of slot 5 of current inventory of {_p}
+    add " " to lore of slot 5 of current inventory of {_p}
+    add "&9&6방어력&e이 증가합니다." to lore of slot 5 of current inventory of {_p}
+    add "&e가진 스텟포인트: %{스텟포인트::%uuid of {_p}%}%" to lore of slot 5 of current inventory of {_p}
+    
+    set slot 7 of current inventory of {_p} to beacon named "&9지능"
+    add "&2현재 지능스텟: %{지능::%uuid of {_p}%}%" to lore of slot 7 of current inventory of {_p}
+    add " " to lore of slot 7 of current inventory of {_p}
+    add "&9지능&e이 증가합니다." to lore of slot 7 of current inventory of {_p}
+    add "&e가진 스텟포인트: %{스텟포인트::%uuid of {_p}%}%" to lore of slot 7 of current inventory of {_p}
+    play sound "entity.arrow.hit_player" to {_p}
+
+function 드랍템판매(p : player):
+    set {_bm} to {돈::%uuid of {_p}%}
+    add amount of rotten flesh in inventory of {_p} * 2 to {돈::%uuid of {_p}%}
+    add amount of raw copper in inventory of {_p} * 4 to {돈::%uuid of {_p}%}
+    add amount of slimeballs in inventory of {_p} * 3 to {돈::%uuid of {_p}%}
+    add amount of slime blocks in inventory of {_p} * 24 to {돈::%uuid of {_p}%}
+    add amount of feathers in inventory of {_p} * 4 to {돈::%uuid of {_p}%}
+    add amount of leather in inventory of {_p} * 6 to {돈::%uuid of {_p}%}
+    add amount of bone in inventory of {_p} * 9 to {돈::%uuid of {_p}%}
+    add amount of spider eyes in inventory of {_p} * 11 to {돈::%uuid of {_p}%}
+    add amount of quartz in inventory of {_p} * 100 to {돈::%uuid of {_p}%}
+    add amount of amethyst shards in inventory of {_p} * 500 to {돈::%uuid of {_p}%}
+    add amount of fermented spider eyes in inventory of {_p} * 85 to {돈::%uuid of {_p}%}
+    set {_am} to {돈::%uuid of {_p}%}
+    send "%{시스템출력}% &a아이템을 판매하여 %{_am}-{_bm}%골드를 얻으셨습니다" to {_p}
+    play sound "minecraft:entity.experience_orb.pickup" to {_p}
+
+function 드랍템열기(p : player):
+    play sound "entity.arrow.hit_player" to {_p}
+    open chest with 6 rows named "드랍템 상점" to {_p}
+    set {_s} to 0
+    loop 9 times:
+        set slot {_s} of current inventory of {_p} to light blue stained glass pane named " "
+        add 1 to {_s}
+    set {_s} to 45
+    loop 9 times:
+        set slot {_s} of current inventory of {_p} to light blue stained glass pane named " "
+        add 1 to {_s}
+    set {_s} to 9
+    loop 9 times:
+        set slot {_s} of current inventory of {_p} to light blue stained glass pane named " "
+        add 1 to {_s}
+    set slot 18, 27, 36, 24, 25, 26, 33, 35, 42, 43 and 44 of current inventory of {_p} to light blue stained glass pane named " "
+    set slot 34 of current inventory of {_p} to gold ingot named "&a판매"
+    set slot 4 of current inventory of {_p} to emerald named "&a드랍템 상점 (판매)"
+
+function 상점열기(p : player):
+    play sound "minecraft:entity.arrow.hit_player" to {_p}
+    인벤채우기({_p}, 27)
+    set slot 4 of current inventory of {_p} to skull of {_p} named "&b상점"
+    set slot 9 of current inventory of {_p} to diamond sword named "&a무기" with lore "&e무기상점을 엽니다"
+    set slot 11 of current inventory of {_p} to diamond chestplate named "&a갑옷" with lore "&e갑옷상점을 엽니다"
+    set slot 13 of current inventory of {_p} to steak named "&a물약/음식" with lore "&e물약상점을 엽니다"
+    set slot 15 of current inventory of {_p} to paper named "&a이동 스크롤" with lore "&e이동스크롤 상점을 엽니다"
+    set slot 17 of current inventory of {_p} to emerald named "&a드랍템" with lore "&e드랍템 상점을 엽니다"
+
+function 음식상점열기(p : player):
+    play sound "minecraft:entity.arrow.hit_player" to {_p}
+    open chest with 6 rows named "&a음식상점" to {_p}
+    인벤채우기({_p}, 54)
+    set slot 4 of current inventory of {_p} to steak named "&a음식상점"
+    set slot 20 of current inventory of {_p} to cookie named "&e쿠키" with lore "&6<5골드>"
+    set slot 29 of current inventory of {_p} to apple named "&e사과" with lore "&6<7골드>"
+    set slot 38 of current inventory of {_p} to bread named "&e빵" with lore "&6<10골드>"
+    set slot 24 of current inventory of {_p} to potion of instant health named "&d회복 포션" with lore "&6<15골드>"
+    set slot 53 of current inventory of {_p} to paper named "&c현재 상점에서는 이 아이템만 구매할 수 있습니다!" with lore "&e더 다양한 아이템을 구입하려면 다른 마을로 이동하세요"
+
+function 무기(p : player, 1 : integer, 2 : integer, 3 : integer):
+    set slot {_1} of current inventory of {_p} to wooden sword named "&f목검" with lore "&6<40골드>"
+    set slot {_2} of current inventory of {_p} to stone sword named "&f돌검" with lore "&6<150골드>"
+    if {_3} is not 0:
+        set slot {_3} of current inventory of {_p} to iron sword named "&f철검" with lore "&6<300골드>"
+
+
+function 가죽갑옷(p : player, i : integer):
+    set slot {_i} of current inventory of {_p} to leather helmet named "&7낡은 가죽모자" with lore "&6<100골드>"
+    set slot {_i} + 9 of current inventory of {_p} to leather chestplate named "&7낡은 가죽갑옷" with lore "&6<200골드>"
+    set slot {_i} + 18 of current inventory of {_p} to leather leggings named "&7낡은 가죽바지" with lore "&6<150골드>"
+    set slot {_i} + 27 of current inventory of {_p} to leather boots named "&7낡은 가죽부츠" with lore "&6<70골드>"
+
+function 인벤채우기(p : player, i : integer):
+    set {_s} to 0
+    loop {_i} times:
+        set slot {_s} of current inventory of {_p} to light blue stained glass pane named " "
+        add 1 to {_s}
+
+function 초기화(p : player):
+    set {돈::%uuid of {_p}%} to 0
+    set {스텟포인트::%uuid of {_p}%} to 0
+    set {공격::%uuid of {_p}%} to 0
+    set {속도::%uuid of {_p}%} to 125
+    set {방어::%uuid of {_p}%} to 0
+    set {지능::%uuid of {_p}%} to 0

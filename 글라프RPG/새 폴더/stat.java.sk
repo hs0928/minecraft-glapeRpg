@@ -1,0 +1,25 @@
+on damage:
+	if attacker is player:
+		add 0.1*{%uuid of attacker%.공격} to damage
+
+on damage:
+	if victim is player:
+		damage > 0.1
+		set damage to damage - {%uuid of victim%.방어}/10
+
+on damage:
+	if victim is player:
+		damage <= 0.1
+		set damage to 0.1
+
+every 1 tick:
+	loop all players:
+		set the loop-player's walk speed to 0.002*{%uuid of loop-player%.속도}
+
+on level up:
+	set {1플레이어레벨.%uuid of player%} to player's level
+	{1플레이어레벨2.%uuid of player%} is not set:
+		set {1플레이어레벨2.%uuid of player%} to 0
+	set {1플레이어레벨.%uuid of player%} to {1플레이어레벨.%uuid of player%}-{1플레이어레벨2.%uuid of player%}
+	add {1플레이어레벨.%uuid of player%} to {%uuid of player%.스텟포인트}
+	set {1플레이어레벨2.%uuid of player%} to player's level

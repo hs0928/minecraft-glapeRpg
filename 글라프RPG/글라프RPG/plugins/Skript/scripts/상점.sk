@@ -1,0 +1,148 @@
+on damage:
+    if name of victim contains "상점" or "연금술사" or "대장장이":
+        cancel event
+
+on right click on entity:
+    if name of entity is "&a상점":
+        open chest with 3 rows named "&ashop" to player
+        상점열기(player)
+    else if name of entity is "&9상점":
+        open chest with 3 rows named "&9shop" to player
+        상점열기(player)
+
+on inventory click:
+    if name of event-item contain "드랍템":
+        드랍템열기(player)
+    else if name of event-item contain "물약/음식":
+        음식상점열기(player)
+    else if inventory name is "드랍템 상점":
+        if clicked item is light blue stained glass pane or emerald:
+            cancel event
+        else if clicked item is gold ingot:
+            cancel event
+            드랍템판매(player)
+    if inventory name contain "음식상점":
+        cancel event
+        if clicked slot is 20:
+            if {돈::%uuid of player%} >= 5:
+                give 1 cookie to player
+                send "%{시스템출력}% 성공적으로 아이템을 구매하셨습니다"
+                play sound "minecraft:entity.arrow.hit_player" to player
+                remove 5 from {돈::%uuid of player%}
+            else:
+                send "%{오류출력}% 당신은 이 아이템을 살 수 있는 만큼의 돈이 없습니다!" to player
+                play sound "entity.enderman.teleport" to player
+        if clicked slot is 24:
+            if {돈::%uuid of player%} >= 15:
+                give 1 potion of instant health to player
+                send "%{시스템출력}% 성공적으로 아이템을 구매하셨습니다"
+                play sound "minecraft:entity.arrow.hit_player" to player
+                remove 15 from {돈::%uuid of player%}
+            else:
+                send "%{오류출력}% 당신은 이 아이템을 살 수 있는 만큼의 돈이 없습니다!" to player
+                play sound "entity.enderman.teleport" to player
+        if clicked slot is 29:
+            if {돈::%uuid of player%} >= 7:
+                give 1 apple to player
+                send "%{시스템출력}% 성공적으로 아이템을 구매하셨습니다"
+                play sound "minecraft:entity.arrow.hit_player" to player
+                remove 7 from {돈::%uuid of player%}
+            else:
+                send "%{오류출력}% 당신은 이 아이템을 살 수 있는 만큼의 돈이 없습니다!" to player
+                play sound "entity.enderman.teleport" to player
+        if clicked slot is 38:
+            if {돈::%uuid of player%} >= 10:
+                give 1 bread to player
+                send "%{시스템출력}% 성공적으로 아이템을 구매하셨습니다"
+                play sound "minecraft:entity.arrow.hit_player" to player
+                remove 10 from {돈::%uuid of player%}
+            else:
+                send "%{오류출력}% 당신은 이 아이템을 살 수 있는 만큼의 돈이 없습니다!" to player
+                play sound "entity.enderman.teleport" to player
+    
+    
+    
+    
+    
+    if inventory name is "&ashop":
+        cancel event
+        if clicked slot is 9:
+            play sound "minecraft:entity.arrow.hit_player" to player
+            open chest with 3 rows named "&a무기상점" to player
+            인벤채우기(player, 27)
+            set slot 4 of current inventory of player to diamond sword named "&a무기 상점"
+            무기(player, 11, 15, 0)
+            set slot 26 of current inventory of player to paper named "&c현재 상점에서는 이 아이템만 구매할 수 있습니다!" with lore "&e더 다양한 아이템을 구입하려면 다른 마을로 이동하세요"
+        if clicked slot is 11:
+            play sound "minecraft:entity.arrow.hit_player" to player
+            open chest with 6 rows named "&a갑옷상점" to player
+            인벤채우기(player, 54)
+            set slot 4 of current inventory of player to diamond chestplate named "&a갑옷상점"
+            가죽갑옷(player, 13)
+            set slot 53 of current inventory of player to paper named "&c현재 상점에서는 이 아이템만 구매할 수 있습니다!" with lore "&e더 다양한 아이템을 구입하려면 다른 마을로 이동하세요"
+        if clicked slot is 15:
+            play sound "minecraft:entity.arrow.hit_player" to player
+            open chest with 3 rows named "&a스크롤상점" to player
+            인벤채우기(player, 27)
+            set slot 13 of current inventory of player to paper named "&c현재 마을에서는 스크롤 상점을 이용할 수 없습니다!" with lore "&e스크롤 상점을 이용하시려면 다란 마을로 이동하세요"
+
+    if inventory name is "&a무기상점":
+        cancel event
+        if clicked slot is 11:
+            if {돈::%uuid of player%} >= 40:
+                execute console command "give %player% wooden_sword[attribute_modifiers=[{id:""attack_damage"",type:""generic.attack_damage"",amount:4,operation:""add_value"",slot:""mainhand""}],custom_name='{""color"":""gray"",""italic"":false,""text"":""목검""}'] 1"
+                send "%{시스템출력}% 성공적으로 아이템을 구매하셨습니다"
+                play sound "minecraft:entity.arrow.hit_player" to player
+                remove 40 from {돈::%uuid of player%}
+            else:
+                send "%{오류출력}% 당신은 이 아이템을 살 수 있는 만큼의 돈이 없습니다!" to player
+                play sound "entity.enderman.teleport" to player
+        if clicked slot is 15:
+            if {돈::%uuid of player%} >= 150:
+                execute console command "give %player% stone_sword[attribute_modifiers=[{id:""attack_damage"",type:""generic.attack_damage"",amount:5,operation:""add_value"",slot:""mainhand""}],custom_name='{""color"":""gray"",""italic"":false,""text"":""돌검""}'] 1"
+                send "%{시스템출력}% 성공적으로 아이템을 구매하셨습니다"
+                play sound "minecraft:entity.arrow.hit_player" to player
+                remove 150 from {돈::%uuid of player%}
+            else:
+                send "%{오류출력}% 당신은 이 아이템을 살 수 있는 만큼의 돈이 없습니다!" to player
+                play sound "entity.enderman.teleport" to player
+    if inventory name is "&a갑옷상점":
+        cancel event
+        if clicked slot is 13:
+            if {돈::%uuid of player%} >= 100:
+                give 1 leather helmet named "&7낡은 가죽모자" to player
+                send "%{시스템출력}% 성공적으로 아이템을 구매하셨습니다"
+                play sound "minecraft:entity.arrow.hit_player" to player
+                remove 100 from {돈::%uuid of player%}
+            else:
+                send "%{오류출력}% 당신은 이 아이템을 살 수 있는 만큼의 돈이 없습니다!" to player
+                play sound "entity.enderman.teleport" to player
+        if clicked slot is 22:
+            if {돈::%uuid of player%} >= 200:
+                give 1 leather chestplate named "&7낡은 가죽갑옷" to player
+                send "%{시스템출력}% 성공적으로 아이템을 구매하셨습니다"
+                play sound "minecraft:entity.arrow.hit_player" to player
+                remove 200 from {돈::%uuid of player%}
+            else:
+                send "%{오류출력}% 당신은 이 아이템을 살 수 있는 만큼의 돈이 없습니다!" to player
+                play sound "entity.enderman.teleport" to player
+        if clicked slot is 31:
+            if {돈::%uuid of player%} >= 150:
+                give 1 leather leggings named "&7낡은 가죽바지" to player
+                send "%{시스템출력}% 성공적으로 아이템을 구매하셨습니다"
+                play sound "minecraft:entity.arrow.hit_player" to player
+                remove 150 from {돈::%uuid of player%}
+            else:
+                send "%{오류출력}% 당신은 이 아이템을 살 수 있는 만큼의 돈이 없습니다!" to player
+                play sound "entity.enderman.teleport" to player
+        if clicked slot is 40:
+            if {돈::%uuid of player%} >= 70:
+                give 1 leather boots named "&7낡은 가죽신발" to player
+                send "%{시스템출력}% 성공적으로 아이템을 구매하셨습니다"
+                play sound "minecraft:entity.arrow.hit_player" to player
+                remove 70 from {돈::%uuid of player%}
+            else:
+                send "%{오류출력}% 당신은 이 아이템을 살 수 있는 만큼의 돈이 없습니다!" to player
+                play sound "entity.enderman.teleport" to player
+    if inventory name is "&a스크롤상점":
+        cancel event

@@ -1,0 +1,20 @@
+command 1차전직.마법사:
+    trigger:
+        if world of player is "1-2":
+            set {직업.%uuid of player%} to "1차전직.마법사"
+            play sound "minecraft:ui.toast.challenge_complete" to player
+            send "&7<&e시스템&7> &e%player%님은 &9마법사&e로 전직하셨습니다!"
+
+command 1차전직.기사:
+    trigger:
+        if world of player is "1-2":
+            set {직업.%uuid of player%} to "1차전직.기사"
+            play sound "minecraft:ui.toast.challenge_complete" to player
+            send "&7<&e시스템&7> &e%player%님은 &c기사&e로 전직하셨습니다!" to player
+
+command 1차전직.도적:
+    trigger:
+        if world of player is "1-2":
+            set {직업.%uuid of player%} to "1차전직.도적"
+            play sound "minecraft:ui.toast.challenge_complete" to player
+            send "&7<&e시스템&7> &e%player%님은 &2도적&e로 전직하셨습니다!" to player

@@ -1,1 +1,4 @@
-My RPG Server
+My RPG Server  
+코딩 실력이 향상된 후 최적화 하려고 했으나 조금밖에 못함  
+새 폴더 - 기존 코드  
+글라프RPG/plugins/Skript/scripts/ - 최적화 한 코드

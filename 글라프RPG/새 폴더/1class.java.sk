@@ -1,0 +1,11 @@
+on rightclick on lectern:
+    if {직업.%uuid of player%} isn't set:
+        if "%event-block's location%" contains "x: 28.5, y: 9.5, z: 10.5":
+            send "%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%&9[마법사]&e로 전직하시겠습니까?%nl%%nl%<ttp:&9[마법사]&e로 전직합니다><cmd:/1차전직.마법사>&a[예]<reset>  <ttp:&9[마법사]&c로 전직하지 않습니다>&c[아니오]<reset>" to player
+            play sound "entity.experience_orb.pickup" at volume 1 at pitch 1 to player
+        if "%event-block's location%" contains "x: 25.5, y: 9.5, z: 10.5":
+            send "%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%&c[기사]&e로 전직하시겠습니까?%nl%%nl%  &a[예]         &c[아니오]" to player
+            play sound "entity.experience_orb.pickup" at volume 1 at pitch 1 to player
+        if "%event-block's location%" contains "x: 22.5, y: 9.5, z: 10.5":
+            send "%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%&2[도적]&e로 전직하시겠습니까?%nl%%nl%  &a[예]         &c[아니오]" to player
+            play sound "entity.experience_orb.pickup" at volume 1 at pitch 1 to player

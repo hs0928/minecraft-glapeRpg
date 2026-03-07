@@ -1,0 +1,254 @@
+command /스킬:
+    trigger:
+        open chest with 3 rows named "&b스킬" to player
+        play sound "minecraft:entity.experience_orb.pickup" with volume 1 to player
+        set {_SLOT} to 0
+        loop 45 times:
+            set slot {_SLOT} of current inventory of player to light blue stained glass pane named " "
+            add 1 to {_SLOT}
+            set slot 11 of current inventory of player to wooden sword named "&b기본 스킬"
+            set slot 13 of current inventory of player to iron sword named "&b1차전직 스킬"
+            set slot 15 of current inventory of player to diamond sword named "&b2차전직 스킬"
+
+on inventory click:
+    if inventory name is "&b스킬":
+        if clicked inventory is not player's inventory:
+            cancel event
+            if clicked slot is 11:
+                play sound "minecraft:entity.arrow.hit_player" to player
+                open chest with 3 rows named "&b기본 스킬" to player
+                set {_SLOT} to 0
+                loop 45 times:
+                    set slot {_SLOT} of current inventory of player to light blue stained glass pane named " "
+                    add 1 to {_SLOT}
+                    set slot 10 of current inventory of player to feather named "&9대쉬" with lore "&e가진 스킬포인트: %{스킬포인트.%uuid of player%}%"
+                    set slot 12 of current inventory of player to tnt named "&9test" with lore "&e가진 스킬포인트: %{스킬포인트.%uuid of player%}%"
+            if clicked slot is 13:
+                play sound "minecraft:entity.arrow.hit_player" to player
+                open chest with 3 rows named "&b1차전직 스킬" to player
+                set {_SLOT} to 0
+                loop 45 times:
+                    set slot {_SLOT} of current inventory of player to light blue stained glass pane named " "
+                    add 1 to {_SLOT}
+
+
+on inventory click:
+    if inventory name is "&b기본 스킬":
+        if clicked inventory is not player's inventory:
+            cancel event
+            if clicked slot is 10:
+                if {스킬포인트.%uuid of player%} is bigger than 0:
+                    if {대쉬아이템강.%uuid of player%} is not set:
+                        give 1 feather named "&9대쉬" with lore "&e쿨타임 : 4초" to player
+                        remove 1 from {스킬포인트.%uuid of player%}
+                        play sound "minecraft:entity.experience_orb.pickup" with volume 1 to player
+                        add 1 to {대쉬아이템강2.%uuid of player%}
+                        set {대쉬아이템강.%uuid of player%} to {대쉬아이템강2.%uuid of player%}
+                    if {대쉬아이템강.%uuid of player%} is "1":
+                        give 1 feather named "&9대쉬 [1강]" with lore "&e쿨타임 : 3.5초" to player
+                        remove 1 from {스킬포인트.%uuid of player%}
+                        play sound "minecraft:entity.experience_orb.pickup" with volume 1 to player
+                        add 1 to {대쉬아이템강2.%uuid of player%}
+                        set {대쉬아이템강.%uuid of player%} to {대쉬아이템강2.%uuid of player%}
+                    if {대쉬아이템강.%uuid of player%} is "2":
+                        give 1 feather named "&9대쉬 [2강]" with lore "&e쿨타임 : 3초" to player
+                        remove 1 from {스킬포인트.%uuid of player%}
+                        play sound "minecraft:entity.experience_orb.pickup" with volume 1 to player
+                        add 1 to {대쉬아이템강2.%uuid of player%}
+                        set {대쉬아이템강.%uuid of player%} to {대쉬아이템강2.%uuid of player%}
+                    if {대쉬아이템강.%uuid of player%} is "3":
+                        give 1 feather named "&9대쉬 [3강]" with lore "&e쿨타임 : 2.5초" to player
+                        remove 1 from {스킬포인트.%uuid of player%}
+                        play sound "minecraft:entity.experience_orb.pickup" with volume 1 to player
+                        add 1 to {대쉬아이템강2.%uuid of player%}
+                        set {대쉬아이템강.%uuid of player%} to {대쉬아이템강2.%uuid of player%}
+                    if {대쉬아이템강.%uuid of player%} is "4":
+                        give 1 feather named "&9대쉬 [4강]" with lore "&e쿨타임 : 2초" to player
+                        remove 1 from {스킬포인트.%uuid of player%}
+                        play sound "minecraft:entity.experience_orb.pickup" with volume 1 to player
+                        add 1 to {대쉬아이템강2.%uuid of player%}
+                        set {대쉬아이템강.%uuid of player%} to {대쉬아이템강2.%uuid of player%}
+                if {스킬포인트.%uuid of player%} is not bigger than 0:
+                    message "&7<&e시스템&7> &c스킬포인트가 부족합니다." to player
+                    play sound "minecraft:entity.enderman.teleport" to player
+            if clicked slot is 10:
+                if {스킬포인트.%uuid of player%} is bigger than 0:
+                    if {test아이템강.%uuid of player%} is not set:
+                        give 1 tnt named "&9test" with lore "&e쿨타임 : 12초" to player
+                        remove 1 from {스킬포인트.%uuid of player%}
+                        play sound "minecraft:entity.experience_orb.pickup" with volume 1 to player
+                        add 1 to {test아이템강2.%uuid of player%}
+                        set {test아이템강.%uuid of player%} to {test아이템강2.%uuid of player%}
+                    if {test아이템강.%uuid of player%} is "1":
+                        give 1 tnt named "&9test [1강]" with lore "&e쿨타임 : 11초" to player
+                        remove 1 from {스킬포인트.%uuid of player%}
+                        play sound "minecraft:entity.experience_orb.pickup" with volume 1 to player
+                        add 1 to {test아이템강2.%uuid of player%}
+                        set {대쉬아이템강.%uuid of player%} to {test아이템강2.%uuid of player%}
+                    if {test아이템강.%uuid of player%} is "2":
+                        give 1 tnt named "&9test [2강]" with lore "&e쿨타임 : 10초" to player
+                        remove 1 from {스킬포인트.%uuid of player%}
+                        play sound "minecraft:entity.experience_orb.pickup" with volume 1 to player
+                        add 1 to {test아이템강2.%uuid of player%}
+                        set {test아이템강.%uuid of player%} to {test아이템강2.%uuid of player%}
+                    if {test아이템강.%uuid of player%} is "3":
+                        give 1 tnt named "&9test [3강]" with lore "&e쿨타임 : 9초" to player
+                        remove 1 from {스킬포인트.%uuid of player%}
+                        play sound "minecraft:entity.experience_orb.pickup" with volume 1 to player
+                        add 1 to {test아이템강2.%uuid of player%}
+                        set {test아이템강.%uuid of player%} to {test아이템강2.%uuid of player%}
+                    if {test아이템강.%uuid of player%} is "4":
+                        give 1 tnt named "&9test [4강]" with lore "&e쿨타임 : 8초" to player
+                        remove 1 from {스킬포인트.%uuid of player%}
+                        play sound "minecraft:entity.experience_orb.pickup" with volume 1 to player
+                        add 1 to {test아이템강2.%uuid of player%}
+                        set {test아이템강.%uuid of player%} to {test아이템강2.%uuid of player%}
+                if {스킬포인트.%uuid of player%} is not bigger than 0:
+                    message "&7<&e시스템&7> &c스킬포인트가 부족합니다." to player
+                    play sound "minecraft:entity.enderman.teleport" to player
+    if inventory name is "&b기본 스킬":
+        if clicked inventory is not player's inventory:
+            cancel event
+
+on first join:
+    set {스킬포인트.%uuid of player%} to 0
+
+on level up:
+    set {2플레이어레벨.%uuid of player%} to player's level
+    {2플레이어레벨2.%uuid of player%} is not set:
+        set {2플레이어레벨2.%uuid of player%} to 0
+    set {2플레이어레벨.%uuid of player%} to {2플레이어레벨.%uuid of player%}-{2플레이어레벨2.%uuid of player%}
+    add {2플레이어레벨.%uuid of player%} to {스킬포인트.%uuid of player%}
+    set {2플레이어레벨2.%uuid of player%} to player's level
+
+on rightclick with feather:
+    if player's tool's name is "&9대쉬":
+        if {dashcool.%uuid of player%} is not set:
+            push the player forwards at speed 0.5
+            play sound "entity.wind_charge.wind_burst" to player
+            set {dashcool.%uuid of player%} to 1
+            wait 4 second
+            delete {dashcool.%uuid of player%}
+            if {firstdash.%uuid of player%} is not set:
+                send "%nl%&7<&etip&7> &e대쉬 스킬을 사용했는데 많이 안날아가나요? 점프를 하며 사용해보세요!%nl%" to player
+                set {firstdash.%uuid of player%} to true
+                play sound "minecraft:entity.experience_orb.pickup" with volume 1 to player
+        else:
+            send "&7<&e시스템&7> &c이 스킬은 사용 할 수 없습니다! (4초 쿨다운)" to player
+            play sound "minecraft:entity.enderman.teleport" to player
+    if player's tool's name is "&9대쉬 [1강]":
+        if {dashcool.%uuid of player%} is not set:
+            push the player forwards at speed 0.55
+            play sound "entity.wind_charge.wind_burst" to player
+            set {dashcool.%uuid of player%} to 1
+            wait 3.5 second
+            delete {dashcool.%uuid of player%}
+            if {firstdash.%uuid of player%} is not set:
+                send "%nl%&7<&etip&7> &e대쉬 스킬을 사용했는데 많이 안날아가나요? 점프를 하며 사용해보세요!%nl%" to player
+                set {firstdash.%uuid of player%} to true
+                play sound "minecraft:entity.experience_orb.pickup" with volume 1 to player
+        else:
+            send "&7<&e시스템&7> &c이 스킬은 사용 할 수 없습니다! (3.5초 쿨다운)" to player
+            play sound "minecraft:entity.enderman.teleport" to player
+    if player's tool's name is "&9대쉬 [2강]":
+        if {dashcool.%uuid of player%} is not set:
+            push the player forwards at speed 0.6
+            play sound "entity.wind_charge.wind_burst" to player
+            set {dashcool.%uuid of player%} to 1
+            wait 3 second
+            delete {dashcool.%uuid of player%}
+            if {firstdash.%uuid of player%} is not set:
+                send "%nl%&7<&etip&7> &e대쉬 스킬을 사용했는데 많이 안날아가나요? 점프를 하며 사용해보세요!%nl%" to player
+                set {firstdash.%uuid of player%} to true
+                play sound "minecraft:entity.experience_orb.pickup" with volume 1 to player
+        else:
+            send "&7<&e시스템&7> &c이 스킬은 사용 할 수 없습니다! (3초 쿨다운)" to player
+            play sound "minecraft:entity.enderman.teleport" to player
+    if player's tool's name is "&9대쉬 [3강]":
+        if {dashcool.%uuid of player%} is not set:
+            push the player forwards at speed 0.65
+            play sound "entity.wind_charge.wind_burst" to player
+            set {dashcool.%uuid of player%} to 1
+            wait 2.5 second
+            delete {dashcool.%uuid of player%}
+            if {firstdash.%uuid of player%} is not set:
+                send "%nl%&7<&etip&7> &e대쉬 스킬을 사용했는데 많이 안날아가나요? 점프를 하며 사용해보세요!%nl%" to player
+                set {firstdash.%uuid of player%} to true
+                play sound "minecraft:entity.experience_orb.pickup" with volume 1 to player
+        else:
+            send "&7<&e시스템&7> &c이 스킬은 사용 할 수 없습니다! (2.5초 쿨다운)" to player
+            play sound "minecraft:entity.enderman.teleport" to player
+    if player's tool's name is "&9대쉬 [4강]":
+        if {dashcool.%uuid of player%} is not set:
+            push the player forwards at speed 0.7
+            play sound "entity.wind_charge.wind_burst" to player
+            set {dashcool.%uuid of player%} to 1
+            wait 2 second
+            delete {dashcool.%uuid of player%}
+            if {firstdash.%uuid of player%} is not set:
+                send "%nl%&7<&etip&7> &e대쉬 스킬을 사용했는데 많이 안날아가나요? 점프를 하며 사용해보세요!%nl%" to player
+                set {firstdash.%uuid of player%} to true
+                play sound "minecraft:entity.experience_orb.pickup" with volume 1 to player
+        else:
+            send "&7<&e시스템&7> &c이 스킬은 사용 할 수 없습니다! (2초 쿨다운)" to player
+            play sound "minecraft:entity.enderman.teleport" to player
+    if player's tool's name is "&9test":
+        if {testcool.%uuid of player%} is not set:
+            execute console command "effect give %player% resistance 4 0"
+            execute console command "effect give %player% strength 4 0"
+            play sound "item.totem.use" to player
+            set {dashcool.%uuid of player%} to 1
+            wait 12 second
+            delete {testcool.%uuid of player%}
+            play sound "minecraft:entity.experience_orb.pickup" with volume 1 to player
+        else:
+            send "&7<&e시스템&7> &c이 스킬은 사용 할 수 없습니다! (12초 쿨다운)" to player
+            play sound "minecraft:entity.enderman.teleport" to player
+    if player's tool's name is "&9test [1강]":
+        if {testcool.%uuid of player%} is not set:
+            execute console command "effect give %player% resistance 5 1"
+            execute console command "effect give %player% strength 5 1"
+            play sound "item.totem.use" to player
+            set {dashcool.%uuid of player%} to 1
+            wait 11 second
+            delete {testcool.%uuid of player%}
+            play sound "minecraft:entity.experience_orb.pickup" with volume 1 to player
+        else:
+            send "&7<&e시스템&7> &c이 스킬은 사용 할 수 없습니다! (11초 쿨다운)" to player
+            play sound "minecraft:entity.enderman.teleport" to player
+    if player's tool's name is "&9test [2강]":
+        if {testcool.%uuid of player%} is not set:
+            execute console command "effect give %player% resistance 6 2"
+            execute console command "effect give %player% strength 6 2"
+            play sound "item.totem.use" to player
+            set {dashcool.%uuid of player%} to 1
+            wait 10 second
+            delete {testcool.%uuid of player%}
+            play sound "minecraft:entity.experience_orb.pickup" with volume 1 to player
+        else:
+            send "&7<&e시스템&7> &c이 스킬은 사용 할 수 없습니다! (10초 쿨다운)" to player
+            play sound "minecraft:entity.enderman.teleport" to player
+    if player's tool's name is "&9test [3강]":
+        if {testcool.%uuid of player%} is not set:
+            execute console command "effect give %player% resistance 6 2"
+            execute console command "effect give %player% strength 6 2"
+            play sound "item.totem.use" to player
+            set {dashcool.%uuid of player%} to 1
+            wait 9 second
+            delete {testcool.%uuid of player%}
+            play sound "minecraft:entity.experience_orb.pickup" with volume 1 to player
+        else:
+            send "&7<&e시스템&7> &c이 스킬은 사용 할 수 없습니다! (9초 쿨다운)" to player
+            play sound "minecraft:entity.enderman.teleport" to player
+    if player's tool's name is "&9test [4강]":
+        if {testcool.%uuid of player%} is not set:
+            execute console command "effect give %player% resistance 7 2"
+            execute console command "effect give %player% strength 7 2"
+            play sound "item.totem.use" to player
+            set {dashcool.%uuid of player%} to 1
+            wait 8 second
+            delete {testcool.%uuid of player%}
+            play sound "minecraft:entity.experience_orb.pickup" with volume 1 to player
+        else:
+            send "&7<&e시스템&7> &c이 스킬은 사용 할 수 없습니다! (8초 쿨다운)" to player
+            play sound "minecraft:entity.enderman.teleport" to player

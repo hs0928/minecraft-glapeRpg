@@ -1,0 +1,426 @@
+on inventory click:
+    if clicked inventory is not player's inventory:
+        if inventory name is "&8강화 ":
+            if clicked item is light blue stained glass pane:
+                cancel event
+            if clicked slot is 13 or 14:
+                cancel event
+            if clicked slot is 10:
+                cancel event
+            if clicked slot is 12:
+                cancel event
+            if clicked item is anvil:
+                cancel event
+                if slot 21 of player's current inventory is stone named "&b1단계 강화석":
+                    if slot 19 of player's current inventory's name doesn't contain "🟉" or "🟉🟉" or "🟉🟉🟉" or "🟉🟉🟉🟉" or "🟉🟉🟉🟉🟉":
+                        if slot 19 of player's current inventory is air:
+                            play sound "entity.enderman.teleport" to player
+                            send "&7<&e시스템&7> &c강화할 아이템을 넣어주세요!" to player
+                        if slot 19 of player's current inventory is leather helmet:
+                            set slot 25 of current inventory of player to leather helmet with nbt from "{""attribute_modifiers"":[{id:""armor"",type:""generic.armor"",amount:2,operation:""add_value"",slot:""helmet""}]}"
+                            set player's current inventory's slot 25's name to "&7낡은 가죽모자 🟉"
+                            set slot 19 of current inventory of player to air
+                            set slot 21 of current inventory of player to air
+                            play sound "minecraft:block.anvil.use" with pitch 2 to player
+                        if slot 19 of player's current inventory is leather chestplate:
+                            play sound "minecraft:block.anvil.use" with pitch 2 to player
+                            set slot 25 of current inventory of player to leather chestplate with nbt from "{""attribute_modifiers"":[{id:""armor"",type:""generic.armor"",amount:4,operation:""add_value"",slot:""chest""}]}"
+                            set player's current inventory's slot 25's name to "&7낡은 가죽갑옷 🟉"
+                            set slot 19 of current inventory of player to air
+                            set slot 21 of current inventory of player to air
+                        if slot 19 of player's current inventory is leather leggings:
+                            set slot 25 of current inventory of player to leather leggings with nbt from "{""attribute_modifiers"":[{id:""armor"",type:""generic.armor"",amount:3,operation:""add_value"",slot:""leggings""}]}"
+                            set player's current inventory's slot 25's name to "&7낡은 가죽바지 🟉"
+                            set slot 19 of current inventory of player to air
+                            set slot 21 of current inventory of player to air
+                            play sound "minecraft:block.anvil.use" with pitch 2 to player
+                        if slot 19 of player's current inventory is leather boots:
+                            set slot 25 of current inventory of player to leather boots with nbt from "{""attribute_modifiers"":[{id:""armor"",type:""generic.armor"",amount:2,operation:""add_value"",slot:""boots""}]}"
+                            set player's current inventory's slot 25's name to "&7낡은 가죽신발 🟉"
+                            set slot 19 of current inventory of player to air
+                            set slot 21 of current inventory of player to air
+                            play sound "minecraft:block.anvil.use" with pitch 2 to player
+                        if slot 19 of player's current inventory is chain helmet:
+                            set slot 25 of current inventory of player to chain helmet with nbt from "{""attribute_modifiers"":[{id:""armor"",type:""generic.armor"",amount:3,operation:""add_value"",slot:""helmet""}]}"
+                            set player's current inventory's slot 25's name to "&7사슬 모자 🟉"
+                            set slot 19 of current inventory of player to air
+                            set slot 21 of current inventory of player to air
+                            play sound "minecraft:block.anvil.use" with pitch 2 to player
+                        if slot 19 of player's current inventory is chain chestplate:
+                            play sound "minecraft:block.anvil.use" with pitch 2 to player
+                            set slot 25 of current inventory of player to chain chestplate with nbt from "{""attribute_modifiers"":[{id:""armor"",type:""generic.armor"",amount:6,operation:""add_value"",slot:""chest""}]}"
+                            set player's current inventory's slot 25's name to "&7사슬 갑옷 🟉"
+                            set slot 19 of current inventory of player to air
+                            set slot 21 of current inventory of player to air
+                        if slot 19 of player's current inventory is chain leggings:
+                            set slot 25 of current inventory of player to chain leggings with nbt from "{""attribute_modifiers"":[{id:""armor"",type:""generic.armor"",amount:5,operation:""add_value"",slot:""leggings""}]}"
+                            set player's current inventory's slot 25's name to "&7사슬 바지 🟉"
+                            set slot 19 of current inventory of player to air
+                            set slot 21 of current inventory of player to air
+                            play sound "minecraft:block.anvil.use" with pitch 2 to player
+                        if slot 19 of player's current inventory is chain boots:
+                            set slot 25 of current inventory of player to chain boots with nbt from "{""attribute_modifiers"":[{id:""armor"",type:""generic.armor"",amount:2,operation:""add_value"",slot:""boots""}]}"
+                            set player's current inventory's slot 25's name to "&7사슬 신발 🟉"
+                            set slot 19 of current inventory of player to air
+                            set slot 21 of current inventory of player to air
+                            play sound "minecraft:block.anvil.use" with pitch 2 to player
+                        if slot 19 of player's current inventory is iron helmet:
+                            set slot 25 of current inventory of player to iron helmet with nbt from "{""attribute_modifiers"":[{id:""armor"",type:""generic.armor"",amount:3,operation:""add_value"",slot:""helmet""}]}"
+                            set player's current inventory's slot 25's name to "&7철 모자 🟉"
+                            set slot 19 of current inventory of player to air
+                            set slot 21 of current inventory of player to air
+                            play sound "minecraft:block.anvil.use" with pitch 2 to player
+                        if slot 19 of player's current inventory is iron chestplate:
+                            play sound "minecraft:block.anvil.use" with pitch 2 to player
+                            set slot 25 of current inventory of player to iron chestplate with nbt from "{""attribute_modifiers"":[{id:""armor"",type:""generic.armor"",amount:7,operation:""add_value"",slot:""chest""}]}"
+                            set player's current inventory's slot 25's name to "&7철 갑옷 🟉"
+                            set slot 19 of current inventory of player to air
+                            set slot 21 of current inventory of player to air
+                        if slot 19 of player's current inventory is iron leggings:
+                            set slot 25 of current inventory of player to iron leggings with nbt from "{""attribute_modifiers"":[{id:""armor"",type:""generic.armor"",amount:6,operation:""add_value"",slot:""leggings""}]}"
+                            set player's current inventory's slot 25's name to "&7철 바지 🟉"
+                            set slot 19 of current inventory of player to air
+                            set slot 21 of current inventory of player to air
+                            play sound "minecraft:block.anvil.use" with pitch 2 to player
+                        if slot 19 of player's current inventory is iron boots:
+                            set slot 25 of current inventory of player to iron boots with nbt from "{""attribute_modifiers"":[{id:""armor"",type:""generic.armor"",amount:3,operation:""add_value"",slot:""boots""}]}"
+                            set player's current inventory's slot 25's name to "&7철 신발 🟉"
+                            set slot 19 of current inventory of player to air
+                            set slot 21 of current inventory of player to air
+                            play sound "minecraft:block.anvil.use" with pitch 2 to player
+                        if slot 19 of player's current inventory's name contain "거미 비늘 갑옷":
+                            set slot 25 of current inventory of player to netherite chestplate with nbt from "{""attribute_modifiers"":[{id:""armor"",type:""generic.armor"",amount:8,operation:""add_value"",slot:""chest""}]}"
+                            set player's current inventory's slot 25's name to "&9거미 비늘 갑옷 🟉"
+                            set slot 19 of current inventory of player to air
+                            set slot 21 of current inventory of player to air
+                            play sound "minecraft:block.anvil.use" with pitch 2 to player
+                    if slot 19 of player's current inventory's name doesn't contain "🟉🟉" or "🟉🟉🟉" or "🟉🟉🟉🟉" or "🟉🟉🟉🟉🟉":
+                        if slot 19 of player's current inventory is leather helmet:
+                            set slot 25 of current inventory of player to leather helmet with nbt from "{""attribute_modifiers"":[{id:""armor"",type:""generic.armor"",amount:%2+1%,operation:""add_value"",slot:""helmet""}]}"
+                            set player's current inventory's slot 25's name to "&7낡은 가죽모자 🟉🟉"
+                            set slot 19 of current inventory of player to air
+                            set slot 21 of current inventory of player to air
+                            play sound "minecraft:block.anvil.use" with pitch 2 to player
+                        if slot 19 of player's current inventory is leather chestplate:
+                            play sound "minecraft:block.anvil.use" with pitch 2 to player
+                            set slot 25 of current inventory of player to leather chestplate with nbt from "{""attribute_modifiers"":[{id:""armor"",type:""generic.armor"",amount:%4+1%,operation:""add_value"",slot:""chest""}]}"
+                            set player's current inventory's slot 25's name to "&7낡은 가죽갑옷 🟉🟉"
+                            set slot 19 of current inventory of player to air
+                            set slot 21 of current inventory of player to air
+                        if slot 19 of player's current inventory is leather leggings:
+                            set slot 25 of current inventory of player to leather leggings with nbt from "{""attribute_modifiers"":[{id:""armor"",type:""generic.armor"",amount:%3+1%,operation:""add_value"",slot:""leggings""}]}"
+                            set player's current inventory's slot 25's name to "&7낡은 가죽바지 🟉🟉"
+                            set slot 19 of current inventory of player to air
+                            set slot 21 of current inventory of player to air
+                            play sound "minecraft:block.anvil.use" with pitch 2 to player
+                        if slot 19 of player's current inventory is leather boots:
+                            set slot 25 of current inventory of player to leather boots with nbt from "{""attribute_modifiers"":[{id:""armor"",type:""generic.armor"",amount:%2+1%,operation:""add_value"",slot:""boots""}]}"
+                            set player's current inventory's slot 25's name to "&7낡은 가죽신발 🟉🟉"
+                            set slot 19 of current inventory of player to air
+                            set slot 21 of current inventory of player to air
+                            play sound "minecraft:block.anvil.use" with pitch 2 to player
+                        if slot 19 of player's current inventory is chain helmet:
+                            set slot 25 of current inventory of player to chain helmet with nbt from "{""attribute_modifiers"":[{id:""armor"",type:""generic.armor"",amount:%3+1%,operation:""add_value"",slot:""helmet""}]}"
+                            set player's current inventory's slot 25's name to "&7사슬 모자 🟉🟉"
+                            set slot 19 of current inventory of player to air
+                            set slot 21 of current inventory of player to air
+                            play sound "minecraft:block.anvil.use" with pitch 2 to player
+                        if slot 19 of player's current inventory is chain chestplate:
+                            play sound "minecraft:block.anvil.use" with pitch 2 to player
+                            set slot 25 of current inventory of player to chain chestplate with nbt from "{""attribute_modifiers"":[{id:""armor"",type:""generic.armor"",amount:%6+1%,operation:""add_value"",slot:""chest""}]}"
+                            set player's current inventory's slot 25's name to "&7사슬 갑옷 🟉🟉"
+                            set slot 19 of current inventory of player to air
+                            set slot 21 of current inventory of player to air
+                        if slot 19 of player's current inventory is chain leggings:
+                            set slot 25 of current inventory of player to chain leggings with nbt from "{""attribute_modifiers"":[{id:""armor"",type:""generic.armor"",amount:%5+1%,operation:""add_value"",slot:""leggings""}]}"
+                            set player's current inventory's slot 25's name to "&7사슬 바지 🟉🟉"
+                            set slot 19 of current inventory of player to air
+                            set slot 21 of current inventory of player to air
+                            play sound "minecraft:block.anvil.use" with pitch 2 to player
+                        if slot 19 of player's current inventory is chain boots:
+                            set slot 25 of current inventory of player to chain boots with nbt from "{""attribute_modifiers"":[{id:""armor"",type:""generic.armor"",amount:%2+1%,operation:""add_value"",slot:""boots""}]}"
+                            set player's current inventory's slot 25's name to "&7사슬 신발 🟉🟉"
+                            set slot 19 of current inventory of player to air
+                            set slot 21 of current inventory of player to air
+                            play sound "minecraft:block.anvil.use" with pitch 2 to player
+                        if slot 19 of player's current inventory is iron helmet:
+                            set slot 25 of current inventory of player to iron helmet with nbt from "{""attribute_modifiers"":[{id:""armor"",type:""generic.armor"",amount:%3+1%,operation:""add_value"",slot:""helmet""}]}"
+                            set player's current inventory's slot 25's name to "&7철 모자 🟉🟉"
+                            set slot 19 of current inventory of player to air
+                            set slot 21 of current inventory of player to air
+                            play sound "minecraft:block.anvil.use" with pitch 2 to player
+                        if slot 19 of player's current inventory is iron chestplate:
+                            play sound "minecraft:block.anvil.use" with pitch 2 to player
+                            set slot 25 of current inventory of player to iron chestplate with nbt from "{""attribute_modifiers"":[{id:""armor"",type:""generic.armor"",amount:%7+1%,operation:""add_value"",slot:""chest""}]}"
+                            set player's current inventory's slot 25's name to "&7철 갑옷 🟉🟉"
+                            set slot 19 of current inventory of player to air
+                            set slot 21 of current inventory of player to air
+                        if slot 19 of player's current inventory is iron leggings:
+                            set slot 25 of current inventory of player to iron leggings with nbt from "{""attribute_modifiers"":[{id:""armor"",type:""generic.armor"",amount:%6+1%,operation:""add_value"",slot:""leggings""}]}"
+                            set player's current inventory's slot 25's name to "&7철 바지 🟉🟉"
+                            set slot 19 of current inventory of player to air
+                            set slot 21 of current inventory of player to air
+                            play sound "minecraft:block.anvil.use" with pitch 2 to player
+                        if slot 19 of player's current inventory is iron boots:
+                            set slot 25 of current inventory of player to iron boots with nbt from "{""attribute_modifiers"":[{id:""armor"",type:""generic.armor"",amount:%3+1%,operation:""add_value"",slot:""boots""}]}"
+                            set player's current inventory's slot 25's name to "&7철 신발 🟉🟉"
+                            set slot 19 of current inventory of player to air
+                            set slot 21 of current inventory of player to air
+                            play sound "minecraft:block.anvil.use" with pitch 2 to player
+                        if slot 19 of player's current inventory's name contain "거미 비늘 갑옷":
+                            set slot 25 of current inventory of player to netherite chestplate with nbt from "{""attribute_modifiers"":[{id:""armor"",type:""generic.armor"",amount:%8+1%,operation:""add_value"",slot:""chest""}]}"
+                            set player's current inventory's slot 25's name to "&9거미 비늘 갑옷 🟉🟉"
+                            set slot 19 of current inventory of player to air
+                            set slot 21 of current inventory of player to air
+                            play sound "minecraft:block.anvil.use" with pitch 2 to player
+                    if slot 19 of player's current inventory's name doesn't contain "🟉🟉🟉" or "🟉🟉🟉🟉" or "🟉🟉🟉🟉🟉":
+                        if slot 19 of player's current inventory is leather helmet:
+                            set slot 25 of current inventory of player to leather helmet with nbt from "{""attribute_modifiers"":[{id:""armor"",type:""generic.armor"",amount:%2+2%,operation:""add_value"",slot:""helmet""}]}"
+                            set player's current inventory's slot 25's name to "&7낡은 가죽모자 🟉🟉🟉"
+                            set slot 19 of current inventory of player to air
+                            set slot 21 of current inventory of player to air
+                            play sound "minecraft:block.anvil.use" with pitch 2 to player
+                        if slot 19 of player's current inventory is leather chestplate:
+                            play sound "minecraft:block.anvil.use" with pitch 2 to player
+                            set slot 25 of current inventory of player to leather chestplate with nbt from "{""attribute_modifiers"":[{id:""armor"",type:""generic.armor"",amount:%4+2%,operation:""add_value"",slot:""chest""}]}"
+                            set player's current inventory's slot 25's name to "&7낡은 가죽갑옷 🟉🟉🟉"
+                            set slot 19 of current inventory of player to air
+                            set slot 21 of current inventory of player to air
+                        if slot 19 of player's current inventory is leather leggings:
+                            set slot 25 of current inventory of player to leather leggings with nbt from "{""attribute_modifiers"":[{id:""armor"",type:""generic.armor"",amount:%3+2%,operation:""add_value"",slot:""leggings""}]}"
+                            set player's current inventory's slot 25's name to "&7낡은 가죽바지 🟉🟉🟉"
+                            set slot 19 of current inventory of player to air
+                            set slot 21 of current inventory of player to air
+                            play sound "minecraft:block.anvil.use" with pitch 2 to player
+                        if slot 19 of player's current inventory is leather boots:
+                            set slot 25 of current inventory of player to leather boots with nbt from "{""attribute_modifiers"":[{id:""armor"",type:""generic.armor"",amount:%2+2%,operation:""add_value"",slot:""boots""}]}"
+                            set player's current inventory's slot 25's name to "&7낡은 가죽신발 🟉🟉🟉"
+                            set slot 19 of current inventory of player to air
+                            set slot 21 of current inventory of player to air
+                            play sound "minecraft:block.anvil.use" with pitch 2 to player
+                        if slot 19 of player's current inventory is chain helmet:
+                            set slot 25 of current inventory of player to chain helmet with nbt from "{""attribute_modifiers"":[{id:""armor"",type:""generic.armor"",amount:%3+2%,operation:""add_value"",slot:""helmet""}]}"
+                            set player's current inventory's slot 25's name to "&7사슬 모자 🟉🟉🟉"
+                            set slot 19 of current inventory of player to air
+                            set slot 21 of current inventory of player to air
+                            play sound "minecraft:block.anvil.use" with pitch 2 to player
+                        if slot 19 of player's current inventory is chain chestplate:
+                            play sound "minecraft:block.anvil.use" with pitch 2 to player
+                            set slot 25 of current inventory of player to chain chestplate with nbt from "{""attribute_modifiers"":[{id:""armor"",type:""generic.armor"",amount:%6+2%,operation:""add_value"",slot:""chest""}]}"
+                            set player's current inventory's slot 25's name to "&7사슬 갑옷 🟉🟉🟉"
+                            set slot 19 of current inventory of player to air
+                            set slot 21 of current inventory of player to air
+                        if slot 19 of player's current inventory is chain leggings:
+                            set slot 25 of current inventory of player to chain leggings with nbt from "{""attribute_modifiers"":[{id:""armor"",type:""generic.armor"",amount:%5+2%,operation:""add_value"",slot:""leggings""}]}"
+                            set player's current inventory's slot 25's name to "&7사슬 바지 🟉🟉🟉"
+                            set slot 19 of current inventory of player to air
+                            set slot 21 of current inventory of player to air
+                            play sound "minecraft:block.anvil.use" with pitch 2 to player
+                        if slot 19 of player's current inventory is chain boots:
+                            set slot 25 of current inventory of player to chain boots with nbt from "{""attribute_modifiers"":[{id:""armor"",type:""generic.armor"",amount:%2+2%,operation:""add_value"",slot:""boots""}]}"
+                            set player's current inventory's slot 25's name to "&7사슬 신발 🟉🟉🟉"
+                            set slot 19 of current inventory of player to air
+                            set slot 21 of current inventory of player to air
+                            play sound "minecraft:block.anvil.use" with pitch 2 to player
+                        if slot 19 of player's current inventory is iron helmet:
+                            set slot 25 of current inventory of player to iron helmet with nbt from "{""attribute_modifiers"":[{id:""armor"",type:""generic.armor"",amount:%3+2%,operation:""add_value"",slot:""helmet""}]}"
+                            set player's current inventory's slot 25's name to "&7철 모자 🟉🟉🟉"
+                            set slot 19 of current inventory of player to air
+                            set slot 21 of current inventory of player to air
+                            play sound "minecraft:block.anvil.use" with pitch 2 to player
+                        if slot 19 of player's current inventory is iron chestplate:
+                            play sound "minecraft:block.anvil.use" with pitch 2 to player
+                            set slot 25 of current inventory of player to iron chestplate with nbt from "{""attribute_modifiers"":[{id:""armor"",type:""generic.armor"",amount:%7+2%,operation:""add_value"",slot:""chest""}]}"
+                            set player's current inventory's slot 25's name to "&7철 갑옷 🟉🟉🟉"
+                            set slot 19 of current inventory of player to air
+                            set slot 21 of current inventory of player to air
+                        if slot 19 of player's current inventory is iron leggings:
+                            set slot 25 of current inventory of player to iron leggings with nbt from "{""attribute_modifiers"":[{id:""armor"",type:""generic.armor"",amount:%6+2%,operation:""add_value"",slot:""leggings""}]}"
+                            set player's current inventory's slot 25's name to "&7철 바지 🟉🟉🟉"
+                            set slot 19 of current inventory of player to air
+                            set slot 21 of current inventory of player to air
+                            play sound "minecraft:block.anvil.use" with pitch 2 to player
+                        if slot 19 of player's current inventory is iron boots:
+                            set slot 25 of current inventory of player to iron boots with nbt from "{""attribute_modifiers"":[{id:""armor"",type:""generic.armor"",amount:%3+2%,operation:""add_value"",slot:""boots""}]}"
+                            set player's current inventory's slot 25's name to "&7철 신발 🟉🟉🟉"
+                            set slot 19 of current inventory of player to air
+                            set slot 21 of current inventory of player to air
+                            play sound "minecraft:block.anvil.use" with pitch 2 to player
+                        if slot 19 of player's current inventory's name contain "거미 비늘 갑옷":
+                            set slot 25 of current inventory of player to netherite chestplate with nbt from "{""attribute_modifiers"":[{id:""armor"",type:""generic.armor"",amount:%8+2%,operation:""add_value"",slot:""chest""}]}"
+                            set player's current inventory's slot 25's name to "&9거미 비늘 갑옷 🟉🟉🟉"
+                            set slot 19 of current inventory of player to air
+                            set slot 21 of current inventory of player to air
+                            play sound "minecraft:block.anvil.use" with pitch 2 to player
+                    if slot 19 of player's current inventory's name doesn't contain "🟉🟉🟉🟉" or "🟉🟉🟉🟉🟉":
+                        if slot 19 of player's current inventory is leather helmet:
+                            set slot 25 of current inventory of player to leather helmet with nbt from "{""attribute_modifiers"":[{id:""armor"",type:""generic.armor"",amount:%2+3%,operation:""add_value"",slot:""helmet""}]}"
+                            set player's current inventory's slot 25's name to "&7낡은 가죽모자 🟉🟉🟉🟉"
+                            set slot 19 of current inventory of player to air
+                            set slot 21 of current inventory of player to air
+                            play sound "minecraft:block.anvil.use" with pitch 2 to player
+                        if slot 19 of player's current inventory is leather chestplate:
+                            play sound "minecraft:block.anvil.use" with pitch 2 to player
+                            set slot 25 of current inventory of player to leather chestplate with nbt from "{""attribute_modifiers"":[{id:""armor"",type:""generic.armor"",amount:%4+3%,operation:""add_value"",slot:""chest""}]}"
+                            set player's current inventory's slot 25's name to "&7낡은 가죽갑옷 🟉🟉🟉🟉"
+                            set slot 19 of current inventory of player to air
+                            set slot 21 of current inventory of player to air
+                        if slot 19 of player's current inventory is leather leggings:
+                            set slot 25 of current inventory of player to leather leggings with nbt from "{""attribute_modifiers"":[{id:""armor"",type:""generic.armor"",amount:%3+3%,operation:""add_value"",slot:""leggings""}]}"
+                            set player's current inventory's slot 25's name to "&7낡은 가죽바지 🟉🟉🟉🟉"
+                            set slot 19 of current inventory of player to air
+                            set slot 21 of current inventory of player to air
+                            play sound "minecraft:block.anvil.use" with pitch 2 to player
+                        if slot 19 of player's current inventory is leather boots:
+                            set slot 25 of current inventory of player to leather boots with nbt from "{""attribute_modifiers"":[{id:""armor"",type:""generic.armor"",amount:%2+3%,operation:""add_value"",slot:""boots""}]}"
+                            set player's current inventory's slot 25's name to "&7낡은 가죽신발 🟉🟉🟉🟉"
+                            set slot 19 of current inventory of player to air
+                            set slot 21 of current inventory of player to air
+                            play sound "minecraft:block.anvil.use" with pitch 2 to player
+                        if slot 19 of player's current inventory is chain helmet:
+                            set slot 25 of current inventory of player to chain helmet with nbt from "{""attribute_modifiers"":[{id:""armor"",type:""generic.armor"",amount:%3+3%,operation:""add_value"",slot:""helmet""}]}"
+                            set player's current inventory's slot 25's name to "&7사슬 모자 🟉🟉🟉🟉"
+                            set slot 19 of current inventory of player to air
+                            set slot 21 of current inventory of player to air
+                            play sound "minecraft:block.anvil.use" with pitch 2 to player
+                        if slot 19 of player's current inventory is chain chestplate:
+                            play sound "minecraft:block.anvil.use" with pitch 2 to player
+                            set slot 25 of current inventory of player to chain chestplate with nbt from "{""attribute_modifiers"":[{id:""armor"",type:""generic.armor"",amount:%6+3%,operation:""add_value"",slot:""chest""}]}"
+                            set player's current inventory's slot 25's name to "&7사슬 갑옷 🟉🟉🟉🟉"
+                            set slot 19 of current inventory of player to air
+                            set slot 21 of current inventory of player to air
+                        if slot 19 of player's current inventory is chain leggings:
+                            set slot 25 of current inventory of player to chain leggings with nbt from "{""attribute_modifiers"":[{id:""armor"",type:""generic.armor"",amount:%5+3%,operation:""add_value"",slot:""leggings""}]}"
+                            set player's current inventory's slot 25's name to "&7사슬 바지 🟉🟉🟉🟉"
+                            set slot 19 of current inventory of player to air
+                            set slot 21 of current inventory of player to air
+                            play sound "minecraft:block.anvil.use" with pitch 2 to player
+                        if slot 19 of player's current inventory is chain boots:
+                            set slot 25 of current inventory of player to chain boots with nbt from "{""attribute_modifiers"":[{id:""armor"",type:""generic.armor"",amount:%2+3%,operation:""add_value"",slot:""boots""}]}"
+                            set player's current inventory's slot 25's name to "&7사슬 신발 🟉🟉🟉🟉"
+                            set slot 19 of current inventory of player to air
+                            set slot 21 of current inventory of player to air
+                            play sound "minecraft:block.anvil.use" with pitch 2 to player
+                        if slot 19 of player's current inventory is iron helmet:
+                            set slot 25 of current inventory of player to iron helmet with nbt from "{""attribute_modifiers"":[{id:""armor"",type:""generic.armor"",amount:%3+3%,operation:""add_value"",slot:""helmet""}]}"
+                            set player's current inventory's slot 25's name to "&7철 모자 🟉🟉🟉🟉"
+                            set slot 19 of current inventory of player to air
+                            set slot 21 of current inventory of player to air
+                            play sound "minecraft:block.anvil.use" with pitch 2 to player
+                        if slot 19 of player's current inventory is iron chestplate:
+                            play sound "minecraft:block.anvil.use" with pitch 2 to player
+                            set slot 25 of current inventory of player to iron chestplate with nbt from "{""attribute_modifiers"":[{id:""armor"",type:""generic.armor"",amount:%7+3%,operation:""add_value"",slot:""chest""}]}"
+                            set player's current inventory's slot 25's name to "&7철 갑옷 🟉🟉🟉🟉"
+                            set slot 19 of current inventory of player to air
+                            set slot 21 of current inventory of player to air
+                        if slot 19 of player's current inventory is iron leggings:
+                            set slot 25 of current inventory of player to iron leggings with nbt from "{""attribute_modifiers"":[{id:""armor"",type:""generic.armor"",amount:%6+3%,operation:""add_value"",slot:""leggings""}]}"
+                            set player's current inventory's slot 25's name to "&7철 바지 🟉🟉🟉🟉"
+                            set slot 19 of current inventory of player to air
+                            set slot 21 of current inventory of player to air
+                            play sound "minecraft:block.anvil.use" with pitch 2 to player
+                        if slot 19 of player's current inventory is iron boots:
+                            set slot 25 of current inventory of player to iron boots with nbt from "{""attribute_modifiers"":[{id:""armor"",type:""generic.armor"",amount:%3+3%,operation:""add_value"",slot:""boots""}]}"
+                            set player's current inventory's slot 25's name to "&7철 신발 🟉🟉🟉🟉"
+                            set slot 19 of current inventory of player to air
+                            set slot 21 of current inventory of player to air
+                            play sound "minecraft:block.anvil.use" with pitch 2 to player
+                        if slot 19 of player's current inventory's name contain "거미 비늘 갑옷":
+                            set slot 25 of current inventory of player to netherite chestplate with nbt from "{""attribute_modifiers"":[{id:""armor"",type:""generic.armor"",amount:%8+3%,operation:""add_value"",slot:""chest""}]}"
+                            set player's current inventory's slot 25's name to "&9거미 비늘 갑옷 🟉🟉🟉🟉"
+                            set slot 19 of current inventory of player to air
+                            set slot 21 of current inventory of player to air
+                            play sound "minecraft:block.anvil.use" with pitch 2 to player
+                    if slot 19 of player's current inventory's name doesn't contain "🟉🟉🟉🟉🟉":
+                        if slot 19 of player's current inventory is leather helmet:
+                            set slot 25 of current inventory of player to leather helmet with nbt from "{""attribute_modifiers"":[{id:""armor"",type:""generic.armor"",amount:%2+4%,operation:""add_value"",slot:""helmet""}]}"
+                            set player's current inventory's slot 25's name to "&7낡은 가죽모자 🟉🟉🟉🟉🟉"
+                            set slot 19 of current inventory of player to air
+                            set slot 21 of current inventory of player to air
+                            play sound "minecraft:block.anvil.use" with pitch 2 to player
+                        if slot 19 of player's current inventory is leather chestplate:
+                            play sound "minecraft:block.anvil.use" with pitch 2 to player
+                            set slot 25 of current inventory of player to leather chestplate with nbt from "{""attribute_modifiers"":[{id:""armor"",type:""generic.armor"",amount:%4+4%,operation:""add_value"",slot:""chest""}]}"
+                            set player's current inventory's slot 25's name to "&7낡은 가죽갑옷 🟉🟉🟉🟉🟉"
+                            set slot 19 of current inventory of player to air
+                            set slot 21 of current inventory of player to air
+                        if slot 19 of player's current inventory is leather leggings:
+                            set slot 25 of current inventory of player to leather leggings with nbt from "{""attribute_modifiers"":[{id:""armor"",type:""generic.armor"",amount:%3+4%,operation:""add_value"",slot:""leggings""}]}"
+                            set player's current inventory's slot 25's name to "&7낡은 가죽바지 🟉🟉🟉🟉🟉"
+                            set slot 19 of current inventory of player to air
+                            set slot 21 of current inventory of player to air
+                            play sound "minecraft:block.anvil.use" with pitch 2 to player
+                        if slot 19 of player's current inventory is leather boots:
+                            set slot 25 of current inventory of player to leather boots with nbt from "{""attribute_modifiers"":[{id:""armor"",type:""generic.armor"",amount:%2+4%,operation:""add_value"",slot:""boots""}]}"
+                            set player's current inventory's slot 25's name to "&7낡은 가죽신발 🟉🟉🟉🟉🟉"
+                            set slot 19 of current inventory of player to air
+                            set slot 21 of current inventory of player to air
+                            play sound "minecraft:block.anvil.use" with pitch 2 to player
+                        if slot 19 of player's current inventory is chain helmet:
+                            set slot 25 of current inventory of player to chain helmet with nbt from "{""attribute_modifiers"":[{id:""armor"",type:""generic.armor"",amount:%3+4%,operation:""add_value"",slot:""helmet""}]}"
+                            set player's current inventory's slot 25's name to "&7사슬 모자 🟉🟉🟉🟉🟉"
+                            set slot 19 of current inventory of player to air
+                            set slot 21 of current inventory of player to air
+                            play sound "minecraft:block.anvil.use" with pitch 2 to player
+                        if slot 19 of player's current inventory is chain chestplate:
+                            play sound "minecraft:block.anvil.use" with pitch 2 to player
+                            set slot 25 of current inventory of player to chain chestplate with nbt from "{""attribute_modifiers"":[{id:""armor"",type:""generic.armor"",amount:%6+4%,operation:""add_value"",slot:""chest""}]}"
+                            set player's current inventory's slot 25's name to "&7사슬 갑옷 🟉🟉🟉🟉🟉"
+                            set slot 19 of current inventory of player to air
+                            set slot 21 of current inventory of player to air
+                        if slot 19 of player's current inventory is chain leggings:
+                            set slot 25 of current inventory of player to chain leggings with nbt from "{""attribute_modifiers"":[{id:""armor"",type:""generic.armor"",amount:%5+4%,operation:""add_value"",slot:""leggings""}]}"
+                            set player's current inventory's slot 25's name to "&7사슬 바지 🟉🟉🟉🟉🟉"
+                            set slot 19 of current inventory of player to air
+                            set slot 21 of current inventory of player to air
+                            play sound "minecraft:block.anvil.use" with pitch 2 to player
+                        if slot 19 of player's current inventory is chain boots:
+                            set slot 25 of current inventory of player to chain boots with nbt from "{""attribute_modifiers"":[{id:""armor"",type:""generic.armor"",amount:%2+4%,operation:""add_value"",slot:""boots""}]}"
+                            set player's current inventory's slot 25's name to "&7사슬 신발 🟉🟉🟉🟉🟉"
+                            set slot 19 of current inventory of player to air
+                            set slot 21 of current inventory of player to air
+                            play sound "minecraft:block.anvil.use" with pitch 2 to player
+                        if slot 19 of player's current inventory is iron helmet:
+                            set slot 25 of current inventory of player to iron helmet with nbt from "{""attribute_modifiers"":[{id:""armor"",type:""generic.armor"",amount:%3+4%,operation:""add_value"",slot:""helmet""}]}"
+                            set player's current inventory's slot 25's name to "&7철 모자 🟉🟉🟉🟉🟉"
+                            set slot 19 of current inventory of player to air
+                            set slot 21 of current inventory of player to air
+                            play sound "minecraft:block.anvil.use" with pitch 2 to player
+                        if slot 19 of player's current inventory is iron chestplate:
+                            play sound "minecraft:block.anvil.use" with pitch 2 to player
+                            set slot 25 of current inventory of player to iron chestplate with nbt from "{""attribute_modifiers"":[{id:""armor"",type:""generic.armor"",amount:%7+4%,operation:""add_value"",slot:""chest""}]}"
+                            set player's current inventory's slot 25's name to "&7철 갑옷 🟉🟉🟉🟉🟉"
+                            set slot 19 of current inventory of player to air
+                            set slot 21 of current inventory of player to air
+                        if slot 19 of player's current inventory is iron leggings:
+                            set slot 25 of current inventory of player to iron leggings with nbt from "{""attribute_modifiers"":[{id:""armor"",type:""generic.armor"",amount:%6+4%,operation:""add_value"",slot:""leggings""}]}"
+                            set player's current inventory's slot 25's name to "&7철 바지 🟉🟉🟉🟉🟉"
+                            set slot 19 of current inventory of player to air
+                            set slot 21 of current inventory of player to air
+                            play sound "minecraft:block.anvil.use" with pitch 2 to player
+                        if slot 19 of player's current inventory is iron boots:
+                            set slot 25 of current inventory of player to iron boots with nbt from "{""attribute_modifiers"":[{id:""armor"",type:""generic.armor"",amount:%3+4%,operation:""add_value"",slot:""boots""}]}"
+                            set player's current inventory's slot 25's name to "&7철 신발 🟉🟉🟉🟉🟉"
+                            set slot 19 of current inventory of player to air
+                            set slot 21 of current inventory of player to air
+                            play sound "minecraft:block.anvil.use" with pitch 2 to player
+                        if slot 19 of player's current inventory's name contain "거미 비늘 갑옷":
+                            set slot 25 of current inventory of player to netherite chestplate with nbt from "{""attribute_modifiers"":[{id:""armor"",type:""generic.armor"",amount:%8+4%,operation:""add_value"",slot:""chest""}]}"
+                            set player's current inventory's slot 25's name to "&9거미 비늘 갑옷 🟉🟉🟉🟉🟉"
+                            set slot 19 of current inventory of player to air
+                            set slot 21 of current inventory of player to air
+                            play sound "minecraft:block.anvil.use" with pitch 2 to player
+
+on inventory close:
+    if {forgeopen.%uuid of player%} is set:
+        if player's current inventory's slot 19 isn't air:
+            give player's current inventory's slot 19 to player
+        if player's current inventory's slot 21 isn't air:
+            give player's current inventory's slot 21 to player
+        if player's current inventory's slot 22 isn't air:
+            give player's current inventory's slot 22 to player
+        if player's current inventory's slot 23 isn't air:
+            give player's current inventory's slot 23 to player
+        if player's current inventory's slot 25 isn't air:
+            give player's current inventory's slot 25 to player
+        delete {forgeopen.%uuid of player%}

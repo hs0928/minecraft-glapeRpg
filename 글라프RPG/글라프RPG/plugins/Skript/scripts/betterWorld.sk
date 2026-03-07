@@ -1,0 +1,115 @@
+command /world [<text="">] [<text>] [<text=0>] [<text=100>] [<text=0>]:
+    permission: op
+    trigger:
+        if arg-1 is "list":
+            worldList(player)
+        else if arg-1 is "info":
+            worldInfo(player, arg-2)
+        else if arg-1 is "tp":
+            worldTp(player, arg-2, arg-3 parsed as integer, arg-4 parsed as integer, arg-5 parsed as integer)
+        else if arg-1 is "create":
+            worldCreate(player, arg-2, arg-3, arg-5)
+        else if arg-1 is "clone":
+            worldClone(player, arg-2, arg-3)
+        else if arg-1 is "load":
+            worldLoad(player, arg-2)
+        else if arg-1 is "unload":
+            worldUnload(player, arg-2)
+        else if arg-1 is "delete":
+            worldDelete(player, arg-2)
+
+function worldList(p: player):
+    send "&6====[ World List ]====" to {_p}
+    loop {world::*}:
+        send "%loop-value% [%{world::%loop-value%::type}%&f] - %{world::%loop-value%::state}%" to {_p}
+
+function worldInfo(p: player, w: text):
+    if {world::*} contains {_w}:
+        send "&6---- World Info ----" to {_p}
+        send "&b이름: &f%{_w}%" to {_p}
+        send "&6상태: %{world::%{_w}%::state}%" to {_p}
+        send "&b타입: %{world::%{_w}%::type}%" to {_p}
+        send "&6구조물: %{world::%{_w}%::structure}%" to {_p}
+    else:
+        send "&7[&6World&7] &c존재하지 않은 월드입니다" to {_p}
+
+function worldTp(p: player, w: text, x: integer, y: integer, z: integer):
+    teleport {_p} to location({_x}, {_y}, {_z}, "%{_w}%", 0, 0)
+    send "&7[&6World&7] &b월드 &f%{_w}%&b로 이동했습니다" to {_p}
+
+function worldCreate(p: player, w: text, t: text, s: text):
+    if {world::*} contains {_w}:
+        send "&7[&6World&7] &c이미 있는 이름입니다" to {_p}
+        stop
+    set {_world} to a new world creator named {_w}
+    if {_t} is "nomal":
+        set {world::%{_w}%::type} to "&aNomal"
+    else if {_t} is "nether":
+        set environment option of {_world} to nether
+        set {world::%{_w}%::type} to "&cNether"
+    else if {_t} is "end":
+        set environment option of {_world} to the end
+        set {world::%{_w}%::type} to "&bEnd"
+    else if {_t} is "flat":
+        set world type option of {_world} to flat
+        set {world::%{_w}%::type} to "&eFlat"
+    else if {_t} is "void":
+        set world type option of {_world} to flat
+        set generator settings option of {_world} to "{""biome"": ""minecraft:plains"",""layers"": []}}"
+        set {_s} to "false"
+        set {world::%{_w}%::type} to "&8Void"
+    if {_s} is "false":
+        set should generate structures option of {_world} to false
+        set {world::%{_w}%::structure} to "&c꺼짐"
+    else:
+        set {world::%{_w}%::structure} to "&a켜짐"
+    add {_w} to {world::*}
+    set {world::%{_w}%::state} to "&aLoaded"
+    send "&7[&6World&7] &b월드 &f%{_w}%&b를 생성했습니다" to {_p}
+    load world from creator {_world}
+
+function worldClone(p: player, w: text,c: text):
+    if {world::*} does not contain {_w}:
+        send "&7[&6World&7] &c존재하지 않은 월드입니다" to {_p}
+        stop
+    if {world::*} contains {_c}:
+        send "&7[&6World&7] &c이미 있는 이름입니다" to {_p}
+        stop
+    set {_world} to a new world creator named {_c} to clone world {_w} without saving
+    set {world::%{_c}%::structure} to {world::%{_w}%::structure}
+    set {world::%{_c}%::type} to {world::%{_w}%::type}
+    add {_c} to {world::*}
+    set {world::%{_c}%::state} to "&aLoaded"
+    send "&7[&6World&7] &b월드 &f%{_c}%&b를 생성했습니다" to {_p}
+    load world from creator {_world}
+
+function worldLoad(p: player, w: text):
+    if {world::*} contains {_w}:
+        if {world::%{_w}%::state} is "&cUnloaded":
+            set {world::%{_w}%::state} to "&aLoaded"
+            send "&7[&6World&7] &b월드 &f%{_w}%&b를 로드했습니다" to {_p}
+            load world {_w}
+        else:
+            send "&7[&6World&7] &c이미 로드된 월드입니다" to {_p}
+    else:
+        send "&7[&6World&7] &c존재하지 않은 월드입니다" to {_p}
+
+function worldUnload(p: player, w: text):
+    if {world::*} contains {_w}:
+        if {world::%{_w}%::state} is "&aLoaded":
+            set {world::%{_w}%::state} to "&cUnloaded"
+            send "&7[&6World&7] &b월드 &f%{_w}%&b를 언로드했습니다" to {_p}
+            unload world {_w}
+        else:
+            send "&7[&6World&7] &c이미 언로드된 월드입니다" to {_p}
+    else:
+        send "&7[&6World&7] &c존재하지 않은 월드입니다" to {_p}
+
+function worldDelete(p: player, w: text):
+    if {world::*} contains {_w}:
+        remove {_w} from {world::*}
+        delete {world::%{_w}%::*}
+        send "&7[&6World&7] &b월드 &f%{_w}%&b를 삭제했습니다" to {_p}
+        delete world file for world {_w}
+    else:
+        send "&7[&6World&7] &c존재하지 않은 월드입니다" to {_p}

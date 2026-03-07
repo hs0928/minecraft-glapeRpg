@@ -1,0 +1,187 @@
+every 5 tick:
+	loop all entities:
+		if loop-entity's name contains "여왕거미": 
+			set loop-entity's scale attribute to 3
+
+on death:
+	attacker is a player:
+		if name of victim is "&a초원의 좀비 [Lv1]":
+			give 1 xp to attacker
+			add 1 to {money.%attacker%}
+			send "&axp +1  &egold +1" to attacker
+			chance of 100%:
+				drop 1 rotten flesh at victim
+			chance of 10%:
+				drop 1 raw copper named "&f살점 덩어리" at victim
+				send "&7<&e시스템&7> &a10%% 확률로 &f살점 덩어리을 얻으셨습니다!" to attacker
+
+on death:
+	attacker is a player:
+		if name of victim is "&a초원의 슬라임 [Lv5]":
+			give 2 xp to attacker
+			add 3 to {money.%attacker%}
+			send "&axp +2  &egold +3" to attacker
+			drop 1 slime ball at victim
+
+on death:
+	attacker is a player:
+		if name of victim is "&a[엘리트] 초원의 주민좀비 [Lv9]":
+			give 3 xp to attacker
+			add 7 to {money.%attacker%}
+			send "&axp +3  &egold +7" to attacker
+			drop 1 rotten flesh at victim
+			chance of 30%:
+				drop 1 raw copper named "&f살점 덩어리" at victim
+				send "&7<&e시스템&7> &a30%% 확률로 &f살점 덩어리을 얻으셨습니다!" to attacker
+			chance of 7%:
+				drop 1 quartz named "&a사그라든 결정" at victim
+				send "&7<&e시스템&7> &a7%% 확률로 &a사그라든 결정을 얻으셨습니다!" to attacker
+
+on death:
+	attacker is a player:
+		if name of victim is "&9설원의 늑대 [Lv17]":
+			give 3 xp to attacker
+			add 5 to {money.%attacker%}
+			send "&axp +3 &egold +5" to attacker
+			drop 1 feather named "&f하얀 모피" at victim
+
+on death:
+	attacker is a player:
+		if name of victim is "&9설원의 북극곰 [Lv23]":
+			give 4 xp to attacker
+			add 7 to {money.%attacker%}
+			send "&axp +4 &egold +7" to attacker
+			drop 1 leather named "&f북극곰 가죽" at victim
+
+on death:
+	attacker is a player:
+		if name of victim is "&9[엘리트] 설원의 스트레이 [Lv27]":
+			give 8 xp to attacker
+			add 15 to {money.%attacker%}
+			send "&axp +8 &egold +15" to attacker
+			drop 1 bone at victim
+			chance of 10%:
+				drop 1 quartz named "&a사그라든 결정" at victim
+				send "&7<&e시스템&7> &a10%% 확률로 &a사그라든 결정을 얻으셨습니다!" to attacker
+
+on death:
+	attacker is a player:
+		if name of victim is "&a[미니보스] 강력한 슬라임 [Lv12]":
+			give 15 xp to attacker
+			add 30 to {money.%attacker%}
+			send "&axp +15  &egold +30" to attacker
+			give 5 slime ball to attacker
+			chance of 80%:
+				give 1 slime block to attacker
+			chance of 10%:
+				execute console command "give %attacker% iron_sword[attribute_modifiers=[{id:""attack_damage"",type:""generic.attack_damage"",amount:6,operation:""add_value"",slot:""mainhand""}],custom_name='{""color"":""lime"",""italic"":false,""text"":""슬라임 검""}'] 1"
+				send "&7<&e시스템&7> &a10%% 확률로 &a슬라임 검을 얻으셨습니다!" to attacker
+			chance of 10%:
+				give 1 turtle helmet named "&a슬라임 헬멧" to attacker
+				send "&7<&e시스템&7> &a10%% 확률로 &a슬라임 헬멧을 얻으셨습니다!" to attacker
+
+on death:
+	attacker is a player:
+		if name of victim is "&7동굴의 좀비 [Lv32]":
+			give 12 xp to attacker
+			add 15 to {money.%attacker%}
+			send "&axp +12  &egold +15" to attacker
+			drop 1 rotten flesh at victim
+			chance of 70%:
+				drop 1 raw copper named "&f살점 덩어리" at victim
+
+on death:
+	attacker is a player:
+		if name of victim is "&7동굴의 스켈레톤 [Lv37]":
+			give 15 xp to attacker
+			add 15 to {money.%attacker%}
+			send "&axp +15  &egold +15" to attacker
+			chance of 3%:
+				drop 1 amethyst shard named "&9빛바랜 결정" at victim
+				send "&7<&e시스템&7> &a3%% 확률로 &9빛바랜 결정을 얻으셨습니다!" to attacker
+			chance of 70%:
+				drop 1 bone at victim
+
+on death:
+	attacker is a player:
+		if name of victim is "&7동굴의 거미 [Lv35]":
+			give 14 xp to attacker
+			add 17 to {money.%attacker%}
+			send "&axp +14  &egold +17" to attacker
+			chance of 20%:
+				drop 1 fermented spider eye at victim
+				send "&7<&e시스템&7> &a20%% 확률로 발효된 거미눈을 얻으셨습니다!" to attacker
+			chance of 70%:
+				drop 1 spider eye at victim
+
+on death:
+	attacker is a player:
+		if name of victim is "&7[엘리트] 동굴의 동굴거미 [Lv44]":
+			give 20 xp to attacker
+			add 25 to {money.%attacker%}
+			send "&axp +20  &egold +25" to attacker
+			chance of 7%:
+				drop 1 amethyst shard named "&9빛바랜 결정" at victim
+				send "&7<&e시스템&7> &a7%% 확률로 &9빛바랜 결정을 얻으셨습니다!" to attacker
+			chance of 20%:
+				drop 1 fermented spider eye at victim
+				send "&7<&e시스템&7> &a20%% 확률로 발효된 거미눈을 얻으셨습니다!" to attacker
+			chance of 70%:
+				drop 1 spider eye at victim
+
+on death:
+	attacker is a player:
+		if name of victim is "&7[미니보스] 여왕거미 [Lv50]":
+			give 100 xp to attacker
+			add 150 to {money.%attacker%}
+			send "&axp +100  &egold +150" to attacker
+			give 2 fermented spider eye to attacker
+			give 6 spider eye to attacker
+			chance of 13%:
+				give 1 netherite chestplate named "&9거미 비늘 갑옷" with lore "&7몸에 있을 때:   %nl%&9<+7 방어>" with nbt from "{""attribute_modifiers"":[{id:""max_health"",type:""generic.max_health"",amount:4,operation:""add_value"",slot:""chest""}]}" to attacker
+				send "&7<&e시스템&7> &a13%% 확률로 &9거미 비늘 갑옷&a을 얻으셨습니다!" to attacker
+			chance of 10%:
+				give 1 bow named "&9거미 활" with lore "&9<15데미지>%nl%&7주로 사용하는 손에 있을 때: %nl%&c<힘스텟 +5>" to attacker
+				send "&7<&e시스템&7> &a10%% 확률로 &9거미 활&a을 얻으셨습니다!" to attacker
+			chance of 4%:
+				give 1 heavy core to attacker
+				send "&7<&e시스템&7> &a4%% 확률로 &d무거운 코어&a을 얻으셨습니다!" to attacker
+
+on damage:
+	if attacker is player:
+		if victim is not player:
+			if attacker's tool's name is "&a슬라임 검":
+				apply potion of slowness of tier 1 to victim for 3 seconds
+
+on damage:
+	if attacker's name is "&9[엘리트] 설원의 스트레이 [Lv27]":
+		if victim is player:
+			set damage to 3
+
+on damage:
+	if attacker's name is "&7동굴의 스켈레톤 [Lv37]":
+		if victim is player:
+			set damage to 5
+
+on damage:
+	if attacker's name is "&7동굴의 좀비 [Lv32]":
+		if victim is player:
+			add 2 to damage
+
+on damage:
+	if attacker's name is "&7동굴의 거미 [Lv35]":
+		if victim is player:
+			set damage to 4
+
+on damage:
+	if attacker's name is "&7[엘리트] 동굴의 동굴거미 [Lv44]":
+		if victim is player:
+			execute console command "effect give %victim% poison 6 0"
+
+on damage:
+	if attacker is player:
+		if name of victim is "&7[미니보스] 여왕거미 [Lv50]":
+			chance of 20%:
+				make attacker run command "mm mobs spawn 33" as op
+			chance of 10%:
+				make attacker run command "mm mobs spawn 34" as op

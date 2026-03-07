@@ -1,0 +1,231 @@
+variables:
+    {시스템출력} = "&7<&e시스템&7>&e"
+    {오류출력} = "&7<&c오류&7>&c"
+
+command 메뉴:
+    aliases: /menu
+    trigger:
+        메뉴(player)
+
+on swap hand item:
+    if player is sneaking:
+        cancel event
+        메뉴(player)
+
+on inventory click:
+    if inventory name is "menu":
+        cancel event
+        if clicked slot is 10:
+            스폰(player)
+        if clicked slot is 11:
+            창고(player)
+        if clicked slot is 12:
+            골드확인(player)
+        if clicked slot is 13:
+            쓰레기통(player)
+        if clicked slot is 14:
+            잠수장(player)
+        if clicked slot is 16:
+            execute player command "/스킬"
+        if clicked slot is 15:
+            스텟창(player)
+
+command 잠수장:
+    aliases: /afk
+    trigger:
+        잠수장(player)
+
+command 쓰레기통:
+    trigger:
+        쓰레기통(player)
+
+command 스폰:
+    aliases: /spawn
+    trigger:
+        스폰(player)
+
+command 창고:
+    aliases: /chest
+    trigger:
+        창고(player)
+
+command 스텟:
+    aliases: /stat, /stats
+    trigger:
+        스텟창(player)
+
+on inventory click:
+    if inventory name is "&6스텟":
+        cancel event
+        if clicked item is not stained glass pane:
+            play sound "UI_BUTTON_CLICK" with volume 0.5 to player
+            if {스텟포인트::%uuid of player%} > 0:
+                if clicked slot is 1:
+                    if {공격::%uuid of player%} < 200:
+                        add 1 to {공격::%uuid of player%}
+                        remove 1 from {스텟포인트::%uuid of player%}
+                    else:
+                        send "%{오류출력}% 당신은 이 스텟의 최대치에 도달했습니다!" to player
+                else if clicked slot is 3:
+                    if {속도::%uuid of player%} < 325:
+                        add 1 to {속도::%uuid of player%}
+                        remove 1 from {스텟포인트::%uuid of player%}
+                    else:
+                        send "%{오류출력}% 당신은 이 스텟의 최대치에 도달했습니다!" to player
+                else if clicked slot is 5:
+                    if {방어::%uuid of player%} < 200:
+                        add 1 to {방어::%uuid of player%}
+                        remove 1 from {스텟포인트::%uuid of player%}
+                    else:
+                        send "%{오류출력}% 당신은 이 스텟의 최대치에 도달했습니다!" to player
+                else if clicked slot is 7:
+                    if {지능::%uuid of player%} < 200:
+                        add 1 to {지능::%uuid of player%}
+                        remove 1 from {스텟포인트::%uuid of player%}
+                    else:
+                        send "%{오류출력}% 당신은 이 스텟의 최대치에 도달했습니다!" to player
+            else:
+                send "%{오류출력}% 스텟포인트가 부족합니다." to player
+
+on damage:
+    if attacker is player:
+        add 0.1*{공격::%uuid of attacker%} to damage
+    if victim is player:
+        set damage to damage - {방어::%uuid of victim%}/10
+        if damage <= 0.1:
+            set damage to 0.1
+
+every 5 tick:
+    loop all players:
+        set the walk speed of loop-player to 0.002*{속도::%uuid of loop-player%}
+
+on player's held item change:
+    if past event-item is bow named "&b거미 활":
+        if event-item is not bow named "&b거미 활":
+            remove 5 from {공격::%uuid of player%}
+    else if event-item is bow named "&b거미 활":
+        if past event-item is not bow named "&b거미 활":
+            add 5 to {공격::%uuid of player%}
+
+on inventory close:
+    if name of current inventory of player is "&f개인 창고":
+        set {_pchest} to 0
+        loop 27 times:
+            set {chest::%uuid of player%::%{_pchest}%} to slot {_pchest} of current inventory of player
+            add 1 to {_pchest}
+
+command msg [<player>] [<text>]:
+    description: Send a message to the specified player.
+    executable by: player, console
+    aliases: /message, /귓속말
+    trigger:
+        if arg-player or arg-text is not set:
+            send "%{시스템}% 플레이어를 선택해주세요!" to player
+            send "%{시스템}% 사용법 : &b/msg <플레이어> <메세지>" to player
+            stop
+        else:
+            send "&bFrom: &a%player%&r &7> &6%arg-text%" to arg-player
+            send "&bTo: &a%arg-player%&r &7> &6%arg-text%" to player
+            play sound "minecraft:entity.arrow.hit_player" to player
+
+on level up:
+    send "&aLevel up!" to player
+    play sound "minecraft:entity.player.levelup" to player
+    set {1플레이어레벨::%uuid of player%} to level of player
+    if {1플레이어레벨2::%uuid of player%} is not set:
+        set {1플레이어레벨2::%uuid of player%} to 0
+    set {1플레이어레벨::%uuid of player%} to {1플레이어레벨::%uuid of player%}-{1플레이어레벨2::%uuid of player%}
+    add {1플레이어레벨::%uuid of player%} to {스텟포인트::%uuid of player%}
+    set {1플레이어레벨2::%uuid of player%} to level of player
+
+on join:
+    set join message to "&7[&a+&7] &f%player%"
+    if {접속했었음::%uuid of player%} is not true:
+        초기화(player)
+        set {접속했었음::%uuid of player%} to true
+    if player is not op:
+        set gamemode of player to adventure
+
+on quit:
+    set quit message to ""
+
+command 초기화 [<player>]:
+    trigger:
+        if player is op:
+            초기화(arg-player)
+
+on rightclick:
+    if event-block is trapdoor or chest or stonecutter or grindstone or blast furnace or anvil:
+        if player is not op:
+            cancel event
+
+on drop:
+    if player is not op:
+        cancel event
+
+on death:
+    if victim is player:
+        wait 5 tick
+        스폰(victim)
+        console command "xp set %victim% 0"
+
+every 20 tick:
+    loop all players:
+        if offhand item of loop-player is heavy core:
+            remove strength from loop-player
+            remove regeneration from loop-player
+            remove slowness from loop-player
+            apply potion of strength of tier 2 without particles to loop-player for 21 tick
+            apply potion of regeneration of tier 2 without particles to loop-player for 21 tick
+            apply potion of slowness of tier 3 without particles to loop-player for 21 tick
+
+#기본기능
+
+on command:
+    if command is "w":
+        cancel event
+        send "%{오류출력}% /msg 또는 /귓속말을 사용하세요"
+
+on damage:
+    if victim is player:
+        if attacker is player:
+            cancel event
+
+command money [<player>] [<string>] [<integer>]:
+    trigger:
+        if player is op:
+            if arg-string is not set:
+                send "&e%arg-player% 님의 골드는 %{돈::%uuid of arg-player%}%골드 입니다" to player
+                play sound "minecraft:entity.arrow.hit_player" to player
+            if arg-string is "설정":
+                set {돈::%uuid of arg-player%} to arg-integer
+                send "&e%arg-player% 님의 골드를 %arg-integer%골드 으로 설정하였습니다"
+                play sound "minecraft:entity.arrow.hit_player" to player
+        else:
+            send "%{오류출력}% 당신은 이 명령어를 사용하실 수 없습니다" to player
+            play sound "minecraft:entity.arrow.hit_player" to player
+
+on spawn:
+    if event-entity is chicken:
+        cancel event
+    if event-entity is zombie:
+        set slot 39 of event-entity's current inventory to stone button
+        set held item of event-entity to air
+
+#관리기능
+
+command /gr:
+    trigger:
+        if player is op:
+            execute player command "gamerule naturalRegeneration false"
+            execute player command "gamerule doMobSpawning false"
+            execute player command "gamerule keepInventory true"
+            execute player command "gamerule doDaylightCycle false"
+            execute player command "gamerule doWeatherCycle false"
+            execute player command "gamerule commandBlockOutput false"
+            execute player command "gamerule fallDamage false"
+            execute player command "gamerule showDeathMessages false"
+            execute player command "gamerule doImmediateRespawn true"
+            execute player command "gamerule sendCommandFeedback false"
+            send "&a기본 게임룰이 설정되었습니다" to player
+            play sound "entity.player.levelup" to player

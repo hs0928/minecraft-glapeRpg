@@ -1,0 +1,31 @@
+Configuration:
+  General:
+    ThreadPoolSize: -1
+    AllowMetrics: true
+    CheckForUpdates: true
+    CompatibilityMode: false
+    DebugLevel: 0
+    DebugMode: false
+    DebugSpawners: false
+  Clock:
+    Main: 1
+    Bars: 20
+    Saving: 300
+    Spawners: 2
+    RandomSpawning: 1
+    Scanner: 10
+    Cleanup: 600
+  Compatibility:
+    Heroes:
+      Enabled: true
+      ShowXPMessage: true
+      XPMessageFormat: ''
+    McMMO:
+      ShowXPMessage: true
+      XPMessageFormat: '&7You receive <drop.amount> experience for slaying <caster.name>'
+    SkillAPI:
+      ShowXPMessage: true
+      XPMessageFormat: '&7You receive <drop.amount> experience for slaying <caster.name>'
+    Vault:
+      ShowMoneyMessage: true
+      MoneyMessageFormat: '&7You receive <drop.amount> currency for slaying <caster.name>'

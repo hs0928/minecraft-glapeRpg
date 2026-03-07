@@ -1,0 +1,52 @@
+Configuration:
+  MobDrops:
+    DefaultDropMethod: VANILLA
+    DoLootsplosionByDefault: false
+    DoHologramNameByDefault: false
+    DoItemGlowByDefault: false
+    DoItemBeamByDefault: false
+    DoItemVFXByDefault: false
+    DefaultItemVFX:
+      Material: POTION
+      Model: 1
+    DoPerPlayerDropsByDefault: false
+    DoClientsideDropsByDefault: false
+    MinimumDamagePercentForDrops: 1%
+    DefaultDeathHologram: []
+    DefaultLeaderboardTimeout: 6000
+    DefaultDeathChatMessage: []
+  MobEggs:
+    Material: PIG_SPAWN_EGG
+    Model: 1
+    DefaultDisplay: <mob.name> Spawn Egg
+    DefaultLore:
+    - <dark_gray>A Mythical Egg that can</dark_gray>
+    - <dark_gray>be used to resurrect a</dark_gray>
+    - <dark_gray><mob.name></dark_gray>
+  DefaultMobOptions:
+    Despawn: true
+    PreventOtherDrops: false
+  Mobs:
+    CancelDamageIfZero: false
+    KillMessagePrefix: ''
+  MobLeveling:
+    ScalingEquations:
+      Damage: V * ((1.05)^(L-1))
+      Health: V * ((1.05)^(L-1))
+    DefaultLevelModifiers:
+      Health: '0.1'
+      Damage: '0'
+      Power: '0'
+      Armor: '0'
+      KnockbackResistance: '0'
+    WorldScaling:
+      Default:
+        Enabled: true
+        ScaleVanillaMobs: true
+        PerBlocksFromSpawn: 250
+      world2:
+        Enabled: true
+        PerBlocksFromSpawn: 250
+      world2_nether:
+        Enabled: false
+        PerBlocksFromSpawn: 100

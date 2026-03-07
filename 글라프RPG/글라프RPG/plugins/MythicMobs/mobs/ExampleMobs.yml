@@ -1,0 +1,155 @@
+plane zombie:
+  Type: zombie
+  Display: '&a초원의 좀비 [Lv1]'
+  Health: 10
+  Damage: 2
+  Options:
+    Size: 1
+    MovementSpeed: 0.25
+    PreventSlimeSplit: true
+    PreventOtherDrops: true
+    MaxCombatDistance: 30
+    FollowRange: 10
+
+plane slime:
+  Type: SLIME
+  Display: '&a초원의 슬라임 [Lv5]'
+  Health: 15
+  Damage: 4
+  Options:
+    Size: 3
+    MovementSpeed: 0.6
+    PreventSlimeSplit: true
+    PreventOtherDrops: true
+    MaxCombatDistance: 30
+    FollowRange: 10
+
+plane zombievillager:
+  type: zombie_villager
+  Display: '&a[엘리트] 초원의 주민좀비 [Lv9]'
+  Health: 20
+  Damage: 6
+  Options:
+    Size: 1
+    MovementSpeed: 0.35
+    PreventSlimeSplit: true
+    PreventOtherDrops: true
+    MaxCombatDistance: 30
+    FollowRange: 10
+
+plane slimeboss:
+  type: slime
+  Display: '&a[미니보스] 강력한 슬라임 [Lv12]'
+  Health: 100
+  Damage: 8
+  Options:
+    Size: 7
+    MovementSpeed: 0.40
+    PreventSlimeSplit: true
+    PreventOtherDrops: true
+    MaxCombatDistance: 30
+    FollowRange: 10
+
+snow wolf:
+  type: wolf
+  Display: '&9설원의 늑대 [Lv17]'
+  Health: 16
+  Damage: 5
+  Options:
+    Size: 1
+    MovementSpeed: 0.5
+    PreventSlimeSplit: true
+    PreventOtherDrops: true
+    MaxCombatDistance: 30
+    FollowRange: 10
+
+snow bear:
+  type: polar_bear
+  Display: '&9설원의 북극곰 [Lv23]'
+  Health: 30
+  Damage: 7
+  Options:
+    Size: 1
+    MovementSpeed: 0.4
+    PreventSlimeSplit: true
+    PreventOtherDrops: true
+    MaxCombatDistance: 30
+    FollowRange: 10
+
+snow stary:
+  type: stray
+  Display: '&9[엘리트] 설원의 스트레이 [Lv27]'
+  Health: 30
+  Damage: 10
+  Options:
+    Size: 1
+    MovementSpeed: 0.3
+    PreventSlimeSplit: true
+    PreventOtherDrops: true
+    MaxCombatDistance: 30
+    FollowRange: 15
+
+cave zombie:
+  type: zombie
+  Display: '&7동굴의 좀비 [Lv32]'
+  Health: 50
+  Damage: 3.5
+  Options:
+    Size: 1
+    MovementSpeed: 0.3
+    PreventSlimeSplit: true
+    PreventOtherDrops: true
+    MaxCombatDistance: 20
+    FollowRange: 10
+
+cave skeleton:
+  type: skeleton
+  Display: '&7동굴의 스켈레톤 [Lv37]'
+  Health: 40
+  Damage: 5
+  Options:
+    Size: 1
+    MovementSpeed: 0.3
+    PreventSlimeSplit: true
+    PreventOtherDrops: true
+    MaxCombatDistance: 20
+    FollowRange: 10
+
+cave spider:
+  type: spider
+  Display: '&7동굴의 거미 [Lv35]'
+  Health: 45
+  Damage: 4.5
+  Options:
+    Size: 1
+    MovementSpeed: 0.3
+    PreventSlimeSplit: true
+    PreventOtherDrops: true
+    MaxCombatDistance: 20
+    FollowRange: 10
+
+cave cavespider:
+  type: cave_spider
+  Display: '&7[엘리트] 동굴의 동굴거미 [Lv44]'
+  Health: 75
+  Damage: 7.5
+  Options:
+    Size: 1
+    MovementSpeed: 0.3
+    PreventSlimeSplit: true
+    PreventOtherDrops: true
+    MaxCombatDistance: 20
+    FollowRange: 10
+
+cave spiderboss:
+  type: spider
+  Display: '&7[미니보스] 여왕거미 [Lv50]'
+  Health: 300
+  Damage: 10
+  Options:
+    Size: 3
+    MovementSpeed: 0.3
+    PreventSlimeSplit: true
+    PreventOtherDrops: true
+    MaxCombatDistance: 20
+    FollowRange: 10

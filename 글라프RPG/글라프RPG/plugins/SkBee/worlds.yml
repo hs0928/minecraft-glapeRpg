@@ -1,0 +1,17 @@
+worlds:
+  snow:
+    key: minecraft:snow
+    type: FLAT
+    environment: NORMAL
+    seed: -8487442842767324150
+    generator-settings: '{"biome": "minecraft:plains","layers": []}}'
+    structures: false
+    hardcore: false
+  cave:
+    key: minecraft:cave
+    type: FLAT
+    environment: NORMAL
+    seed: 1963471218003323849
+    generator-settings: '{"biome": "minecraft:plains","layers": []}}'
+    structures: false
+    hardcore: false

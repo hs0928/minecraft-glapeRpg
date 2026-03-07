@@ -1,0 +1,359 @@
+on rightclick on entity:
+    if entity's name is "&8대장장이":
+        cancel event
+        play sound "minecraft:entity.arrow.hit_player" to player
+        open chest with 3 rows named "&8강화" to player
+        set {_SLOT} to 0
+        loop 27 times:
+            set slot {_SLOT} of current inventory of player to light blue stained glass pane named " "
+            add 1 to {_SLOT}
+            set slot 4 of current inventory of player to anvil named "&8강화"
+            set slot 16 of current inventory of player to smithing table named "&8무기제작"
+            set slot 10 of current inventory of player to enchanting table named "&8인첸트"
+            set slot 13 of current inventory of player to anvil named "&8강화"
+
+on inventory click:
+    if clicked inventory is not player's inventory:
+        if inventory name is "&8강화":
+            cancel event
+            if clicked slot is 10:
+                send "&7<&e시스템&7> &c이 기능은 아직 개발되지 않았습니다" to player
+                play sound "entity.enderman.teleport" at volume 1 at pitch 2 to player
+            if clicked slot is 16:
+                send "&7<&e시스템&7> &c이 기능은 아직 개발되지 않았습니다" to player
+                play sound "entity.enderman.teleport" at volume 1 at pitch 2 to player
+            if clicked slot is 13:
+                open chest with 4 rows named "&8강화 " to player
+                set {forgeopen.%uuid of player%} to "open"
+                play sound "minecraft:entity.arrow.hit_player" to player
+                set {_SLOT} to 0
+                loop 36 times:
+                    set slot {_SLOT} of current inventory of player to light blue stained glass pane named " "
+                    add 1 to {_SLOT}
+                    set slot 10 of current inventory of player to diamond sword named "&8강화할 아이템"
+                    set slot 12 of current inventory of player to glowing stone named "&e강화석"
+                    set slot 13 of current inventory of player to iron ingot named "재료"
+                    set slot 14 of current inventory of player to iron ingot named "재료"
+                    set slot 16 of current inventory of player to anvil named "&8강화"
+                    set slot 19 of current inventory of player to air
+                    set slot 21 of current inventory of player to air
+                    set slot 22 of current inventory of player to air
+                    set slot 23 of current inventory of player to air
+                    set slot 25 of current inventory of player to slot 19 of current inventory of player
+
+on inventory click:
+    if inventory name is "&8강화 ":
+        if clicked inventory is not player's inventory:
+            if clicked item is light blue stained glass pane:
+                cancel event
+            if clicked slot is 13 or 14:
+                cancel event
+            if clicked slot is 10:
+                cancel event
+            if clicked slot is 12:
+                cancel event
+            if clicked item is anvil:
+                cancel event
+                if slot 21 of player's current inventory is stone named "&b1단계 강화석":
+                    if slot 19 of player's current inventory's name doesn't contain "연습용":
+                        if slot 19 of player's current inventory's name doesn't contain "🟉" or "🟉🟉" or "🟉🟉🟉" or "🟉🟉🟉🟉" or "🟉🟉🟉🟉🟉" or "&e🟉" or "&e🟉🟉" or "&e🟉🟉🟉" or "&e🟉🟉🟉🟉" or "&e🟉🟉🟉🟉🟉":
+                            if slot 19 of player's current inventory is air:
+                                play sound "entity.enderman.teleport" to player
+                                send "&7<&e시스템&7> &c강화할 아이템을 넣어주세요!" to player
+                            if slot 19 of player's current inventory is wooden sword:
+                                set slot 25 of current inventory of player to wooden sword with nbt from "{""attribute_modifiers"":[{id:""attack_damage"",type:""generic.attack_damage"",amount:5,operation:""add_value"",slot:""mainhand""}]}"
+                                set player's current inventory's slot 25's name to "&7목검 🟉"
+                                set slot 19 of current inventory of player to air
+                                set slot 21 of current inventory of player to air
+                                play sound "minecraft:block.anvil.use" with pitch 2 to player
+                            if slot 19 of player's current inventory is stone sword:
+                                play sound "minecraft:block.anvil.use" with pitch 2 to player
+                                set slot 25 of current inventory of player to stone sword with nbt from "{""attribute_modifiers"":[{id:""attack_damage"",type:""generic.attack_damage"",amount:6,operation:""add_value"",slot:""mainhand""}]}"
+                                set player's current inventory's slot 25's name to "&7돌검 🟉"
+                                set slot 19 of current inventory of player to air
+                                set slot 21 of current inventory of player to air
+                            if slot 19 of player's current inventory is iron sword:
+                                play sound "minecraft:block.anvil.use" with pitch 2 to player
+                                set slot 25 of current inventory of player to iron sword with nbt from "{""attribute_modifiers"":[{id:""attack_damage"",type:""generic.attack_damage"",amount:7,operation:""add_value"",slot:""mainhand""}]}"
+                                set player's current inventory's slot 25's name to "%player's current inventory's slot 19's name% 🟉"
+                                set slot 19 of current inventory of player to air
+                                set slot 21 of current inventory of player to air
+                            if slot 19 of player's current inventory is bow named "&9거미 활":
+                                play sound "minecraft:block.anvil.use" with pitch 2 to player
+                                set slot 25 of current inventory of player to bow with lore "&9<16데미지>%nl%&7주로 사용하는 손에 있을 때: %nl%&c<힘스텟 +5>"
+                                set player's current inventory's slot 25's name to "&9거미 활 🟉"
+                                set slot 19 of current inventory of player to air
+                                set slot 21 of current inventory of player to air
+                        if slot 19 of player's current inventory's name doesn't contain "🟉🟉" or "🟉🟉🟉" or "🟉🟉🟉🟉" or "🟉🟉🟉🟉🟉" or "&e🟉" or "&e🟉🟉" or "&e🟉🟉🟉" or "&e🟉🟉🟉🟉" or "&e🟉🟉🟉🟉🟉":
+                            if slot 19 of player's current inventory is wooden sword:
+                                play sound "minecraft:block.anvil.use" with pitch 2 to player
+                                set slot 25 of current inventory of player to wooden sword with nbt from "{""attribute_modifiers"":[{id:""attack_damage"",type:""generic.attack_damage"",amount:6,operation:""add_value"",slot:""mainhand""}]}"
+                                set player's current inventory's slot 25's name to "&7목검 🟉🟉"
+                                set slot 19 of current inventory of player to air
+                                set slot 21 of current inventory of player to air
+                            if slot 19 of player's current inventory is stone sword:
+                                play sound "minecraft:block.anvil.use" with pitch 2 to player 
+                                set slot 25 of current inventory of player to stone sword with nbt from "{""attribute_modifiers"":[{id:""attack_damage"",type:""generic.attack_damage"",amount:7,operation:""add_value"",slot:""mainhand""}]}"
+                                set player's current inventory's slot 25's name to "&7돌검 🟉🟉"
+                                set slot 19 of current inventory of player to air
+                                set slot 21 of current inventory of player to air
+                            if slot 19 of player's current inventory is iron sword:
+                                play sound "minecraft:block.anvil.use" with pitch 2 to player
+                                set slot 25 of current inventory of player to iron sword with nbt from "{""attribute_modifiers"":[{id:""attack_damage"",type:""generic.attack_damage"",amount:8,operation:""add_value"",slot:""mainhand""}]}"
+                                set player's current inventory's slot 25's name to "%player's current inventory's slot 19's name%🟉"
+                                set slot 19 of current inventory of player to air
+                                set slot 21 of current inventory of player to air
+                            if slot 19 of player's current inventory is bow named "&9거미 활 🟉":
+                                play sound "minecraft:block.anvil.use" with pitch 2 to player
+                                set slot 25 of current inventory of player to bow with lore "&9<17데미지>%nl%&7주로 사용하는 손에 있을 때: %nl%&c<힘스텟 +5>"
+                                set player's current inventory's slot 25's name to "&9거미 활 🟉🟉"
+                                set slot 19 of current inventory of player to air
+                                set slot 21 of current inventory of player to air
+                        if slot 19 of player's current inventory's name doesn't contain "🟉🟉🟉" or "🟉🟉🟉🟉" or "🟉🟉🟉🟉🟉" or "&e🟉" or "&e🟉🟉" or "&e🟉🟉🟉" or "&e🟉🟉🟉🟉" or "&e🟉🟉🟉🟉🟉":
+                            if slot 19 of player's current inventory is wooden sword:
+                                play sound "minecraft:block.anvil.use" with pitch 2 to player
+                                set slot 25 of current inventory of player to wooden sword with nbt from "{""attribute_modifiers"":[{id:""attack_damage"",type:""generic.attack_damage"",amount:7,operation:""add_value"",slot:""mainhand""}]}"
+                                set player's current inventory's slot 25's name to "&7목검 🟉🟉🟉"
+                                set slot 19 of current inventory of player to air
+                                set slot 21 of current inventory of player to air
+                            if slot 19 of player's current inventory is stone sword:
+                                play sound "minecraft:block.anvil.use" with pitch 2 to player
+                                set slot 25 of current inventory of player to stone sword with nbt from "{""attribute_modifiers"":[{id:""attack_damage"",type:""generic.attack_damage"",amount:8,operation:""add_value"",slot:""mainhand""}]}"
+                                set player's current inventory's slot 25's name to "&7돌검 🟉🟉🟉"
+                                set slot 19 of current inventory of player to air
+                                set slot 21 of current inventory of player to air
+                            if slot 19 of player's current inventory is iron sword:
+                                play sound "minecraft:block.anvil.use" with pitch 2 to player
+                                set slot 25 of current inventory of player to iron sword with nbt from "{""attribute_modifiers"":[{id:""attack_damage"",type:""generic.attack_damage"",amount:9,operation:""add_value"",slot:""mainhand""}]}"
+                                set player's current inventory's slot 25's name to "%player's current inventory's slot 19's name%🟉"
+                                set slot 19 of current inventory of player to air
+                                set slot 21 of current inventory of player to air
+                            if slot 19 of player's current inventory is bow named "&9거미 활 🟉🟉":
+                                play sound "minecraft:block.anvil.use" with pitch 2 to player
+                                set slot 25 of current inventory of player to bow with lore "&9<18데미지>%nl%&7주로 사용하는 손에 있을 때: %nl%&c<힘스텟 +5>"
+                                set player's current inventory's slot 25's name to "&9거미 활 🟉🟉🟉"
+                                set slot 19 of current inventory of player to air
+                                set slot 21 of current inventory of player to air
+                        if slot 19 of player's current inventory's name doesn't contain "🟉🟉🟉🟉" or "🟉🟉🟉🟉🟉" or "&e🟉" or "&e🟉🟉" or "&e🟉🟉🟉" or "&e🟉🟉🟉🟉" or "&e🟉🟉🟉🟉🟉":
+                            if slot 19 of player's current inventory is wooden sword:
+                                play sound "minecraft:block.anvil.use" with pitch 2 to player
+                                set slot 25 of current inventory of player to wooden sword with nbt from "{""attribute_modifiers"":[{id:""attack_damage"",type:""generic.attack_damage"",amount:8,operation:""add_value"",slot:""mainhand""}]}"
+                                set player's current inventory's slot 25's name to "&7목검 🟉🟉🟉🟉"
+                                set slot 19 of current inventory of player to air
+                                set slot 21 of current inventory of player to air
+                            if slot 19 of player's current inventory is stone sword:
+                                play sound "minecraft:block.anvil.use" with pitch 2 to player
+                                set slot 25 of current inventory of player to stone sword with nbt from "{""attribute_modifiers"":[{id:""attack_damage"",type:""generic.attack_damage"",amount:9,operation:""add_value"",slot:""mainhand""}]}"
+                                set player's current inventory's slot 25's name to "&7돌검 🟉🟉🟉🟉"
+                                set slot 19 of current inventory of player to air
+                                set slot 21 of current inventory of player to air
+                            if slot 19 of player's current inventory is iron sword:
+                                play sound "minecraft:block.anvil.use" with pitch 2 to player
+                                set slot 25 of current inventory of player to iron sword with nbt from "{""attribute_modifiers"":[{id:""attack_damage"",type:""generic.attack_damage"",amount:10,operation:""add_value"",slot:""mainhand""}]}"
+                                set player's current inventory's slot 25's name to "%player's current inventory's slot 19's name%🟉"
+                                set slot 19 of current inventory of player to air
+                                set slot 21 of current inventory of player to air
+                            if slot 19 of player's current inventory is bow named "&9거미 활 🟉🟉🟉":
+                                play sound "minecraft:block.anvil.use" with pitch 2 to player
+                                set slot 25 of current inventory of player to bow with lore "&9<19데미지>%nl%&7주로 사용하는 손에 있을 때: %nl%&c<힘스텟 +5>"
+                                set player's current inventory's slot 25's name to "&9거미 활 🟉🟉🟉🟉"
+                                set slot 19 of current inventory of player to air
+                                set slot 21 of current inventory of player to air
+                        if slot 19 of player's current inventory's name doesn't contain "🟉🟉🟉🟉🟉" or "&e🟉" or "&e🟉🟉" or "&e🟉🟉🟉" or "&e🟉🟉🟉🟉" or "&e🟉🟉🟉🟉🟉":
+                            if slot 19 of player's current inventory is wooden sword:
+                                play sound "minecraft:block.anvil.use" with pitch 2 to player
+                                set slot 25 of current inventory of player to wooden sword with nbt from "{""attribute_modifiers"":[{id:""attack_damage"",type:""generic.attack_damage"",amount:9,operation:""add_value"",slot:""mainhand""}]}"
+                                set player's current inventory's slot 25's name to "&7목검 🟉🟉🟉🟉🟉"
+                                set slot 19 of current inventory of player to air
+                                set slot 21 of current inventory of player to air
+                            if slot 19 of player's current inventory is stone sword:
+                                play sound "minecraft:block.anvil.use" with pitch 2 to player
+                                set slot 25 of current inventory of player to stone sword with nbt from "{""attribute_modifiers"":[{id:""attack_damage"",type:""generic.attack_damage"",amount:10,operation:""add_value"",slot:""mainhand""}]}"
+                                set player's current inventory's slot 25's name to "&7돌검 🟉🟉🟉🟉🟉"
+                                set slot 19 of current inventory of player to air
+                                set slot 21 of current inventory of player to air
+                            if slot 19 of player's current inventory is iron sword:
+                                play sound "minecraft:block.anvil.use" with pitch 2 to player
+                                set slot 25 of current inventory of player to iron sword with nbt from "{""attribute_modifiers"":[{id:""attack_damage"",type:""generic.attack_damage"",amount:11,operation:""add_value"",slot:""mainhand""}]}"
+                                set player's current inventory's slot 25's name to "%player's current inventory's slot 19's name%🟉"
+                                set slot 19 of current inventory of player to air
+                                set slot 21 of current inventory of player to air
+                            if slot 19 of player's current inventory is bow named "&9거미 활 🟉🟉🟉🟉":
+                                play sound "minecraft:block.anvil.use" with pitch 2 to player
+                                set slot 25 of current inventory of player to bow with lore "&9<20데미지>%nl%&7주로 사용하는 손에 있을 때: %nl%&c<힘스텟 +5>"
+                                set player's current inventory's slot 25's name to "&9거미 활 🟉🟉🟉🟉🟉"
+                                set slot 19 of current inventory of player to air
+                                set slot 21 of current inventory of player to air
+                if slot 21 of player's current inventory is stone named "&b2단계 강화석":
+                    if slot 19 of player's current inventory's name doesn't contain "연습용":
+                        if slot 19 of player's current inventory's name doesn't contain "&e🟉" or "&e🟉🟉" or "&e🟉🟉🟉" or "&e🟉🟉🟉🟉" or "&e🟉🟉🟉🟉🟉":
+                            if slot 19 of player's current inventory is wooden sword:
+                                play sound "minecraft:block.anvil.use" with pitch 2 to player
+                                set slot 25 of current inventory of player to wooden sword with nbt from "{""attribute_modifiers"":[{id:""attack_damage"",type:""generic.attack_damage"",amount:%9+2%,operation:""add_value"",slot:""mainhand""}]}"
+                                set player's current inventory's slot 25's name to "&7목검 &e🟉"
+                                set slot 19 of current inventory of player to air
+                                set slot 21 of current inventory of player to air
+                            if slot 19 of player's current inventory is stone sword:
+                                play sound "minecraft:block.anvil.use" with pitch 2 to player
+                                set slot 25 of current inventory of player to stone sword with nbt from "{""attribute_modifiers"":[{id:""attack_damage"",type:""generic.attack_damage"",amount:%10+2%,operation:""add_value"",slot:""mainhand""}]}"
+                                set player's current inventory's slot 25's name to "&7돌검 &e🟉"
+                                set slot 19 of current inventory of player to air
+                                set slot 21 of current inventory of player to air
+                            if slot 19 of player's current inventory is iron sword named "&c슬라임 검":
+                                play sound "minecraft:block.anvil.use" with pitch 2 to player
+                                set slot 25 of current inventory of player to iron sword with nbt from "{""attribute_modifiers"":[{id:""attack_damage"",type:""generic.attack_damage"",amount:%11+2%,operation:""add_value"",slot:""mainhand""}]}"
+                                set player's current inventory's slot 25's name to "&c슬라임 검 &e🟉"
+                                set slot 19 of current inventory of player to air
+                                set slot 21 of current inventory of player to air
+                            if slot 19 of player's current inventory is iron sword named "&f철검 🟉🟉🟉🟉🟉":
+                                play sound "minecraft:block.anvil.use" with pitch 2 to player
+                                set slot 25 of current inventory of player to iron sword with nbt from "{""attribute_modifiers"":[{id:""attack_damage"",type:""generic.attack_damage"",amount:%11+2%,operation:""add_value"",slot:""mainhand""}]}"
+                                set player's current inventory's slot 25's name to "&f철검 &e🟉"
+                                set slot 19 of current inventory of player to air
+                                set slot 21 of current inventory of player to air
+                            if slot 19 of player's current inventory is bow named "&9거미 활 🟉🟉🟉🟉🟉":
+                                play sound "minecraft:block.anvil.use" with pitch 2 to player
+                                set slot 25 of current inventory of player to bow with lore "&9<22데미지>%nl%&7주로 사용하는 손에 있을 때: %nl%&c<힘스텟 +5>"
+                                set player's current inventory's slot 25's name to "&9거미 활 &e🟉"
+                                set slot 19 of current inventory of player to air
+                                set slot 21 of current inventory of player to air
+                        if slot 19 of player's current inventory's name doesn't contain "&e🟉🟉" or "&e🟉🟉🟉" or "&e🟉🟉🟉🟉" or "&e🟉🟉🟉🟉🟉":
+                            if slot 19 of player's current inventory is wooden sword:
+                                play sound "minecraft:block.anvil.use" with pitch 2 to player
+                                set slot 25 of current inventory of player to wooden sword with nbt from "{""attribute_modifiers"":[{id:""attack_damage"",type:""generic.attack_damage"",amount:%9+4%,operation:""add_value"",slot:""mainhand""}]}"
+                                set player's current inventory's slot 25's name to "&7목검 &e🟉🟉"
+                                set slot 19 of current inventory of player to air
+                                set slot 21 of current inventory of player to air
+                            if slot 19 of player's current inventory is stone sword:
+                                play sound "minecraft:block.anvil.use" with pitch 2 to player
+                                set slot 25 of current inventory of player to stone sword with nbt from "{""attribute_modifiers"":[{id:""attack_damage"",type:""generic.attack_damage"",amount:%10+4%,operation:""add_value"",slot:""mainhand""}]}"
+                                set player's current inventory's slot 25's name to "&7돌검 &e🟉🟉"
+                                set slot 19 of current inventory of player to air
+                                set slot 21 of current inventory of player to air
+                            if slot 19 of player's current inventory is iron sword named "&c슬라임 검 &e🟉":
+                                play sound "minecraft:block.anvil.use" with pitch 2 to player
+                                set slot 25 of current inventory of player to iron sword with nbt from "{""attribute_modifiers"":[{id:""attack_damage"",type:""generic.attack_damage"",amount:%11+4%,operation:""add_value"",slot:""mainhand""}]}"
+                                set player's current inventory's slot 25's name to "&c슬라임 검 &e🟉🟉"
+                                set slot 19 of current inventory of player to air
+                                set slot 21 of current inventory of player to air
+                            if slot 19 of player's current inventory is iron sword named "&f철검 &e🟉":
+                                play sound "minecraft:block.anvil.use" with pitch 2 to player
+                                set slot 25 of current inventory of player to iron sword with nbt from "{""attribute_modifiers"":[{id:""attack_damage"",type:""generic.attack_damage"",amount:%11+4%,operation:""add_value"",slot:""mainhand""}]}"
+                                set player's current inventory's slot 25's name to "&f철검 &e🟉🟉"
+                                set slot 19 of current inventory of player to air
+                                set slot 21 of current inventory of player to air
+                            if slot 19 of player's current inventory is bow named "&9거미 활 &e🟉":
+                                play sound "minecraft:block.anvil.use" with pitch 2 to player
+                                set slot 25 of current inventory of player to bow with lore "&9<24데미지>%nl%&7주로 사용하는 손에 있을 때: %nl%&c<힘스텟 +5>"
+                                set player's current inventory's slot 25's name to "&9거미 활 &e🟉🟉"
+                                set slot 19 of current inventory of player to air
+                                set slot 21 of current inventory of player to air
+                        if slot 19 of player's current inventory's name doesn't contain "&e🟉🟉🟉" or "&e🟉🟉🟉🟉" or "&e🟉🟉🟉🟉🟉":
+                            if slot 19 of player's current inventory is wooden sword:
+                                play sound "minecraft:block.anvil.use" with pitch 2 to player
+                                set slot 25 of current inventory of player to wooden sword with nbt from "{""attribute_modifiers"":[{id:""attack_damage"",type:""generic.attack_damage"",amount:%9+6%,operation:""add_value"",slot:""mainhand""}]}"
+                                set player's current inventory's slot 25's name to "&7목검 &e🟉🟉🟉"
+                                set slot 19 of current inventory of player to air
+                                set slot 21 of current inventory of player to air
+                            if slot 19 of player's current inventory is stone sword:
+                                play sound "minecraft:block.anvil.use" with pitch 2 to player
+                                set slot 25 of current inventory of player to stone sword with nbt from "{""attribute_modifiers"":[{id:""attack_damage"",type:""generic.attack_damage"",amount:%10+6%,operation:""add_value"",slot:""mainhand""}]}"
+                                set player's current inventory's slot 25's name to "&7돌검 &e🟉🟉🟉"
+                                set slot 19 of current inventory of player to air
+                                set slot 21 of current inventory of player to air
+                            if slot 19 of player's current inventory is iron sword named "&c슬라임 검 &e🟉🟉":
+                                play sound "minecraft:block.anvil.use" with pitch 2 to player
+                                set slot 25 of current inventory of player to iron sword with nbt from "{""attribute_modifiers"":[{id:""attack_damage"",type:""generic.attack_damage"",amount:%11+6%,operation:""add_value"",slot:""mainhand""}]}"
+                                set player's current inventory's slot 25's name to "&c슬라임 검 &e🟉🟉🟉"
+                                set slot 19 of current inventory of player to air
+                                set slot 21 of current inventory of player to air
+                            if slot 19 of player's current inventory is iron sword named "&f철검 &e🟉🟉":
+                                play sound "minecraft:block.anvil.use" with pitch 2 to player
+                                set slot 25 of current inventory of player to iron sword with nbt from "{""attribute_modifiers"":[{id:""attack_damage"",type:""generic.attack_damage"",amount:%11+6%,operation:""add_value"",slot:""mainhand""}]}"
+                                set player's current inventory's slot 25's name to "&f철검 &e🟉🟉🟉"
+                                set slot 19 of current inventory of player to air
+                                set slot 21 of current inventory of player to air
+                            if slot 19 of player's current inventory is bow named "&9거미 활 &e🟉🟉":
+                                play sound "minecraft:block.anvil.use" with pitch 2 to player
+                                set slot 25 of current inventory of player to bow with lore "&9<26데미지>%nl%&7주로 사용하는 손에 있을 때: %nl%&c<힘스텟 +5>"
+                                set player's current inventory's slot 25's name to "&9거미 활 &e🟉🟉🟉"
+                                set slot 19 of current inventory of player to air
+                                set slot 21 of current inventory of player to air
+                        if slot 19 of player's current inventory's name doesn't contain "&e🟉🟉🟉🟉" or "&e🟉🟉🟉🟉🟉":
+                            if slot 19 of player's current inventory is wooden sword:
+                                play sound "minecraft:block.anvil.use" with pitch 2 to player
+                                set slot 25 of current inventory of player to wooden sword with nbt from "{""attribute_modifiers"":[{id:""attack_damage"",type:""generic.attack_damage"",amount:%9+8%,operation:""add_value"",slot:""mainhand""}]}"
+                                set player's current inventory's slot 25's name to "&7목검 &e🟉🟉🟉🟉"
+                                set slot 19 of current inventory of player to air
+                                set slot 21 of current inventory of player to air
+                            if slot 19 of player's current inventory is stone sword:
+                                play sound "minecraft:block.anvil.use" with pitch 2 to player
+                                set slot 25 of current inventory of player to stone sword with nbt from "{""attribute_modifiers"":[{id:""attack_damage"",type:""generic.attack_damage"",amount:%10+8%,operation:""add_value"",slot:""mainhand""}]}"
+                                set player's current inventory's slot 25's name to "&7돌검 &e🟉🟉🟉🟉"
+                                set slot 19 of current inventory of player to air
+                                set slot 21 of current inventory of player to air
+                            if slot 19 of player's current inventory is iron sword named "&c슬라임 검 &e🟉🟉🟉":
+                                play sound "minecraft:block.anvil.use" with pitch 2 to player
+                                set slot 25 of current inventory of player to iron sword with nbt from "{""attribute_modifiers"":[{id:""attack_damage"",type:""generic.attack_damage"",amount:%11+8%,operation:""add_value"",slot:""mainhand""}]}"
+                                set player's current inventory's slot 25's name to "&c슬라임 검 &e🟉🟉🟉🟉"
+                                set slot 19 of current inventory of player to air
+                                set slot 21 of current inventory of player to air
+                            if slot 19 of player's current inventory is iron sword named "&f철검 &e🟉🟉🟉":
+                                play sound "minecraft:block.anvil.use" with pitch 2 to player
+                                set slot 25 of current inventory of player to iron sword with nbt from "{""attribute_modifiers"":[{id:""attack_damage"",type:""generic.attack_damage"",amount:%11+8%,operation:""add_value"",slot:""mainhand""}]}"
+                                set player's current inventory's slot 25's name to "&f철검 &e🟉🟉🟉"
+                                set slot 19 of current inventory of player to air
+                                set slot 21 of current inventory of player to air
+                            if slot 19 of player's current inventory is bow named "&9거미 활 &e🟉🟉🟉":
+                                play sound "minecraft:block.anvil.use" with pitch 2 to player
+                                set slot 25 of current inventory of player to bow with lore "&9<28데미지>%nl%&7주로 사용하는 손에 있을 때: %nl%&c<힘스텟 +5>"
+                                set player's current inventory's slot 25's name to "&9거미 활 &e🟉🟉🟉🟉"
+                                set slot 19 of current inventory of player to air
+                                set slot 21 of current inventory of player to air
+                        if slot 19 of player's current inventory's name doesn't contain "&e🟉🟉🟉🟉🟉":
+                            if slot 19 of player's current inventory is wooden sword:
+                                play sound "minecraft:block.anvil.use" with pitch 2 to player
+                                set slot 25 of current inventory of player to wooden sword with nbt from "{""attribute_modifiers"":[{id:""attack_damage"",type:""generic.attack_damage"",amount:%9+10%,operation:""add_value"",slot:""mainhand""}]}"
+                                set player's current inventory's slot 25's name to "&7목검 &e🟉🟉🟉🟉🟉"
+                                set slot 19 of current inventory of player to air
+                                set slot 21 of current inventory of player to air
+                            if slot 19 of player's current inventory is stone sword:
+                                play sound "minecraft:block.anvil.use" with pitch 2 to player
+                                set slot 25 of current inventory of player to stone sword with nbt from "{""attribute_modifiers"":[{id:""attack_damage"",type:""generic.attack_damage"",amount:%10+10%,operation:""add_value"",slot:""mainhand""}]}"
+                                set player's current inventory's slot 25's name to "&7돌검 &e🟉🟉🟉🟉🟉"
+                                set slot 19 of current inventory of player to air
+                                set slot 21 of current inventory of player to air
+                            if slot 19 of player's current inventory is iron sword named "&c슬라임 검 &e🟉🟉🟉🟉":
+                                play sound "minecraft:block.anvil.use" with pitch 2 to player
+                                set slot 25 of current inventory of player to iron sword with nbt from "{""attribute_modifiers"":[{id:""attack_damage"",type:""generic.attack_damage"",amount:%11+10%,operation:""add_value"",slot:""mainhand""}]}"
+                                set player's current inventory's slot 25's name to "&c슬라임 검 &e🟉🟉🟉🟉🟉"
+                                set slot 19 of current inventory of player to air
+                                set slot 21 of current inventory of player to air
+                            if slot 19 of player's current inventory is iron sword named "&f철검 &e🟉🟉🟉🟉":
+                                play sound "minecraft:block.anvil.use" with pitch 2 to player
+                                set slot 25 of current inventory of player to iron sword with nbt from "{""attribute_modifiers"":[{id:""attack_damage"",type:""generic.attack_damage"",amount:%11+10%,operation:""add_value"",slot:""mainhand""}]}"
+                                set player's current inventory's slot 25's name to "&f철검 &e🟉🟉🟉🟉"
+                                set slot 19 of current inventory of player to air
+                                set slot 21 of current inventory of player to air
+                            if slot 19 of player's current inventory is bow named "&9거미 활 &e🟉🟉🟉🟉":
+                                play sound "minecraft:block.anvil.use" with pitch 2 to player
+                                set slot 25 of current inventory of player to bow with lore "&9<28데미지>%nl%&7주로 사용하는 손에 있을 때: %nl%&c<힘스텟 +5>"
+                                set player's current inventory's slot 25's name to "&9거미 활 &e🟉🟉🟉🟉🟉"
+                                set slot 19 of current inventory of player to air
+                                set slot 21 of current inventory of player to air
+                    else:
+                        send "&7<&e시스템&7> &c이 아이템은 강화할 수 있는 아이템이 아닙니다!" to player
+
+on inventory close:
+    if {forgeopen.%uuid of player%} is set:
+        if player's current inventory's slot 19 isn't air:
+            give player's current inventory's slot 19 to player
+        if player's current inventory's slot 21 isn't air:
+            give player's current inventory's slot 21 to player
+        if player's current inventory's slot 22 isn't air:
+            give player's current inventory's slot 22 to player
+        if player's current inventory's slot 23 isn't air:
+            give player's current inventory's slot 23 to player
+        if player's current inventory's slot 25 isn't air:
+            give player's current inventory's slot 25 to player
+        delete {forgeopen.%uuid of player%}

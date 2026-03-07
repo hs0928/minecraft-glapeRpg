@@ -1,0 +1,213 @@
+on rightclick on entity:
+    entity's name contains "연금술사"
+    {연금술사.퀘스트.%player's uuid%} = true:
+        open chest with 3 row named "&d연금술" to player
+        set {_s} to 0
+        loop 27 times:
+            set player's current inventory's slot {_s} to light blue stained glass pane named " "
+            add 1 to {_s}
+        set player's current inventory's slot 11 to potion of instant health named "&b포션 제작"
+        set player's current inventory's slot 15 to glowing stone named "&b강화석 제작"
+    else:
+        {연금술사.퀘스트1.%player's uuid%} = true:
+            if all:
+                player has 10 rotten flesh
+                player has 5 raw copper
+            then:
+                delete {연금술사.퀘스트1.%player's uuid%}
+                remove 10 rotten flesh from player's inventory
+                remove 5 raw copper from player's inventory
+                send "%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl% &f[ &d연금술사 &f]%nl%%nl% &f고마워! &f'&a슬라임볼&f' 20개랑 '&a슬라임 블록&f' 1개만 더 구해주면 돼!%nl%" to player
+                play sound "entity.experience_orb.pickup" at volume 1 at pitch 1 to player
+                add 20 to {money.%player's uuid%}
+                give 30 xp to player
+                send "&axp +30 &egold +20" to player
+                set {연금술사.퀘스트2.%player's uuid%} to true
+                stop
+            else:
+                send "&7<&e시스템&7> &c재료가 부족합니다 [썩은 살점 10개, 살점 덩어리 5개]" to player
+                play sound "entity.enderman.teleport" at volume 1 at pitch 2 to player
+                stop
+        {연금술사.퀘스트2.%player's uuid%} = true:
+            if all:
+                player has 20 slime ball
+                player has 1 slime block
+            then:
+                delete {연금술사.퀘스트2.%player's uuid%}
+                remove 20 slime ball from player's inventory
+                remove 1 slime block from player's inventory
+                give 10 stone to player
+                send title "&a[ 연금술사 퀘스트 완료 ]" with subtitle "" to player for 3 seconds with fadein 0.5 second and fade out 0.5 second
+                play sound "entity.experience_orb.pickup" at volume 1 at pitch 1 to player
+                add 25 to {money.%player's uuid%}
+                give 40 xp to player
+                send "&axp +40 &egold +25" to player
+                set {연금술사.퀘스트.%player's uuid%} to true
+                stop
+            else:
+                send "&7<&e시스템&7> &c재료가 부족합니다 [슬라임볼 20개, 슬라임 블록 1개]" to player
+                play sound "entity.enderman.teleport" at volume 1 at pitch 2 to player
+                stop
+        else:
+            if {연금술사.질문1.%player's uuid%} isn't true:
+                set {연금술사.질문1.%player's uuid%} to true
+                send "%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl% &f[ &d연금술사 &f]%nl%%nl% &f아, 안녕? 처음 보는 얼굴이네%nl%" to player
+                play sound "entity.experience_orb.pickup" at volume 1 at pitch 1 to player
+                wait 45 tick
+                send "%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl% &f[ &d연금술사 &f]%nl%%nl% &f내가 요즘 새로운 포션을 만드려고 하는데,%nl%" to player
+                play sound "entity.experience_orb.pickup" at volume 1 at pitch 1 to player
+                wait 50 tick
+                send "%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl% &f[ &d연금술사 &f]%nl%%nl% &f늙어서 그런지 재료를 구하기 힘들어서 말이야%nl%" to player
+                play sound "entity.experience_orb.pickup" at volume 1 at pitch 1 to player
+                wait 55 tick
+                send "%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl% &f[ &d연금술사 &f]%nl%%nl% &f대신 구해줄 수 있어? 사례는 넉넉히 할게!%nl%%nl% <ttp:&a연금술사의 부탁을 허락합니다><cmd:/연금술사.허락>&a&n당연하지!<reset>  <ttp:&c연금술사의 부탁을 거절합니다><cmd:/연금술사.거절>&c&n싫은데?<reset>" to player
+                play sound "entity.experience_orb.pickup" at volume 1 at pitch 1 to player
+                set {연금술사.허락1.%player's uuid%} to true
+                set {연금술사.질문1.%player's uuid%} to false
+                stop
+every tick:
+    loop all players:
+        {연금술사.허락1.%loop-player's uuid%} = true
+        send "%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl% &f[ &d연금술사 &f]%nl%%nl% &f대신 구해줄 수 있어? 사례는 넉넉히 할게!%nl%%nl% <ttp:&a연금술사의 부탁을 허락합니다><cmd:/연금술사.허락>&a&n당연하지!<reset>  <ttp:&c연금술사의 부탁을 거절합니다><cmd:/연금술사.거절>&c&n싫은데?<reset>" to loop-player
+command /연금술사.허락:
+    trigger:
+        {연금술사.허락1.%player's uuid%} = true
+        delete {연금술사.허락1.%player's uuid%}
+        send "%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl% &f[ &d연금술사 &f]%nl%%nl% &f'&a썩은 살점&f' 10개랑 &f'&a살점 덩어리&f' 5개 갖다 줄 수 있어?%nl%" to player
+        send title "&a[ 연금술사 퀘스트 수락 ]" with subtitle "&6재료들을 모아 연금술사에게 갖다 주세요" to player for 3 seconds with fadein 0.5 second and fade out 0.5 second
+        play sound "entity.player.levelup" at volume 1 at pitch 2 to player
+        set {연금술사.퀘스트1.%player's uuid%} to true
+command /연금술사.거절:
+    trigger:
+        {연금술사.허락1.%player's uuid%} = true
+        delete {연금술사.허락1.%player's uuid%}
+        send "%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl% &f[ &d연금술사 &f]%nl%%nl% &c튜토리얼이라 너는 이 부탁을 거절할 수 없어!%nl% &f'&a썩은 살점&f' 10개랑 &f'&a살점 덩어리&f' 5개 갖다줘%nl%" to player
+        send title "&a[ 연금술사 퀘스트 수락 ]" with subtitle "&6재료들을 모아 연금술사에게 갖다 주세요" to player for 3 seconds with fadein 0.5 second and fade out 0.5 second
+        play sound "entity.player.levelup" at volume 1 at pitch 2 to player
+        set {연금술사.퀘스트1.%player's uuid%} to true
+command /연금술사.리셋:
+    trigger:
+        player is op
+        delete {연금술사.퀘스트.%player's uuid%}
+        send "&a연금술사 퀘스트를 초기화 했습니다" to player
+on inventory click:
+    event-inventory is open inventory
+    inventory name is "&d연금술":
+        cancel event
+        if clicked slot is 11:
+            play sound "minecraft:entity.experience_orb.pickup" with volume 1 to player
+            open chest with 3 row named "&d포션 연금술 " to player
+            set {_s} to 0
+            loop 27 times:
+                set player's current inventory's slot {_s} to light blue stained glass pane named " "
+                add 1 to {_s}
+            set player's current inventory's slot 4 to potion of instant health named "&b포션 제작"
+            set player's current inventory's slot 10 and 12 to air
+            set player's current inventory's slot 16 to brewing stand named "&f제작"
+            set {강화석.제작.%player's uuid%} to true
+        if clicked slot is 15:
+            play sound "minecraft:entity.experience_orb.pickup" with volume 1 to player
+            open chest with 3 row named "&d연금술 " to player
+            set {_s} to 0
+            loop 27 times:
+                set player's current inventory's slot {_s} to light blue stained glass pane named " "
+                add 1 to {_s}
+            set player's current inventory's slot 4 to glowing stone named "&b강화석 제작"
+            set player's current inventory's slot 10 and 12 to air
+            set player's current inventory's slot 16 to brewing stand named "&f제작"
+            set {강화석.제작.%player's uuid%} to true
+    inventory name is "&d연금술 ":
+        clicked slot isn't 10 or 12:
+            play sound "minecraft:entity.enderman.teleport" with volume 1 to player
+            cancel event
+        clicked slot is 16:
+            play sound "minecraft:entity.experience_orb.pickup" with volume 1 to player
+            player's current inventory's slot 10 is quartz:
+                player's current inventory's slot 12 is stone
+                player's current inventory's slot 12's name does not contain "강화석"
+                set {_qc} to item amount of player's current inventory's slot 10
+                set {_sc} to item amount of player's current inventory's slot 12
+                {_qc} is {_sc}:
+                    set player's current inventory's slot 10 and 12 to air
+                {_qc} > {_sc}:
+                    while {_qc} isn't {_sc}:
+                        remove 1 from {_qc}
+                        add 1 to {_rqc}
+                    set player's current inventory's slot 12 to air
+                    set player's current inventory's slot 10 to {_rqc} of quartz named "&a사그라든 결정"
+                {_qc} < {_sc}:
+                    while {_qc} isn't {_sc}:
+                        remove 1 from {_sc}
+                        add 1 to {_rsc}
+                    set player's current inventory's slot 10 to air
+                    set player's current inventory's slot 12 to {_rsc} of stone
+                give {_qc} of glowing stone named "&b1단계 강화석" to player
+            player's current inventory's slot 10 is amethyst shard:
+                player's current inventory's slot 12 is stone
+                set {_ac} to item amount of player's current inventory's slot 10
+                set {_sc} to item amount of player's current inventory's slot 12
+                {_ac} is {_sc}:
+                    set player's current inventory's slot 10 and 12 to air
+                {_ac} > {_sc}:
+                    while {_ac} isn't {_sc}:
+                        remove 1 from {_ac}
+                        add 1 to {_rac}
+                    set player's current inventory's slot 12 to air
+                    set player's current inventory's slot 10 to {_rac} of amethyst shard named "&9빛바랜 결정"
+                {_ac} < {_sc}:
+                    while {_ac} isn't {_sc}:
+                        remove 1 from {_sc}
+                        add 1 to {_rsc}
+                    set player's current inventory's slot 10 to air
+                    set player's current inventory's slot 12 to {_rsc} of stone
+                give {_ac} of glowing stone named "&b2단계 강화석" to player
+    if inventory name is "&d포션 연금술 ":
+        if clicked slot isn't 10 or 12:
+            play sound "minecraft:entity.enderman.teleport" with volume 1 to player
+            cancel event
+        if clicked slot is 16:
+            play sound "minecraft:entity.experience_orb.pickup" with volume 1 to player
+            if player's current inventory's slot 10 is raw copper:
+                if player's current inventory's slot 12 is slimeballs:
+                    give 1 potion of instant health to player
+                    set player's current inventory's slot 10 to air
+                    set player's current inventory's slot 12 to air
+            if player's current inventory's slot 10 is slimeballs:
+                if player's current inventory's slot 12 is raw copper:
+                    give 1 potion of instant health to player
+                    set player's current inventory's slot 10 to air
+                    set player's current inventory's slot 12 to air
+            if player's current inventory's slot 10 is spider eye:
+                if player's current inventory's slot 12 is slimeballs:
+                    give 1 potion of strong instant health to player
+                    set player's current inventory's slot 10 to air
+                    set player's current inventory's slot 12 to air
+            if player's current inventory's slot 10 is slimeballs:
+                if player's current inventory's slot 12 is spider eye:
+                    give 1 potion of strong instant health to player
+                    set player's current inventory's slot 10 to air
+                    set player's current inventory's slot 12 to air
+            if player's current inventory's slot 10 is fermented spider eye:
+                if player's current inventory's slot 12 is slimeballs:
+                    give 1 potion of strong instant health to player
+                    set player's current inventory's slot 10 to air
+                    set player's current inventory's slot 12 to air
+            if player's current inventory's slot 10 is slimeballs:
+                if player's current inventory's slot 12 is fermented spider eye:
+                    give 1 potion with nbt from "{potion_contents:{custom_effects:[{id:""minecraft:instant_health"",amplifier:2}]}}" named "&f치유의 물약" to player
+                    set player's current inventory's slot 10 to air
+                    set player's current inventory's slot 12 to air
+
+on inventory close:
+    {강화석.제작.%player's uuid%} is true:
+        delete {강화석.제작.%player's uuid%}
+        player's current inventory's slot 10 isn't air:
+            give player's current inventory's slot 10 to player
+        player's current inventory's slot 12 isn't air:
+            give player's current inventory's slot 12 to player
+
+on join:
+    delete {강화석.제작.%player's uuid%}
+
+on quit:
+    delete {강화석.제작.%player's uuid%}

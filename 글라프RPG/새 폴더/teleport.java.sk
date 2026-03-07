@@ -1,0 +1,173 @@
+command /spawnsetting:
+	trigger:
+		if player's name is "_glape_":
+			set {spawn} to player's location
+			send "&a스폰이 설정되었습니다"
+		else:
+			send "&7<&e시스템&7> &c당신은 관리자권한이 없습니다"
+
+command /spawn2setting:
+	trigger:
+		if player's name is "_glape_":
+			set {spawn2} to player's location
+			send "&a스폰이 설정되었습니다"
+		else:
+			send "&7<&e시스템&7> &c당신은 관리자권한이 없습니다"
+
+command /2spawn2setting:
+	trigger:
+		if player's name is "_glape_":
+			set {2spawn2} to player's location
+			send "&a스폰이 설정되었습니다"
+		else:
+			send "&7<&e시스템&7> &c당신은 관리자권한이 없습니다"
+
+command /1spawn3setting:
+	trigger:
+		if player's name is "_glape_":
+			set {1spawn3} to player's location
+			send "&a스폰이 설정되었습니다"
+		else:
+			send "&7<&e시스템&7> &c당신은 관리자권한이 없습니다"
+
+command /2spawn3setting:
+	trigger:
+		if player's name is "_glape_":
+			set {2spawn3} to player's location
+			send "&a스폰이 설정되었습니다"
+		else:
+			send "&7<&e시스템&7> &c당신은 관리자권한이 없습니다"
+
+command /mob1setting:
+	trigger:
+		if player's name is "_glape_":
+			set {mob1} to player's location
+			send "&amob1이 설정되었습니다"
+		else:
+			send "&7<&e시스템&7> &c당신은 관리자권한이 없습니다"
+
+command /mob2setting:
+	trigger:
+		if player's name is "_glape_":
+			set {mob2} to player's location
+			send "&amob2이 설정되었습니다"
+		else:
+			send "&7<&e시스템&7> &c당신은 관리자권한이 없습니다"
+
+command /mob3setting:
+	trigger:
+		if player's name is "_glape_":
+			set {mob3} to player's location
+			send "&amob3이 설정되었습니다"
+		else:
+			send "&7<&e시스템&7> &c당신은 관리자권한이 없습니다"
+
+command /2mob2setting:
+	trigger:
+		if player's name is "_glape_":
+			set {2mob2} to player's location
+			send "&a2mob2이 설정되었습니다"
+		else:
+			send "&7<&e시스템&7> &c당신은 관리자권한이 없습니다"
+
+command /cave1setting:
+	trigger:
+		if player's name is "_glape_":
+			set {cave1} to player's location
+			send "&acave1이 설정되었습니다"
+		else:
+			send "&7<&e시스템&7> &c당신은 관리자권한이 없습니다"
+
+command /mob3tospawn3setting:
+	trigger:
+		if player's name is "_glape_":
+			set {mob3tospawn3} to player's location
+			send "&amob3tospawn3이 설정되었습니다"
+		else:
+			send "&7<&e시스템&7> &c당신은 관리자권한이 없습니다"
+
+command /afksetting:
+	trigger:
+		if player's name is "_glape_":
+			set {afk} to player's location
+			send "&a잠수위치가 설정되었습니다" to player
+		else:
+			send "&7<&e시스템&7> &c당신은 관리자권한이 없습니다" to player
+
+on enter "goto1spawn3":
+	teleport player to {1spawn3}
+	play sound "entity.enderman.teleport" to player
+	send title "&a~동굴 기지~" to player
+	send subtitle "마을" to player
+
+on enter "goto2spawn3":
+	teleport player to {2spawn3}
+	play sound "entity.enderman.teleport" to player
+	send title "&a~동굴 기지~" to player
+	send subtitle "마을" to player
+
+on enter "gotospawn2":
+	teleport player to {spawn2}
+	play sound "entity.enderman.teleport" to player
+	send title "&a~눈덮인 마을~" to player
+	send subtitle "마을" to player
+
+on enter "gotomob1":
+	teleport player to {mob1}
+	play sound "entity.enderman.teleport" to player
+	send title "&e~초원~" to player
+	send subtitle "&e권장레벨 0~15Lv" to player
+
+on enter "gotomob2":
+	teleport player to {mob2}
+	play sound "entity.enderman.teleport" to player
+	send title "&e~설원~" to player
+	send subtitle "&e권장레벨 16~30Lv" to player
+
+on enter "gotomob1cave":
+	teleport player to {cave1}
+	play sound "entity.enderman.teleport" to player
+	send title "&e~초원~" to player
+	send subtitle "&e권장레벨 0~15Lv" to player
+
+on enter "goto2mob2":
+	teleport player to {2mob2}
+	play sound "entity.enderman.teleport" to player
+	send title "&e~설원~" to player
+	send subtitle "&e권장레벨 16~30Lv" to player
+
+on enter "goto2spawn2":
+	teleport player to {2spawn2}
+	play sound "entity.enderman.teleport" to player
+	send title "&a~눈덮인 마을~" to player
+	send subtitle "마을" to player
+
+on enter "gotomob3":
+	teleport player to {mob3}
+	play sound "entity.enderman.teleport" to player
+	send title "&7~동굴~" to player
+	send subtitle "&7권장레벨 31~50Lv" to player
+
+on enter "gomob3tospawn3":
+	teleport player to {mob3tospawn3}
+	play sound "entity.enderman.teleport" to player
+	send title "&a~동굴 기지~" to player
+	send subtitle "마을" to player
+
+on rightclick:
+	if player's tool is paper:
+		if player's tool's name is "&9설원":
+			teleport player to {spawn2}
+			remove 1 paper named "&9설원" from player
+			play sound "entity.enderman.teleport" to player
+			send title "&a~눈덮인 마을~" to player
+			send subtitle "마을" to player
+
+on rightclick:
+	if player's tool is paper:
+		if player's tool's name is "&7동굴":
+			teleport player to {2spawn3}
+			remove 1 paper named "&7동굴" from player
+			play sound "entity.enderman.teleport" to player
+			send title "&a~동굴 기지~" to player
+			send subtitle "마을" to player

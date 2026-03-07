@@ -1,0 +1,163 @@
+options:
+	파티: &7<&e시스템&7>&9
+	설명: &7<&e시스템&7>&9
+	오류: &7<&e시스템&7>&c
+	
+on join:
+	if {파티가입::%uuid of player%} is not set:
+		set {파티가입::%uuid of player%} to false
+	if {파티::%uuid of player%} is not set:
+		set {파티::%uuid of player%} to false
+
+on quit:
+	if {파티가입::%uuid of player%} is set:
+		delete {파티가입::%uuid of player%}
+	if {파티::%uuid of player%} is set:
+		delete {파티::%uuid of player%}
+	if {%uuid of player%.파티원::*} is set:
+		delete {%uuid of player%.파티원::*}
+
+command 파티 [<text>] [<player>]:
+	trigger:
+		if arg 1 is "생성":
+			if {파티가입::%uuid of player%} is false:
+				set {파티장::%uuid of player%} to "%player%"
+				set {파티가입::%uuid of player%} to true
+				set {파티::%uuid of player%} to true
+				set {파티상태::%uuid of player%::%uuid of player%} to true
+				send "{@파티} 파티를 만들었습니다"
+				play sound "minecraft:entity.experience_orb.pickup" with volume 1 to player
+				add player to {%uuid of player%.파티원::*}
+			else:
+				if {파티::%uuid of player%} is true:
+					send "{@오류} 이미 파티를 만들었습니다"
+					play sound "minecraft:entity.enderman.teleport" to player
+				else:
+					send "{@오류} 이미 소속된 파티가 있습니다 파티를 나간후 다시 만들어주세요"
+					play sound "minecraft:entity.enderman.teleport" to player
+		if arg 1 is "초대":
+			if arg 2 is not set:
+				send "{@설명} /파티초대 [플레이어]"
+			if arg 2 is not "%player%":
+				if {파티가입::%uuid of player%} is true:
+					if {파티::%uuid of player%} is true:
+						if {파티가입::%uuid of arg 2%} is false:
+							set {파티초대::%uuid of player%::%uuid of arg 2%} to true
+							send "{@파티} %arg 2%님을 파티를 초대했습니다"
+							play sound "minecraft:entity.experience_orb.pickup" with volume 1 to player
+							send "{@파티} %player%님이 당신을 초대했습니다 '/파티수락 %player%'으로 승인해주세요" to arg 2
+							play sound "minecraft:entity.experience_orb.pickup" with volume 1 to arg 2
+						else:
+							send "{@오류} 해당 플레이어는 이미 파티에 가입되어 있습니다"
+							play sound "minecraft:entity.enderman.teleport" to player
+					else:
+						send "{@오류} 당신은 파티장이 아닙니다"
+						play sound "minecraft:entity.enderman.teleport" to player
+				else:
+					send "{@오류} 당신은 파티에 가입되어있지 않습니다"
+					play sound "minecraft:entity.enderman.teleport" to player
+			else:
+				send "{@오류} 본인을 파티에 초대할수 없습니다"
+				play sound "minecraft:entity.enderman.teleport" to player
+		if arg 1 is "추방":
+			if arg 2 is not set:
+				send "{@설명} /파티추방 [플레이어]"
+			if arg 2 is not "%player%":
+				if {파티가입::%uuid of player%} is true:
+					if {파티::%uuid of player%} is true:
+						if {파티상태::%uuid of arg 2%::%uuid of player%} is true:
+							delete {파티상태::%uuid of arg 2%::*}
+							delete {파티장::%uuid of arg 2%}
+							set {파티가입::%uuid of arg 2%} to false
+							loop players:
+								if {파티장::%uuid of loop-player%} is "%{파티장::%uuid of player%}%":
+									send "{@파티}%arg 2%님이 파티에서 추방되었습니다" to loop-player
+							send "{@파티} 당신은 파티에서 추방되었습니다" to arg 2
+							play sound "minecraft:entity.enderman.teleport" to arg 2
+						else:
+							send "{@오류} 당신의 파티원이 아닙니다"
+							play sound "minecraft:entity.enderman.teleport" to player
+					else:
+						send "{@오류} 당신은 파티장이 아닙니다"
+						play sound "minecraft:entity.enderman.teleport" to player
+				else:
+					send "{@오류} 당신은 파티에 가입되어있지 않습니다"
+					play sound "minecraft:entity.enderman.teleport" to player
+			else:
+				send "{@오류} 본인을 파티에서 추방할수 없습니다"
+				play sound "minecraft:entity.enderman.teleport" to player
+		if arg 1 is "수락":
+			if arg 2 is not set:
+				send "{@설명} /파티수락 [플레이어]"
+			else:
+				if {파티가입::%uuid of player%} is false:
+					if {파티초대::%uuid of arg 2%::%uuid of player%} is true:
+						set {파티초대::%uuid of arg 2%::%uuid of player%} to false
+						set {파티가입::%uuid of player%} to true
+						set {파티상태::%uuid of player%::%uuid of arg 2%} to true
+						set {파티장::%uuid of player%} to "%arg 2%"
+						send "{@파티} 파티에 가입되었습니다"
+						add player to {%uuid of arg-1%.파티원::*}
+						play sound "minecraft:entity.experience_orb.pickup" with volume 1 to player
+						loop players:
+							if {파티장::%uuid of loop-player%} is "%{파티장::%uuid of player%}%":
+								send "{@파티} %player%님이 파티에 가입했습니다" to loop-player
+								play sound "minecraft:entity.experience_orb.pickup" with volume 1 to player
+					else:
+						if {파티::%uuid of arg 2%} is true:
+							send "{@오류} 당신은 그 유저에게 파티초대를 받은적이 없습니다"
+							play sound "minecraft:entity.enderman.teleport" to player
+						else:
+							send "{@오류} 그 유저는 파티가 없습니다"
+							play sound "minecraft:entity.enderman.teleport" to player
+				else:
+					if {파티::%uuid of player%} is true:
+						send "{@오류} 당신은 이미 파티를 만들었습니다 파티해산후 다시 시도해주세요"
+						play sound "minecraft:entity.enderman.teleport" to player
+					else:
+						send "{@오류} 이미 소속된 파티가 있습니다 파티를 나간후 다시 시도해주세요"
+						play sound "minecraft:entity.enderman.teleport" to player
+		if arg 1 is "나가기":
+			if {파티가입::%uuid of player%} is true:
+				if {파티::%uuid of player%} is true:
+					send "{@오류} 자신의 파티는 나갈수 없습니다 '/파티해산'으로 나가주세요"
+					play sound "minecraft:entity.enderman.teleport" to player
+				else:
+					send "{@파티} 파티에서 나갔습니다"
+					play sound "minecraft:entity.enderman.teleport" to player
+					loop players:
+						if {파티장::%uuid of loop-player%} is "%{파티장::%uuid of player%}%":
+							send "%player%님이 파티에서 나갔습니다" to loop-player
+							play sound "minecraft:entity.enderman.teleport" to loop-player
+					delete {파티상태::%uuid of player%::*}
+					delete {파티장::%uuid of player%}
+					set {파티가입::%uuid of player%} to false
+			else:
+				send "{@오류} 당신은 파티에 가입되어있지 않습니다"
+				play sound "minecraft:entity.enderman.teleport" to player
+		if arg 1 is "해산":
+			if {파티가입::%uuid of player%} is true:
+				if {파티::%uuid of player%} is true:
+					delete {파티::%uuid of player%}
+					loop players:
+						if {파티장::%uuid of loop-player%} is "%player%":
+							send "{@파티} 파티가 해산되었습니다" to {%uuid of player%.파티원::*}
+							play sound "minecraft:entity.enderman.teleport" to player
+							delete {파티상태::%uuid of player%::*}
+							set {파티가입::%uuid of loop-player%} to false
+							delete {파티초대::%uuid of player%::%uuid of loop-player%}
+							delete {파티장::%uuid of loop-player%}
+				else:
+					send "{@오류} 당신은 파티장이 아닙니다"
+					play sound "minecraft:entity.enderman.teleport" to player
+			else:
+				send "{@오류} 당신은 파티에 가입되어있지 않습니다"
+				play sound "minecraft:entity.enderman.teleport" to player
+		if arg 1 is "목록":
+			if {파티가입::%uuid of player%} is true:
+				send "{@파티} 당신의 파티원 목록:"
+				loop {%uuid of player%.파티원::*}:
+					send "- %loop-value%" to player
+			else:
+				send "{@오류} 당신은 파티에 가입되어있지 않습니다"
+				play sound "minecraft:entity.enderman.teleport" to player
